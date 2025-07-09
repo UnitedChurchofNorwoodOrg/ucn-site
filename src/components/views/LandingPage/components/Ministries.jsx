@@ -7,13 +7,24 @@ const Ministries = () => {
       <div className="w-100 pb-8">
         <h1>How You can Serve...</h1>
       </div>
-      <Col xs={12} lg={6}>
-        <h4>Praise Team</h4>
-        <p>Instrumentalists accompany the hymns every Sunday morning. They rehearse on Sunday mornings at 8:45. If you play an instrument and would like to join the Praise Team please see Rachel McMahon.</p>
-        <h4 className="pt-8">Choir</h4>
-        <p>The choir sings each Sunday morning from September to June.</p>
+      <Col xs={12} lg={6}>       
+        <h4 className="pt-8">Music Ministry</h4>
+        <p>The Worship Team leads the congregational hymns and praise songs each Sunday morning. If
+you play an instrument and feel called to Serve the Lord with your music, please speak to
+Worship Team leader, Rachel McMahon.
+The Choir joyfully provides special music every Sunday from September through June, as well
+as on Communion Sundays in July and August. If you have a heart to serve God in song, speak
+to Steve Rudolph, the choir director.</p>
         <h4 className="pt-8">WISH (Women in Service to Him)</h4>
-        <p>WISH is a women's service and fellowship group whose mission is to "be a light to the world by serving others and to nurture our faith as Christian women." Usually meeting once a month from September to June, the group works on behalf of the church as well as reaching out to the community at large.The group encourages all interested women to attend the gatherings.</p>
+        <p>
+          WISH (Women in Service to Him) is a fellowship and service group open to all women in the
+church. Our mission is to be a light to the world by serving others, while nurturing our faith as
+Christian women. A variety of activities are held throughout the year, including fundraisers to
+support several Christian missions worldwide, as well to assist with local needs as they arise.
+We enjoy yearly brunches with our Spanish sisters and others, have craft activities and work
+bees, welcome guest speakers, share meaningful discussions, send cards of encouragement and
+more…all of which serve to bless our friendships and promote good will.
+Cindy Rudolph</p>
       </Col>
       <Col xs={12} lg={6}>
         <h4>Faith Seeds Ministry</h4>
