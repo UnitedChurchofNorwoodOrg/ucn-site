@@ -17,7 +17,7 @@ const Home = () => {
           <Image src="./images/home.jpeg" className="w-100" />
         </Col>
         <p className="fs-3 py-24 mb-0">595 Washington Street, Norwood, MA 02062 <br /> 781-762-2589</p>
-        <small className="mb-0">Copyright 2022 United Church of Norwood. All rights reserved.</small>
+        <small className="mb-0">Copyright 2025 United Church of Norwood. All rights reserved.</small>
       </Row>
     </div>
   );
