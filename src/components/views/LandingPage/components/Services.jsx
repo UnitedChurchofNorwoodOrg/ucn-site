@@ -21,8 +21,8 @@ const Services = () => {
         <p>The church parlor near the back of the sanctuary is also available for children of all ages. There is an audio feed of the service as well as toys and books for the little ones.</p>
       </Col>
       <Col xs={6} className="d-none d-lg-block ps-0 pe-0">
-        <Image src="/images/services.jpg" className="w-100" />
-        <p className="mt-16">Copyright 2022 United Church of Norwood. All rights reserved.</p>
+        <Image src="./images/services.jpg" className="w-100" />
+        <p className="mt-16">Copyright 2025 United Church of Norwood. All rights reserved.</p>
       </Col>
     </Row>
 
