@@ -1,7 +1,7 @@
-// 🌐 Fonts
-$font-family-sans-serif: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI',
-  Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-$font-family-monospace: 'Inter', monospace;
+// 🌐 Fonts - standard system stack for classic clean look
+$font-family-sans-serif: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+  Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', Arial, sans-serif;
+$font-family-monospace: Menlo, Monaco, Consolas, 'Courier New', monospace;
 
 // 🔤 Typography
 $font-size-base: 1rem;
@@ -15,17 +15,17 @@ $headings-line-height: 1.25;
 $small-font-size: 0.875rem;
 $enable-responsive-font-sizes: true;
 
-// 🎨 Colors – Soft pastel blue tones
+// 🎨 Colors – pastel blue theme with darker text
 $primary: #4a90e2; // calm pastel blue
 $primary-hover: #357bd8;
 $primary-active: #2f6fbd;
 $primary-100: #eaf2fb;
 
-$secondary: #bcd4ec;
-$secondary-900: #8ab0db;
-$secondary-500: #dce9f6;
-$secondary-300: #f1f7fc;
-$secondary-200: #f7fbff;
+$secondary: #729fd4;
+$secondary-900: #4a72b5;
+$secondary-500: #a3b9e0;
+$secondary-300: #c5d2eb;
+$secondary-200: #dbe3f6;
 
 $info: #a7e0ff;
 $info-hover: #d0f1ff;
@@ -43,14 +43,14 @@ $success: #69cb9c;
 $success-hover: #b9e7d0;
 $success-active: #e4f7ef;
 
-$dark: #1e1e1e;
+$dark: #2e2e2e;
 $dark-900: #4b4b4b;
 $dark-500: #8f8f8f;
 
-$gray: #666666;
-$gray-300: #eeeeee;
-$gray-200: #f5f5f5;
-$gray-100: #f9f9f9;
+$gray: #555555;
+$gray-300: #dddddd;
+$gray-200: #eaeaea;
+$gray-100: #f5f5f5;
 $light-gray: #f4f7fa;
 $dark-gray: #cccccc;
 
@@ -71,8 +71,8 @@ $theme-colors: (
 );
 
 // 🎯 Body + Dropdowns + Navs
-$body-bg: #f9fcff;
-$body-color: #111111;
+$body-bg: #f0f4fb;      // lighter pastel blue background
+$body-color: #222222;   // darker text for readability
 $dropdown-link-color: $black;
 $dropdown-link-hover-color: $white;
 $dropdown-link-hover-bg: $primary;
@@ -88,7 +88,7 @@ $btn-border-radius-lg: 24px;
 $btn-border-radius-sm: 24px;
 $card-border-radius: 16px;
 
-// 📏 Spacing
+// 📏 Spacing (unchanged)
 $grid-gutter-width: 32px;
 $spacer: 1rem !default;
 
@@ -120,7 +120,7 @@ $spacers: map-merge(
   $spacers
 );
 
-// 📱 Breakpoints and container widths
+// 📱 Breakpoints and container widths (unchanged)
 $grid-breakpoints: (
   xs: 0,
   sm: 576px,
