@@ -1,116 +1,20 @@
-@import url('https://fonts.cdnfonts.com/css/roquefort-trial');
-@import url('https://fonts.cdnfonts.com/css/stricken-brush');
-@import url('https://fonts.cdnfonts.com/css/k1996-j');
-@import url('https://fonts.cdnfonts.com/css/royal-serif');
-@import url('https://fonts.cdnfonts.com/css/nonserif');
-@import url('https://fonts.cdnfonts.com/css/cardiff');
-@import url('https://fonts.cdnfonts.com/css/typography-times');
-@import url('https://fonts.cdnfonts.com/css/times-cg');
+/* Use Inter font for clean, readable style */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
 
-// $fontWeights: (
-//   100,
-//   200,
-//   300,
-//   400,
-//   500,
-//   600,
-//   700,
-//   800
-// );
-
-// @each $weight in $fontWeights {
-//   .fw-#{$weight} {
-//     font-weight: $weight
-//   }
-// }
-
-// @each $name,
-// $color in $theme-colors {
-//   .control-#{$name} {
-//     @extend .text-dark;
-//     @extend .border-#{$name} !optional;
-//     @extend .shadow-none;
-//     background-color: scale-color($color, $lightness: 50%) !important;
-//     transition: all .2 ease-in-out;
-//     box-shadow: none !important;
-//     border-radius: 5px 5px 0px 0px !important;
-
-//     &:focus-visible,
-//     &:hover {
-//       background-color: lighten($color, 10%) !important;
-//       border-bottom: 1px solid scale-color($color, $saturation: 70%);
-//       transition: all .2 ease-in-out;
-//     }
-//   }
-// }
-
-// $tabelColums: (
-//   1,
-//   2,
-//   3,
-//   4,
-//   5,
-//   6,
-//   7,
-//   8,
-//   9,
-//   10,
-//   11,
-//   12
-// );
-
-// @each $amount in $tabelColums {
-//   .table-td-#{$amount} {
-//     width: calc(100%/$amount);
-//   }
-// }
-
-// .custom-datepicker {
-//   .react-datepicker__input-container {
-//     width: auto;
-//     display: flex;
-//   }
-//   .react-datepicker__close-icon {
-//     position: static;
-//   }
-//   .react-datepicker__close-icon::after {
-//     background: transparent;
-//     @extend .link-dark;
-//     font-size: 20px;
-//   }
-// }
+body, html {
+  font-family: 'Inter', sans-serif;
+  color: $dark;
+  background-color: $body-bg;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
 
 .banner-ratio {
-  --bs-aspect-ratio: 25%
-}
-
-.font-roquefort {
-  font-family: 'Roquefort Trial', sans-serif;
-}
-.font-stricken-brush {
-  font-family: 'Stricken Brush', sans-serif;
-}
-.font-ki996 {
-  font-family: 'K1996 J', sans-serif;
-}
-.font-royal-serif {
-  font-family: 'Royal Serif', sans-serif;
-}
-.font-non-serif {
-  font-family: 'Nonserif', sans-serif;
-}
-.font-cardiff {
-  font-family: 'Cardiff', sans-serif;
-}
-.font-typo-times {
-  font-family: 'Typography Times', sans-serif;
-}
-.font-times-cg {
-  font-family: 'Times CG', sans-serif;
+  --bs-aspect-ratio: 25%;
 }
 
 .grad-vertical {
-  background: linear-gradient(#F5EDD3, #E8D8AB);
+  background: linear-gradient(to bottom, #dbe0f5, #f5f7ff); // pastel blue lilac gradient
 }
 
 .custom-borders {
@@ -120,21 +24,6 @@
     border-right: 1px solid $primary;
   }
 }
-
-// .faded-home-bg {
-//   content: ' ';
-//   display: block;
-//   position: absolute;
-//   left: 0;
-//   top: 0;
-//   width: 100%;
-//   height: 100%;
-//   opacity: 0.6;
-//   background-image: url('../../public/images/home.jpeg');
-//   background-repeat: no-repeat;
-//   background-position: 50% 0;
-//   background-size: cover;
-// }
 
 .dropdown-toggle::after {
   display: none;
@@ -147,25 +36,16 @@
 }
 
 @keyframes growDown {
-  0% {
-      transform: scaleY(0)
-  }
-  80% {
-      transform: scaleY(1.1)
-  }
-  100% {
-      transform: scaleY(1)
-  }
+  0% { transform: scaleY(0) }
+  80% { transform: scaleY(1.1) }
+  100% { transform: scaleY(1) }
 }
-
-// .dropdown_menu {
-//   animation: growDown 300ms ease-in-out forwards;
-// }
 
 .photo-sizing {
   width: 100%;
   height: 100%;
   margin: 0;
+  object-fit: cover;
   @media only screen and (min-width: 768px) {
     width: 9rem;
     height: 9rem;
@@ -173,94 +53,59 @@
 }
 
 .custom-view-height {
-  min-height: calc(100vh - 13.3rem)
+  min-height: calc(100vh - 13.3rem);
 }
 
 .custom-hero-styling {
   font-size: 1.5rem;
   padding-top: 0.25rem;
-  @media only screen and (min-width: 300px) {
-    font-size: 1.75rem;
-    padding-top: 0.75rem;
-  }
-  @media only screen and (min-width: 300px) {
+  @media (min-width: 300px) {
     font-size: 1.75rem;
     padding-top: 1rem;
   }
-  @media only screen and (min-width: 545px) {
+  @media (min-width: 545px) {
     font-size: 1.75rem;
     padding-top: 1.5rem;
   }
-  @media only screen and (min-width: 620px) {
+  @media (min-width: 620px) {
     font-size: 2.5rem;
     padding-top: 1.5rem;
   }
-  @media only screen and (min-width: 680px) {
-    font-size: 2.5rem;
-    padding-top: 1.75rem;
-  }
-  @media only screen and (min-width: 768px) {
-    font-size: 1.5rem;
-    padding-top: 0.5rem;
-  }
-  @media only screen and (min-width: 768px) {
+  @media (min-width: 768px) {
     font-size: 1.75rem;
     padding-top: 1rem;
   }
-  @media only screen and (min-width: 1020px) {
+  @media (min-width: 1020px) {
     font-size: 2.5rem;
     padding-top: 1rem;
   }
-  @media only screen and (min-width: 1275px) {
+  @media (min-width: 1275px) {
     font-size: 3rem;
     padding-top: 1.5rem;
   }
-  @media only screen and (min-width: 1390px) {
+  @media (min-width: 1390px) {
     font-size: 3rem;
     padding-top: 2rem;
-  }
-  @media only screen and (min-width: 1775px) {
-    font-size: 3rem;
-    padding-top: 2.5rem;
-  }
-  @media only screen and (min-width: 1890px) {
-    font-size: 3rem;
-    padding-top: 3rem;
   }
 }
 
 .custom-subhero-styling {
   font-size: 1.25rem;
-  @media only screen and (min-width: 300px) {
-    font-size: 1.25rem;
-  }
-  @media only screen and (min-width: 545px) {
-    font-size: 1.25rem;
-  }
-  @media only screen and (min-width: 620px) {
+  @media (min-width: 620px) {
     font-size: 1.5rem;
   }
-  @media only screen and (min-width: 768px) {
-    font-size: 1.25rem;
-  }
-  @media only screen and (min-width: 1020px) {
-    font-size: 1.25rem;
-  }
-  @media only screen and (min-width: 1275px) {
-    font-size: 1.5rem;
-  }
-  @media only screen and (min-width: 1390px) {
+  @media (min-width: 1390px) {
     font-size: 1.75rem;
   }
 }
 
 .custom-title-font {
   font-size: 24px;
-  @media only screen and (min-width: 992px) {
+  @media (min-width: 992px) {
     font-size: $font-size-base * 2.5;
-    font-weight: bold;
+    font-weight: 600;
   }
-  @media only screen and (min-width: 1400px) {
+  @media (min-width: 1400px) {
     font-size: 24px;
     font-weight: 400;
   }
