@@ -25,7 +25,7 @@ const Ministries = () => {
         <h4 className="pt-8">Building Stewards</h4>
         <p>Giving vision to the use and care of our property, overseeing the needs of our building.</p>
       </Col>
-      <p className="mt-32 fs-6">Copyright 2022 United Church of Norwood. All rights reserved.</p>
+      <p className="mt-32 fs-6">Copyright 2025 United Church of Norwood. All rights reserved.</p>
     </Row>
 
   );
