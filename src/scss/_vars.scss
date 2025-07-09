@@ -1,43 +1,139 @@
-// Fonts
-$font-family-base: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI',
+// 🌐 Fonts
+$font-family-sans-serif: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI',
   Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+$font-family-monospace: 'Inter', monospace;
 
-// Base font size
+// 🔤 Typography
 $font-size-base: 1rem;
+$lead-font-size: 1.25rem;
+$h5-font-size: 1.25rem;
+$h4-font-size: 1.5rem;
+$h3-font-size: 1.75rem;
+$h2-font-size: 2rem;
+$h1-font-size: 2.5rem;
+$headings-line-height: 1.25;
+$small-font-size: 0.875rem;
+$enable-responsive-font-sizes: true;
 
-// Colors
-$primary: #4a90e2; // soft pastel blue
-$secondary: #b2c8df; // lighter blue-gray
-$success: #6bcf94;
-$info: #5bc0de;
-$warning: #f0ad4e;
-$danger: #d9534f;
-$light: #f9fcff; // very light blue/white
-$dark: #333333;
+// 🎨 Colors – Soft pastel blue tones
+$primary: #4a90e2; // calm pastel blue
+$primary-hover: #357bd8;
+$primary-active: #2f6fbd;
+$primary-100: #eaf2fb;
 
-// Body background and text
-$body-bg: #f9fcff;
-$body-color: #111111;
+$secondary: #bcd4ec;
+$secondary-900: #8ab0db;
+$secondary-500: #dce9f6;
+$secondary-300: #f1f7fc;
+$secondary-200: #f7fbff;
 
-// Navbar
-$navbar-light-color: #333;
-$navbar-light-hover-color: $primary;
+$info: #a7e0ff;
+$info-hover: #d0f1ff;
+$info-active: #e9faff;
 
-// Buttons
-$btn-font-weight: 500;
-$btn-border-radius: 0.375rem;
+$danger: #f45e5e;
+$danger-hover: #ffb5b5;
+$danger-active: #ffe5e5;
 
-// Border radius
-$border-radius: 0.5rem;
+$warning: #ffcb6b;
+$warning-hover: #fff2cc;
+$warning-active: #fff7e8;
 
-// Bootstrap theme colors map (optional override)
+$success: #69cb9c;
+$success-hover: #b9e7d0;
+$success-active: #e4f7ef;
+
+$dark: #1e1e1e;
+$dark-900: #4b4b4b;
+$dark-500: #8f8f8f;
+
+$gray: #666666;
+$gray-300: #eeeeee;
+$gray-200: #f5f5f5;
+$gray-100: #f9f9f9;
+$light-gray: #f4f7fa;
+$dark-gray: #cccccc;
+
+$white: #ffffff;
+$black: #000000;
+$transparent: transparent;
+
+// 🧩 Bootstrap theme colors map
 $theme-colors: (
   "primary": $primary,
   "secondary": $secondary,
-  "success": $success,
   "info": $info,
+  "success": $success,
   "warning": $warning,
   "danger": $danger,
-  "light": $light,
-  "dark": $dark
+  "light": $white,
+  "dark": $dark,
 );
+
+// 🎯 Body + Dropdowns + Navs
+$body-bg: #f9fcff;
+$body-color: #111111;
+$dropdown-link-color: $black;
+$dropdown-link-hover-color: $white;
+$dropdown-link-hover-bg: $primary;
+$navbar-dark-hover-color: rgba($white, 0.9);
+
+// ✏️ Inputs + Borders
+$input-border-color: $gray;
+$input-border-radius: 0px;
+
+// 📐 Border radius + Buttons
+$btn-border-radius: 24px;
+$btn-border-radius-lg: 24px;
+$btn-border-radius-sm: 24px;
+$card-border-radius: 16px;
+
+// 📏 Spacing
+$grid-gutter-width: 32px;
+$spacer: 1rem !default;
+
+$spacers: map-merge(
+  (
+    0: 0,
+    8: $spacer * 0.5,
+    16: $spacer,
+    24: $spacer * 1.5,
+    32: $spacer * 2,
+    40: $spacer * 2.5,
+    48: $spacer * 3,
+    56: $spacer * 3.5,
+    64: $spacer * 4,
+    72: $spacer * 4.5,
+    80: $spacer * 5,
+    88: $spacer * 5.5,
+    96: $spacer * 6,
+    104: $spacer * 6.5,
+    112: $spacer * 7,
+    120: $spacer * 7.5,
+    128: $spacer * 8,
+    136: $spacer * 8.5,
+    144: $spacer * 9,
+    152: $spacer * 9.5,
+    160: $spacer * 10,
+    168: $spacer * 10.5,
+  ),
+  $spacers
+);
+
+// 📱 Breakpoints and container widths
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1400px,
+  xxxl: 1600px,
+) !default;
+
+$container-max-widths: (
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
+  xl: 1280px
+) !default;
