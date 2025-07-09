@@ -45,7 +45,7 @@ const LandingPage = () => {
             style={{backgroundImage: "url(./images/sky3.jpeg)", backgroundRepeat: "no-repeat", backgroundSize: "cover"}}>
             <div className="d-flex flex-column text-center">
               <p className="custom-hero-styling fw-bold mb-0">United Church of Norwood</p>
-              <p className="custom-subhero-styling fw-bold">Many Peoples, One Church</p>
+              <p className="custom-subhero-styling fw-bold">Many People, One Church</p>
             </div>
           </div>
           <div className="d-flex justify-content-between align-items-center bg-primary">
