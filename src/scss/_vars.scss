@@ -108,7 +108,7 @@ $enable-responsive-font-sizes: true;
 
 $spacer: 1rem !default;
 
-$spacers: map-merge((
+$spacers: (
   0: 0,
   8: ($spacer * 0.5),
   16: $spacer,
@@ -131,7 +131,7 @@ $spacers: map-merge((
   152: ($spacer * 9.5),
   160: ($spacer * 10),
   168: ($spacer * 10.5),
-), $spacers);
+);
 
 $grid-breakpoints: (
   xs: 0,
