@@ -1,19 +1,3 @@
-// 🌐 Fonts
-$font-family-sans-serif: 'Roquefort Trial', 'Stricken Brush', 'K1996 J', 'Royal Serif', 'Nonserif', 'Cardiff', 'Typography Times', 'Times CG', sans-serif;
-$font-family-monospace: 'Inter', monospace;
-
-// 🔤 Typography
-$font-size-base: 0.875rem;
-$lead-font-size: 1.25rem;
-$h5-font-size: 1.25rem;
-$h4-font-size: 1.5rem;
-$h3-font-size: 1.75rem;
-$h2-font-size: 2rem;
-$h1-font-size: 2.5rem;
-$headings-line-height: 1.25;
-$small-font-size: 0.8125rem;
-$enable-responsive-font-sizes: true;
-
 // 🎨 Colors - Pastel Blue Lilac Palette
 $primary: #7A86B6;
 $primary-hover: #6a74a9;
@@ -60,29 +44,113 @@ $transparent: transparent;
 // 🧩 Bootstrap theme colors map
 $theme-colors: (
   "primary": $primary,
+  "primary-hover": $primary-hover,
+  "primary-active": $primary-active,
+  "primary-100": $primary-100,
   "secondary": $secondary,
+  "secondary-900": $secondary-900,
+  "secondary-500": $secondary-500,
+  "secondary-300": $secondary-300,
+  "secondary-200": $secondary-200,
   "info": $info,
-  "success": $success,
-  "warning": $warning,
+  "info-hover": $info-hover,
+  "info-active": $info-active,
   "danger": $danger,
-  "light": $white,
-  "dark": $dark
+  "danger-hover": $danger-hover,
+  "danger-active": $danger-active,
+  "warning": $warning,
+  "warning-hover": $warning-hover,
+  "warning-active": $warning-active,
+  "success": $success,
+  "success-hover": $success-hover,
+  "success-active": $success-active,
+  "dark": $dark,
+  "dark-900": $dark-900,
+  "dark-500": $dark-500,
+  "gray": $gray,
+  "gray-300": $gray-300,
+  "gray-200": $gray-200,
+  "gray-100": $gray-100,
+  "light-gray": $light-gray,
+  "dark-gray": $dark-gray,
+  "white": $white,
+  "black": $black,
+  "transparent": $transparent,
 );
 
-// 🎯 Body + Dropdowns + Navs
-$body-bg: #f9fcff;
+// ✏️ Font and Typography
+$font-family-sans-serif: 'Inter', Arial, sans-serif;
+$font-family-monospace: 'Inter', monospace;
+
+$font-size-base: 0.8125rem;
+$small-font-size: 12px;
+$lead-font-size: 16px;
+$h5-font-size: 16px;
+$h4-font-size: 18px;
+$h3-font-size: 24px;
+$h2-font-size: 24px;
+$h1-font-size: $font-size-base * 2.5;
+$headings-line-height: 1.25;
+$enable-responsive-font-sizes: true;
+
+// 🧱 Layout + Borders
+$body-bg: $secondary-200;
 $body-color: $dark;
 $dropdown-link-color: $dark;
 $dropdown-link-hover-color: $white;
 $dropdown-link-hover-bg: $primary;
 $navbar-dark-hover-color: rgba($white, 0.9);
 
-// ✏️ Inputs + Borders
+$grid-gutter-width: 32px;
 $input-border-color: $gray;
 $input-border-radius: 4px;
-
-// 📐 Border radius + Buttons
 $btn-border-radius: 24px;
 $btn-border-radius-lg: 24px;
 $btn-border-radius-sm: 24px;
-$ca
+$card-border-radius: 16px;
+
+// 📏 Spacing
+$spacer: 1rem !default;
+
+$spacers: (
+  0: 0,
+  8: $spacer * 0.5,
+  16: $spacer,
+  24: $spacer * 1.5,
+  32: $spacer * 2,
+  40: $spacer * 2.5,
+  48: $spacer * 3,
+  56: $spacer * 3.5,
+  64: $spacer * 4,
+  72: $spacer * 4.5,
+  80: $spacer * 5,
+  88: $spacer * 5.5,
+  96: $spacer * 6,
+  104: $spacer * 6.5,
+  112: $spacer * 7,
+  120: $spacer * 7.5,
+  128: $spacer * 8,
+  136: $spacer * 8.5,
+  144: $spacer * 9,
+  152: $spacer * 9.5,
+  160: $spacer * 10,
+  168: $spacer * 10.5
+);
+
+// 📱 Breakpoints and container widths
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1400px,
+  xxxl: 1600px
+) !default;
+
+$container-max-widths: (
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
+  xl: 1280px
+) !default;
