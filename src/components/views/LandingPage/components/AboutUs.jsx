@@ -16,7 +16,7 @@ const AboutUs = () => {
       </Col>
       <Col xs={6} className="d-none d-lg-block ps-0 pe-0">
         <Image src="./images/aboutus.jpg" className="w-100" />
-        <p className="mt-16">Copyright 2022 United Church of Norwood. All rights reserved.</p>
+        <p className="mt-16">Copyright 2025 United Church of Norwood. All rights reserved.</p>
       </Col>
     </Row>
 
