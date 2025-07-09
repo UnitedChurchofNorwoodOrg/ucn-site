@@ -21,7 +21,7 @@ const Photos = () => {
           <Col xs={12} md={6} lg={3} className="p-0 m-0" key={photo}>
             <Button className="w-100 h-100 bg-transparent rounded-0 border-0 px-0">
               <Image 
-                src={`/images/${photo}`}
+                src={`./images/${photo}`}
                 className="mw-100 photo-sizing" 
                 style={{objectFit: 'cover'}}
                 onClick={() => handleShowModal(photo)}
@@ -32,7 +32,7 @@ const Photos = () => {
         })}
       </Row>
       <ImageModal show={showModal} setShow={setShowModal} imageFile={imageFile} setImageFile={setImageFile} album={photoAlbum.photos} />
-      <p className="mt-32 fs-6">Copyright 2022 United Church of Norwood. All rights reserved.</p>
+      <p className="mt-32 fs-6">Copyright 2025 United Church of Norwood. All rights reserved.</p>
     </div>
 
   );
