@@ -1,5 +1,21 @@
-// Colors - Pastel Blue Lilac Palette
-$primary: #7A86B6;          // pastel blue-lilac main
+// 🌐 Fonts
+$font-family-sans-serif: 'Roquefort Trial', 'Stricken Brush', 'K1996 J', 'Royal Serif', 'Nonserif', 'Cardiff', 'Typography Times', 'Times CG', sans-serif;
+$font-family-monospace: 'Inter', monospace;
+
+// 🔤 Typography
+$font-size-base: 0.875rem;
+$lead-font-size: 1.25rem;
+$h5-font-size: 1.25rem;
+$h4-font-size: 1.5rem;
+$h3-font-size: 1.75rem;
+$h2-font-size: 2rem;
+$h1-font-size: 2.5rem;
+$headings-line-height: 1.25;
+$small-font-size: 0.8125rem;
+$enable-responsive-font-sizes: true;
+
+// 🎨 Colors - Pastel Blue Lilac Palette
+$primary: #7A86B6;
 $primary-hover: #6a74a9;
 $primary-active: #5a639d;
 $primary-100: #dbe0f5;
@@ -11,22 +27,22 @@ $secondary-300: #E3E6F9;
 $secondary-200: #F1F3FF;
 
 $info: #A9C9FF;
-$info-active: #CADFFF;
 $info-hover: #DDE8FF;
+$info-active: #CADFFF;
 
-$danger: #E06C75;  // keeping some warmth
-$danger-active: #F9D6D8;
+$danger: #E06C75;
 $danger-hover: #F3ACB0;
+$danger-active: #F9D6D8;
 
 $warning: #F0C674;
-$warning-active: #F9E8B7;
 $warning-hover: #F6DF9B;
+$warning-active: #F9E8B7;
 
 $success: #6BCB77;
-$success-active: #D4F1DC;
 $success-hover: #A3D9A5;
+$success-active: #D4F1DC;
 
-$dark: #2E2E44;           // dark lilac text
+$dark: #2E2E44;
 $dark-900: #585875;
 $dark-500: #8A8AAE;
 
@@ -37,115 +53,36 @@ $gray-100: #BBBFD4;
 $light-gray: #E8EBF9;
 $dark-gray: #C2C5DD;
 
-$transparent: transparent;
 $white: #FFFFFF;
 $black: #000000;
+$transparent: transparent;
 
-// Theme colors map
+// 🧩 Bootstrap theme colors map
 $theme-colors: (
   "primary": $primary,
-  "primary-hover": $primary-hover,
-  "primary-active": $primary-active,
-  "primary-100": $primary-100,
   "secondary": $secondary,
-  "secondary-900": $secondary-900,
-  "secondary-500": $secondary-500,
-  "secondary-300": $secondary-300,
-  "secondary-200": $secondary-200,
   "info": $info,
-  "info-active": $info-active,
-  "info-hover": $info-hover,
-  "danger": $danger,
-  "danger-active": $danger-active,
-  "danger-hover": $danger-hover,
-  "warning": $warning,
-  "warning-active": $warning-active,
-  "warning-hover": $warning-hover,
   "success": $success,
-  "success-active": $success-active,
-  "success-hover": $success-hover,
-  "dark": $dark,
-  "dark-900": $dark-900,
-  "dark-500": $dark-500,
-  "gray": $gray,
-  "gray-300": $gray-300,
-  "gray-200": $gray-200,
-  "gray-100": $gray-100,
-  "light-gray": $light-gray,
-  "dark-gray": $dark-gray,
-  "transparent": $transparent,
-  "black": $black,
-  "white": $white,
+  "warning": $warning,
+  "danger": $danger,
+  "light": $white,
+  "dark": $dark
 );
 
+// 🎯 Body + Dropdowns + Navs
+$body-bg: #f9fcff;
 $body-color: $dark;
 $dropdown-link-color: $dark;
 $dropdown-link-hover-color: $white;
 $dropdown-link-hover-bg: $primary;
 $navbar-dark-hover-color: rgba($white, 0.9);
 
-$grid-gutter-width: 32px;
+// ✏️ Inputs + Borders
 $input-border-color: $gray;
-$small-font-size: 12px;
-$font-size-base: 0.8125rem;
-$lead-font-size: 16px;
-$h5-font-size: 16px;
-$h4-font-size: 18px;
-$h3-font-size: 24px;
-$h2-font-size: 24px;
-$h1-font-size: $font-size-base * 2.5;
-$headings-line-height: 1.25;
+$input-border-radius: 4px;
+
+// 📐 Border radius + Buttons
 $btn-border-radius: 24px;
 $btn-border-radius-lg: 24px;
 $btn-border-radius-sm: 24px;
-$card-border-radius: 16px;
-$input-border-radius: 4px;
-
-$font-family-sans-serif: 'Inter', Arial, sans-serif;
-$font-family-monospace: 'Inter', monospace;
-
-$enable-responsive-font-sizes: true;
-
-$spacer: 1rem !default;
-
-$spacers: (
-  0: 0,
-  8: ($spacer * 0.5),
-  16: $spacer,
-  24: ($spacer * 1.5),
-  32: ($spacer * 2),
-  40: ($spacer * 2.5),
-  48: ($spacer * 3),
-  56: ($spacer * 3.5),
-  64: ($spacer * 4),
-  72: ($spacer * 4.5),
-  80: ($spacer * 5),
-  88: ($spacer * 5.5),
-  96: ($spacer * 6),
-  104: ($spacer * 6.5),
-  112: ($spacer * 7),
-  120: ($spacer * 7.5),
-  128: ($spacer * 8),
-  136: ($spacer * 8.5),
-  144: ($spacer * 9),
-  152: ($spacer * 9.5),
-  160: ($spacer * 10),
-  168: ($spacer * 10.5),
-);
-
-$grid-breakpoints: (
-  xs: 0,
-  sm: 576px,
-  md: 768px,
-  lg: 992px,
-  xl: 1200px,
-  xxl: 1400px,
-  xxxl: 1600px,
-) !default;
-
-$container-max-widths: (
-  sm: 540px,
-  md: 720px,
-  lg: 960px,
-  xl: 1280px
-) !default;
+$ca
