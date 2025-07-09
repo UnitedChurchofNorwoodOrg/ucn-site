@@ -15,7 +15,7 @@ const AboutUs = () => {
         <p>Norwood, Massachusetts, which lies approximately 12 miles southwest of Boston, is home to over 29,000 residents. Named after Norwood, England, the area was first settled by Ezra Morse in 1678 and was officially formed in 1872.</p>
       </Col>
       <Col xs={6} className="d-none d-lg-block ps-0 pe-0">
-        <Image src="/images/aboutus.jpg" className="w-100" />
+        <Image src="./images/aboutus.jpg" className="w-100" />
         <p className="mt-16">Copyright 2022 United Church of Norwood. All rights reserved.</p>
       </Col>
     </Row>
