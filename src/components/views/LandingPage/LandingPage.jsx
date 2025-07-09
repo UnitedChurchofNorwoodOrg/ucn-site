@@ -33,7 +33,7 @@ const LandingPage = () => {
   return (
     <div className="position-relative w-100 bg-sm">
       <Image 
-        src="/images/bg.jpg"
+        src="./images/bg.jpg"
         className="position-absolute d-none d-md-block w-100"
         style={{ objectFit: 'cover', zIndex: '-1', overflow: 'hidden' }}
       />
@@ -42,7 +42,7 @@ const LandingPage = () => {
         <Col xs={12} md={8} lg={6} className="custom-borders px-0 mb-48">
           <div 
             className="w-100 text-white ratio banner-ratio font-non-serif"
-            style={{backgroundImage: "url(/images/sky3.jpeg)", backgroundRepeat: "no-repeat", backgroundSize: "cover"}}>
+            style={{backgroundImage: "url(./images/sky3.jpeg)", backgroundRepeat: "no-repeat", backgroundSize: "cover"}}>
             <div className="d-flex flex-column text-center">
               <p className="custom-hero-styling fw-bold mb-0">United Church of Norwood</p>
               <p className="custom-subhero-styling fw-bold">Many Peoples, One Church</p>
