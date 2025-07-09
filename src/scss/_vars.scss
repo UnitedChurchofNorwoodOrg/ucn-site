@@ -1,0 +1,168 @@
+$primary: #401808;
+$primary-hover: #D4C4A5;
+$primary-active: #92DEE0;
+$primary-100: #EFF4F5;
+
+$secondary: #EEE2BF;
+$secondary-900: #E7C0AA;
+$secondary-500: #FBE5DB;
+$secondary-300: #FCEDE6;
+$secondary-200: #FEF7F4;
+
+$info: #FFD292;
+$info-active: #FFE8C8;
+$info-hover: #FFF4E4;
+
+$danger: #D23B32;
+$danger-active: #FFE6E4;
+$danger-hover: #F69C97;
+
+$warning: #B88C1A;
+$warning-active: #FFD27A;
+$warning-hover: #FFF2CF;
+
+$success: #3F8452;
+$success-active: #DDF1E5;
+$success-hover: #74DD9E;
+
+$dark: #161616;
+$dark-900: #505050;
+$dark-500: #8A8A8A;
+
+$gray: #5F5F5F;
+$gray-300: #F2F2F2;
+$gray-200: #F6F6F6;
+$gray-100: #ADADAD;
+$light-gray: #F3F4F6;
+$dark-gray: #DAD8D8;
+
+$transparent: transparent;
+$white: white;
+$black: black;
+
+$theme-colors: (
+  "primary":$primary,
+  "primary-hover":$primary-hover,
+  "primary-active":$primary-active,
+  "primary-100":$primary-100,
+  "secondary":$secondary,
+  "secondary-900":$secondary-900,
+  "secondary-500":$secondary-500,
+  "secondary-300":$secondary-300,
+  "secondary-200":$secondary-200,
+  "info":$info,
+  "info-active":$info-active,
+  "info-hover":$info-hover,
+  "danger":$danger,
+  "danger-active":$danger-active,
+  "danger-hover":$danger-hover,
+  "warning":$warning,
+  "warning-active":$warning-active,
+  "warning-hover":$warning-hover,
+  "success":$success,
+  "success-active":$success-active,
+  "success-hover":$success-hover,
+  "dark":$dark,
+  "dark-900":$dark-900,
+  "dark-500":$dark-500,
+  "gray":$gray,
+  "gray-300":$gray-300,
+  "gray-200":$gray-200,
+  "gray-100":$gray-100,
+  "light-gray":$light-gray,
+  "dark-gray":$dark-gray,
+  "transparent":$transparent,
+  "black":$black,
+  "white":$white,
+);
+
+$body-color: $black;
+$dropdown-link-color: $black;
+$dropdown-link-hover-color: $white;
+$dropdown-link-hover-bg: $primary;
+$navbar-dark-hover-color: rgba($white, .9);
+$grid-gutter-width: 32px;
+$input-border-color: $black;
+$small-font-size: 12px;
+$font-size-base: .8125rem;
+$lead-font-size: 16px;
+$h5-font-size: 16px;
+$h4-font-size: 18px;
+$h3-font-size: 24px;
+$h2-font-size: 24px;
+$h1-font-size: $font-size-base * 2.5;
+$headings-line-height: 1.25;
+$btn-border-radius: 24px;
+$btn-border-radius-lg: 24px;
+$btn-border-radius-sm: 24px;
+$card-border-radius: 16px;
+$input-border-radius: 0px;
+$font-family-sans-serif: avenir;
+$font-family-monospace: avenir;
+$enable-responsive-font-sizes: true;
+
+$spacer: 1rem !default;
+$spacers: (
+  ) !default;
+$spacers: map-merge((0: 0,
+      8: ($spacer * .5,
+      ),
+      16: ($spacer,
+      ),
+      24: ($spacer * 1.5,
+      ),
+      32: ($spacer * 2,
+      ),
+      40: ($spacer * 2.5,
+      ),
+      48: ($spacer * 3,
+      ),
+      56: ($spacer * 3.5,
+      ),
+      64: ($spacer * 4,
+      ),
+      72: ($spacer * 4.5,
+      ),
+      80: ($spacer * 5,
+      ),
+      88: ($spacer * 5.5,
+      ),
+      96: ($spacer * 6,
+      ),
+      104: ($spacer * 6.5,
+      ),
+      112: ($spacer * 7,
+      ),
+      120: ($spacer * 7.5,
+      ),
+      128: ($spacer * 8,
+      ),
+      136: ($spacer * 8.5,
+      ),
+      144: ($spacer * 9,
+      ),
+      152: ($spacer * 9.5,
+      ),
+      160: ($spacer * 10,
+      ),
+      168: ($spacer * 10.5,
+      ),
+    ),
+    $spacers
+);
+
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1400px,
+  xxxl: 1600px,
+  ) !default;
+
+$container-max-widths: (
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
+  xl: 1280px) !default;

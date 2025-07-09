@@ -1,0 +1,6 @@
+@use 'sass:map';
+@import "./_vars";
+@import "~bootstrap/scss/bootstrap";
+@import "../../node_modules/bootstrap/scss/mixins";
+@import "../../node_modules/bootstrap/scss/variables"; 
+@import "./_custom.scss";
