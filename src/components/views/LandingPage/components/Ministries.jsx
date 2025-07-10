@@ -23,12 +23,9 @@ Christian women. A variety of activities are held throughout the year, including
 support several Christian missions worldwide, as well to assist with local needs as they arise.
 We enjoy yearly brunches with our Spanish sisters and others, have craft activities and work
 bees, welcome guest speakers, share meaningful discussions, send cards of encouragement and
-more…all of which serve to bless our friendships and promote good will.
-Cindy Rudolph</p>
+more…all of which serve to bless our friendships and promote good will.</p>
       </Col>
-      <Col xs={12} lg={6}>
-        <h4>Faith Seeds Ministry</h4>
-        <p>Faith Seeds is a ministry to women in prison around the country via special correcpondence through Bible Study.</p>
+      <Col xs={12} lg={6}>  
         <h4 className="pt-8">Congregational Care Team</h4>
         <p>Providing for the needs of those in our church community.</p>
         <h4 className="pt-8">Hospitality Team</h4>
