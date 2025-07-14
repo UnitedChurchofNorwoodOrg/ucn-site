@@ -111,9 +111,9 @@ $input-border-color: #cccccc;
 $grid-gutter-width: 32px;
 $enable-responsive-font-sizes: true;
 
-// === Spacing Scale ===
+// === Spacing Scale (✅ fixed — no map-merge error)
 $spacer: 1rem !default;
-$spacers: map-merge((
+$spacers: (
   0: 0,
   8: $spacer * .5,
   16: $spacer,
@@ -135,10 +135,10 @@ $spacers: map-merge((
   144: $spacer * 9,
   152: $spacer * 9.5,
   160: $spacer * 10,
-  168: $spacer * 10.5,
-), $spacers);
+  168: $spacer * 10.5
+);
 
-// === Breakpoints ===
+// === Grid Breakpoints
 $grid-breakpoints: (
   xs: 0,
   sm: 576px,
@@ -149,6 +149,7 @@ $grid-breakpoints: (
   xxxl: 1600px,
 ) !default;
 
+// === Container Max Widths
 $container-max-widths: (
   sm: 540px,
   md: 720px,
