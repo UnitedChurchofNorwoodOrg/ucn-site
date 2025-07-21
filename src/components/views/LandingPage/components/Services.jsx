@@ -10,7 +10,7 @@ const Services = () => {
         <p>If you're thinking about visiting us let us tell you what our service is like:</p>
         <h4>How long is the service?</h4>
         <p>Our Sunday morning service begins at 10:00 and concludes at 11:00.</p>
-        <h4>What king of message will I hear?</h4>
+        <h4>What kind of message will I hear?</h4>
         <p>You will hear a Bible-based, inspirational message from the Pastor that is designed to encourage, to teach and to help us to cope with daily life.</p>
         <h4>What should I wear?</h4>
         <p>There is no dress code at the United Church, so wear what you're comfortable wearing. At our services you will find some people dressed casually and others dressed more formally.</p>
