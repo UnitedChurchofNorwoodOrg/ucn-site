@@ -1,14 +1,74 @@
-@use 'sass:map';
-@import "./_vars";
-@import "~bootstrap/scss/bootstrap";
-@import "../../node_modules/bootstrap/scss/mixins";
-@import "../../node_modules/bootstrap/scss/variables"; 
-@import "./_custom.scss";
-body {
-  font-family: "Helvetica Neue", Arial, sans-serif;
-  margin: 0;
+/* ========================= */
+/* 🌿 DEVOTIONAL NEWS TICKER */
+/* ========================= */
+
+.news-ticker-wrapper {
+  width: 100%;
+  overflow: hidden;
+  background: #fef9f4;
+  border-bottom: 1px solid #e5e7eb;
+  padding: 8px 0;
 }
 
-h1, h2, h3 {
-  font-weight: 300;
+.news-ticker-track {
+  display: flex;
+  width: max-content;
+  animation: newsTickerMove 25s linear infinite;
+  will-change: transform; /* smoother animation */
+}
+
+.news-ticker-item {
+  white-space: nowrap; /* prevents wrapping */
+  padding-right: 80px;
+
+  font-family: "Playfair Display", serif;
+  font-size: 0.95rem;
+  color: #6b7280;
+  letter-spacing: 0.4px;
+}
+
+/* smooth seamless scroll */
+@keyframes newsTickerMove {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* pause on hover */
+.news-ticker-wrapper:hover .news-ticker-track {
+  animation-play-state: paused;
+}
+
+/* ========================= */
+/* 🔗 TICKER LINK */
+/* ========================= */
+
+.ticker-link {
+  color: #2c5282;
+  text-decoration: underline;
+  font-weight: 500;
+}
+
+.ticker-link:hover {
+  color: #1f3a5f;
+}
+
+/* ========================= */
+/* 📱 MOBILE DROPDOWN FIX */
+/* ========================= */
+
+.dropdown-menu {
+  color: #1f2937 !important;
+}
+
+.dropdown-item {
+  color: #1f2937 !important;
+}
+
+.dropdown-item:hover {
+  background-color: #f3f4f6;
+  color: #111827 !important;
 }

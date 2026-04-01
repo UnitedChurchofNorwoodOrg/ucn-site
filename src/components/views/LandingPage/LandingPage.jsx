@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Row, Col, Image, Tab, Dropdown } from "react-bootstrap";
+import { Row, Col, Dropdown } from "react-bootstrap";
 import Home from './components/Home';
 import AboutUs from "./components/AboutUs";
 import MenuButton from "../../global/MenuButton/MenuButton";
@@ -9,19 +9,17 @@ import Ministries from "./components/Ministries";
 import Photos from "./components/Photos";
 import ContactUs from "./components/ContactUs";
 import Hamburger from "hamburger-react";
+import Footer from "../../layout/Footer";
+import NewsTicker from "../../global/NewsTicker/NewsTicker";
 
 const LandingPage = () => {
   const [tab, setTab] = useState('Home');
   const [openHamburger, setOpenHamburger] = useState(false);
   const [selected, setSelected] = useState('Home');
 
-  // ✅ FORCE HOME TAB ON LOAD (FIX)
   useEffect(() => {
     setTab('Home');
   }, []);
-
-  // ✅ DEBUG (can remove later)
-  console.log("ACTIVE TAB:", tab);
 
   const handleMenuClick = (value) => {
     setOpenHamburger(false);
@@ -40,136 +38,131 @@ const LandingPage = () => {
   ];
 
   return (
-    <div className="position-relative w-100 bg-sm">
-      
-      {/* BACKGROUND */}
-      <Image 
-        src="./images/bg.jpg"
-        className="position-absolute d-none d-md-block w-100"
-        style={{ objectFit: 'cover', zIndex: '-1', overflow: 'hidden' }}
-      />
+    <>
+      <div
+        className="w-100 overflow-hidden position-relative"
+        style={{
+          backgroundImage: "url('/images/UNC.jpg')",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          minHeight: "100vh",
+        }}
+      >
+        {/* Overlay */}
+        <div
+          style={{
+            position: "absolute",
+            inset: 0,
+            background:
+              "linear-gradient(to bottom, rgba(20,20,20,0.55), rgba(20,20,20,0.35))",
+            zIndex: 0,
+          }}
+        />
 
-      <Row className="w-100 m-0 bg-sm">
-        <Col xs={0} md={2} lg={3} />
+        <div style={{ position: "relative", zIndex: 1 }}>
+          <Row className="w-100 m-0 py-5">
+            <Col xs={0} md={2} lg={3} />
 
-        <Col xs={12} md={8} lg={6} className="custom-borders px-0 mb-48">
-
-          {/* HERO */}
-          <div 
-            className="w-100 text-white ratio banner-ratio font-non-serif"
-            style={{
-              backgroundImage: "url(./images/sky3.jpeg)",
-              backgroundRepeat: "no-repeat",
-              backgroundSize: "cover"
-            }}
-          >
-            <div className="d-flex flex-column text-center">
-              <p className="custom-hero-styling fw-bold mb-0">
-                United Church of Norwood
-              </p>
-              <p className="custom-subhero-styling fw-bold">
-                Many People, One Church
-              </p>
-            </div>
-          </div>
-
-          {/* HEADER BAR */}
-          <div className="d-flex justify-content-between align-items-center bg-primary">
-
-            {/* MOBILE MENU */}
-            <Dropdown className="d-block d-md-none">
-              <Dropdown.Toggle
-                id="dropdown-basic"
-                size="sm"
-                className="border-0 bg-transparent text-secondary"
-              >
-                <Hamburger toggled={openHamburger} toggle={setOpenHamburger} />
-              </Dropdown.Toggle>
-
-              <Dropdown.Menu
-                className="dropdown_menu border border-primary"
-                style={{ width: '100vw' }}
-              >
-                {menuArray.map((item) => (
-                  <Dropdown.Item
-                    key={item}
-                    className="fs-5 fw-bold text-primary py-8 border-bottom border-primary"
-                    onClick={() => handleMenuClick(item)}
-                  >
-                    {item}
-                  </Dropdown.Item>
-                ))}
-              </Dropdown.Menu>
-            </Dropdown>
-
-            {/* CURRENT TAB TITLE */}
-            <p className="text-secondary font-cardiff fw-bold fs-4 mb-0 pe-32 ps-24">
-              English Congregation – {tab}
-            </p>
-          </div>
-
-          {/* MAIN CONTENT */}
-          <div className="d-flex flex-row w-100">
-
-            {/* SIDE MENU */}
             <Col
-              xs={0}
-              md={3}
-              className="d-none d-md-block fs-5 bg-secondary text-primary border-start border-end border-primary p-0"
+              xs={12}
+              md={8}
+              lg={6}
+              className="shadow-lg px-0 mb-4 rounded-4"
+              style={{
+                background: "rgba(255,255,255,0.94)",
+                backdropFilter: "blur(6px)",
+              }}
             >
-              {menuArray.map((item) => (
-                <MenuButton
-                  key={item}
-                  setTab={setTab}
-                  tab={item}
-                  selected={selected}
-                  setSelected={setSelected}
+
+              {/* HEADER */}
+              <div className="py-4 border-bottom text-center">
+                <img
+                  src="/images/UCNLogo.jpg"
+                  alt="UCN Logo"
+                  style={{ height: "60px", marginBottom: "10px" }}
                 />
-              ))}
+
+                <h2 style={{ fontFamily: "Playfair Display, serif" }}>
+                  United Church of Norwood
+                </h2>
+
+                <p className="text-muted mb-0">
+                  Many People, One Church
+                </p>
+              </div>
+
+              {/* ✅ NEWS TICKER */}
+              <NewsTicker />
+
+              {/* MOBILE TOP BAR */}
+              <div
+                className="d-flex align-items-center px-3 py-2 d-md-none"
+                style={{
+                  backgroundColor: "#f8fafc",
+                  borderBottom: "1px solid #e5e7eb",
+                  color: "#1f2937"
+                }}
+              >
+                <Dropdown>
+                  <Dropdown.Toggle
+                    size="sm"
+                    className="border-0 bg-transparent"
+                  >
+                    <Hamburger
+                      toggled={openHamburger}
+                      toggle={setOpenHamburger}
+                      color="#1f2937"
+                    />
+                  </Dropdown.Toggle>
+
+                  <Dropdown.Menu className="w-100">
+                    {menuArray.map((item) => (
+                      <Dropdown.Item
+                        key={item}
+                        onClick={() => handleMenuClick(item)}
+                      >
+                        {item}
+                      </Dropdown.Item>
+                    ))}
+                  </Dropdown.Menu>
+                </Dropdown>
+              </div>
+
+              {/* CONTENT */}
+              <div className="d-flex flex-wrap">
+
+                {/* SIDEBAR */}
+                <div className="d-none d-md-flex flex-column col-md-3 border-end">
+                  {menuArray.map((item) => (
+                    <MenuButton
+                      key={item}
+                      setTab={setTab}
+                      tab={item}
+                      selected={selected}
+                      setSelected={setSelected}
+                    />
+                  ))}
+                </div>
+
+                {/* MAIN CONTENT */}
+                <div className="col-12 col-md-9 px-3 py-4">
+                  {tab === "Home" && <Home />}
+                  {tab === "About Us" && <AboutUs />}
+                  {tab === "Services" && <Services />}
+                  {tab === "Our Staff" && <OurStaff />}
+                  {tab === "Ministries" && <Ministries />}
+                  {tab === "Photos" && <Photos />}
+                  {tab === "Contact Us" && <ContactUs />}
+                </div>
+
+              </div>
             </Col>
+          </Row>
+        </div>
+      </div>
 
-            {/* TAB CONTENT */}
-            <Col xs={12} md={9} className="bg-white">
-              <Tab.Container activeKey={tab}>
-                <Tab.Content className="w-100">
-
-                  <Tab.Pane eventKey="Home">
-                    <Home />
-                  </Tab.Pane>
-
-                  <Tab.Pane eventKey="About Us">
-                    <AboutUs />
-                  </Tab.Pane>
-
-                  <Tab.Pane eventKey="Services">
-                    <Services />
-                  </Tab.Pane>
-
-                  <Tab.Pane eventKey="Our Staff">
-                    <OurStaff />
-                  </Tab.Pane>
-
-                  <Tab.Pane eventKey="Ministries">
-                    <Ministries />
-                  </Tab.Pane>
-
-                  <Tab.Pane eventKey="Photos">
-                    <Photos />
-                  </Tab.Pane>
-
-                  <Tab.Pane eventKey="Contact Us">
-                    <ContactUs />
-                  </Tab.Pane>
-
-                </Tab.Content>
-              </Tab.Container>
-            </Col>
-
-          </div>
-
-        </Col>
-      </Row>
-    </div>
+      <Footer />
+    </>
   );
 };
 

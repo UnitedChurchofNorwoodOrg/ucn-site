@@ -27,6 +27,10 @@ const SpanishComingSoon = () => {
           Spanish page coming soon.
         </p>
 
+        <p style={styles.note}>
+          We look forward to welcoming you.
+        </p>
+
         <p style={styles.info}>
           Sunday Worship: 12:00 PM
         </p>
@@ -40,26 +44,39 @@ const SpanishComingSoon = () => {
 
 const styles = {
   container: {
-    padding: "80px 20px",
+    padding: "100px 20px",
     textAlign: "center",
+    backgroundColor: "#f9fafb",
+    minHeight: "70vh",
   },
   logo: {
-    width: "140px",
-    marginBottom: "20px",
+    maxWidth: "160px",   // ✅ controls size
+    width: "100%",       // ✅ responsive
+    height: "auto",      // ✅ keeps aspect ratio (fixes compression)
+    marginBottom: "25px",
     borderRadius: "8px",
   },
   title: {
-    fontSize: "32px",
-    fontWeight: "bold",
+    fontSize: "30px",
+    fontWeight: "600",
+    color: "#111827",
+    marginBottom: "10px",
   },
   subtitle: {
-    fontSize: "18px",
-    marginTop: "15px",
+    fontSize: "17px",
+    marginTop: "10px",
+    color: "#374151",
+  },
+  note: {
+    fontSize: "15px",
+    marginTop: "8px",
+    color: "#6b7280",
   },
   info: {
     fontSize: "18px",
     marginTop: "25px",
     fontWeight: "500",
+    color: "#1f2937",
   },
 };
 
