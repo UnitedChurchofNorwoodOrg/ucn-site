@@ -1,18 +1,18 @@
-/* eslint-disable global-require */
-import React from 'react';
-import {
-  BrowserRouter as Router,
-  Switch,
-} from 'react-router-dom';
-import './scss/style.scss';
-import LandingPage from "./components/views/LandingPage";
+import { HashRouter as Router } from "react-router-dom";
+import RootLanding from "./components/RootLanding";
+import LandingPage from "./components/views/LandingPage/LandingPage";
+import SpanishComingSoon from "./components/SpanishComingSoon";
 
-const App = () => (
-  <Router>
-    <Switch>
-      <LandingPage />
-    </Switch>
-  </Router>
-);
+function App() {
+  return (
+    <Router>
+      <Switch>
+        <Route exact path="/" component={RootLanding} />
+        <Route path="/english" component={LandingPage} />
+        <Route path="/spanish" component={SpanishComingSoon} />
+      </Switch>
+    </Router>
+  );
+}
 
 export default App;

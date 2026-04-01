@@ -4,3 +4,11 @@
 @import "../../node_modules/bootstrap/scss/mixins";
 @import "../../node_modules/bootstrap/scss/variables"; 
 @import "./_custom.scss";
+body {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  margin: 0;
+}
+
+h1, h2, h3 {
+  font-weight: 300;
+}
