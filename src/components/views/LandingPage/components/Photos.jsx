@@ -12,7 +12,7 @@ const Photos = () => {
 
       <Row className="g-4">
 
-        {photoAlbum.photos.map((photo) => (
+        {[...photoAlbum.photos].reverse().map((photo) => (
           <Col xs={12} key={photo}>
 
             <div

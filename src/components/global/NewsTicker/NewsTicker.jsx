@@ -6,7 +6,15 @@ const NewsTicker = () => {
       <div className="news-ticker-track">
 
         <div className="news-ticker-item">
-          🙏 Sunday Worship Service at 10:00 AM — All are welcome ✦
+          🙏 Palm Sunday Worship — April 13 at 10:00 AM ✦
+          &nbsp;&nbsp;&nbsp;&nbsp;
+          ✝️ Good Friday — Sanctuary open for prayer & meditation (evening) ✦
+          &nbsp;&nbsp;&nbsp;&nbsp;
+          🌅 Easter Sunrise Service — April 20 at 6:30 AM (Church Lawn) ✦
+          &nbsp;&nbsp;&nbsp;&nbsp;
+          ⛪ Easter Resurrection Service — 10:00 AM ✦
+          &nbsp;&nbsp;&nbsp;&nbsp;
+          🌎 Spanish Easter Service — 12:00 PM ✦
           &nbsp;&nbsp;&nbsp;&nbsp;
           📺 Join us live on{" "}
           <a
@@ -22,7 +30,15 @@ const NewsTicker = () => {
 
         {/* DUPLICATE FOR SEAMLESS LOOP */}
         <div className="news-ticker-item">
-          🙏 Sunday Worship Service at 10:00 AM — All are welcome ✦
+          🙏 Palm Sunday Worship — April 13 at 10:00 AM ✦
+          &nbsp;&nbsp;&nbsp;&nbsp;
+          ✝️ Good Friday — Sanctuary open for prayer & meditation (evening) ✦
+          &nbsp;&nbsp;&nbsp;&nbsp;
+          🌅 Easter Sunrise Service — April 20 at 6:30 AM (Church Lawn) ✦
+          &nbsp;&nbsp;&nbsp;&nbsp;
+          ⛪ Easter Resurrection Service — 10:00 AM ✦
+          &nbsp;&nbsp;&nbsp;&nbsp;
+          🌎 Spanish Easter Service — 12:00 PM ✦
           &nbsp;&nbsp;&nbsp;&nbsp;
           📺 Join us live on{" "}
           <a

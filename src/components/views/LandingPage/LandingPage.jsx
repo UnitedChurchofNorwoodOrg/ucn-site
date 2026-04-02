@@ -87,22 +87,22 @@ const LandingPage = () => {
                 </h2>
 
                 <p className="text-muted mb-0">
-                  Many People, One Church
+                  Many Peoples. One Church
                 </p>
               </div>
 
-              {/* ✅ NEWS TICKER */}
+              {/* NEWS TICKER */}
               <NewsTicker />
 
-              {/* MOBILE TOP BAR */}
+              {/* 📱 MOBILE TOP BAR (FIXED) */}
               <div
-                className="d-flex align-items-center px-3 py-2 d-md-none"
+                className="d-flex align-items-center px-3 py-2 d-md-none position-relative"
                 style={{
                   backgroundColor: "#f8fafc",
                   borderBottom: "1px solid #e5e7eb",
-                  color: "#1f2937"
                 }}
               >
+                {/* HAMBURGER */}
                 <Dropdown>
                   <Dropdown.Toggle
                     size="sm"
@@ -126,6 +126,20 @@ const LandingPage = () => {
                     ))}
                   </Dropdown.Menu>
                 </Dropdown>
+
+                {/* ✅ TAB TITLE (FIXES GAP) */}
+                <p
+                  className="mb-0 position-absolute start-50 translate-middle-x"
+                  style={{
+                    fontFamily: "Playfair Display, serif",
+                    fontSize: "1.05rem",
+                    fontWeight: "600",
+                    color: "#1f2937",
+                    letterSpacing: "0.5px"
+                  }}
+                >
+                  {tab}
+                </p>
               </div>
 
               {/* CONTENT */}

@@ -35,65 +35,76 @@ const staffData = [
 
 const OurStaff = () => {
   return (
-    <div className="bg-white px-3 py-3">
+    <div className="bg-white">
 
-      <h2 className="fw-bold mb-4" style={{ color: "#111827" }}>
-        Our Staff
-      </h2>
+      <Row className="justify-content-center m-0">
+        <Col xs={12} md={10} lg={8} className="px-3 px-md-0 py-5">
 
-      <Row className="g-4">
+          {staffData.map((member, index) => (
+            <div style={styles.card} key={index}>
 
-        {staffData.map((member, index) => (
-          <Col xs={12} key={index}>
+              {/* HEADER */}
+              <div style={styles.header}>
+                <Image
+                  src={member.image}
+                  alt={member.name}
+                  style={styles.image}
+                />
 
-            <div
-              className="p-3"
-              style={{
-                border: "1px solid #e5e7eb",
-                borderRadius: "8px"
-              }}
-            >
+                <h5 style={styles.name}>
+                  {member.name}
+                </h5>
+              </div>
 
-              <Row className="align-items-start">
-
-                {/* IMAGE */}
-                <Col xs={12} md={4}>
-                  <Image
-                    src={member.image}
-                    rounded
-                    className="w-100 mb-3 mb-md-0"
-                    style={{
-                      height: "240px",          // ✅ bigger
-                      objectFit: "contain",     // ✅ no cropping
-                      backgroundColor: "#f3f4f6",
-                      padding: "8px",
-                      borderRadius: "8px"
-                    }}
-                  />
-                </Col>
-
-                {/* TEXT */}
-                <Col xs={12} md={8}>
-                  <h5 className="mb-2" style={{ color: "#1f2937" }}>
-                    {member.name}
-                  </h5>
-
-                  <p style={{ color: "#374151", lineHeight: "1.6" }}>
-                    {member.text}
-                  </p>
-                </Col>
-
-              </Row>
+              {/* TEXT */}
+              <p style={styles.text}>
+                {member.text}
+              </p>
 
             </div>
+          ))}
 
-          </Col>
-        ))}
-
+        </Col>
       </Row>
 
     </div>
   );
+};
+
+const styles = {
+  card: {
+    paddingBottom: "22px",
+    marginBottom: "22px",
+    borderBottom: "1px solid #f1f5f9"
+  },
+
+  header: {
+    textAlign: "center",
+    marginBottom: "12px"
+  },
+
+  image: {
+    width: "150px",
+    height: "190px",
+    objectFit: "contain",
+    marginBottom: "10px"
+  },
+
+  name: {
+    fontFamily: "Playfair Display, serif",
+    color: "#1f2937",
+    fontWeight: "500",
+    fontSize: "1.05rem"
+  },
+
+  text: {
+    color: "#374151",
+    lineHeight: "1.75",
+    fontSize: "15px",
+    maxWidth: "620px",
+    margin: "0 auto",
+    textAlign: "left"
+  }
 };
 
 export default OurStaff;

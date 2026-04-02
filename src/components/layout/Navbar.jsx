@@ -20,7 +20,7 @@ const Navbar = () => {
 
       {/* NAV LINKS */}
       <div style={styles.links}>
-        <Link to="/english" style={styles.link}>
+        <Link to="/" style={styles.link}>
           Home
         </Link>
       </div>
