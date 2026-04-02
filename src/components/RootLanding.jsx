@@ -7,7 +7,7 @@ const RootLanding = () => {
   const styles = {
     container: {
       minHeight: "100vh",
-      backgroundImage: "url(/images/home.jpeg)",
+      backgroundImage: "url(" + process.env.PUBLIC_URL + "/images/home.jpeg)",
       backgroundSize: "cover",
       backgroundPosition: "center",
       display: "flex",
@@ -82,20 +82,14 @@ const RootLanding = () => {
 
   return (
     <>
-      {/* 🔥 NEWS TICKER (TOP) */}
       <NewsTicker />
 
-      {/* 🌄 HERO SECTION */}
       <div style={styles.container}>
-
-        {/* Overlay */}
         <div style={styles.overlayBg} />
 
-        {/* Content */}
         <div style={styles.content}>
-
           <img
-            src="/images/UCNLogo.jpg"
+            src={process.env.PUBLIC_URL + "/images/UCNLogo.jpg"}
             alt="Church Logo"
             style={styles.logo}
           />
@@ -105,16 +99,14 @@ const RootLanding = () => {
           </h1>
 
           <p style={styles.subtitle}>
-            Many People. One Church
+            Many Peoples. One Church
           </p>
 
           <p style={styles.tagline}>
             Evangelical Free Church of America
           </p>
 
-          {/* Buttons */}
           <div className="d-flex flex-column flex-md-row gap-3 mt-4 w-100">
-
             <Link to="/english" className="w-100">
               <Button style={styles.buttonPrimary} className="w-100 fw-semibold">
                 English Congregation
@@ -130,9 +122,7 @@ const RootLanding = () => {
                 Spanish Congregation
               </Button>
             </Link>
-
           </div>
-
         </div>
       </div>
 

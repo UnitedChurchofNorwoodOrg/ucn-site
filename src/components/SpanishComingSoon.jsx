@@ -16,7 +16,7 @@ const SpanishComingSoon = () => {
 
           {/* LOGO */}
           <Image
-            src="/images/UCNLogoSpanish.JPG"
+            src={process.env.PUBLIC_URL + "/images/UCNLogoSpanish.JPG"}
             alt="UCN Spanish Logo"
             style={styles.logo}
           />
@@ -71,7 +71,8 @@ const SpanishComingSoon = () => {
 const styles = {
   container: {
     minHeight: "100vh",
-    backgroundImage: "url(/images/home.jpeg)", // 🔥 SAME AS ENGLISH
+    backgroundImage:
+      "url(" + process.env.PUBLIC_URL + "/images/home.jpeg)",
     backgroundSize: "cover",
     backgroundPosition: "center",
     display: "flex",
@@ -80,7 +81,6 @@ const styles = {
     padding: "20px"
   },
 
-  /* 🔥 FLOATING SEMI-TRANSPARENT CARD */
   overlay: {
     backgroundColor: "rgba(0, 0, 0, 0.55)",
     padding: "40px 30px",

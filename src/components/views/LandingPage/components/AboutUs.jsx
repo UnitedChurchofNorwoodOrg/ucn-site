@@ -7,7 +7,7 @@ const AboutUs = () => {
       {/* 🖼️ IMAGE FIRST */}
       <div style={styles.imageContainer}>
         <Image
-          src="/images/aboutus.jpg"
+          src={process.env.PUBLIC_URL + "/images/aboutus.jpg"}
           alt="Congregation"
           style={styles.image}
         />
@@ -83,14 +83,14 @@ const styles = {
   paragraph: {
     color: "#374151",
     lineHeight: "1.75",
-    marginBottom: "14px",   // 🔥 slightly more breathing room
+    marginBottom: "14px",
     fontSize: "15px"
   },
 
   section: {
     marginTop: "24px",
     paddingBottom: "16px",
-    borderBottom: "1px solid #f1f5f9"   // 🔥 subtle divider like Ministries
+    borderBottom: "1px solid #f1f5f9"
   },
 
   sectionLast: {

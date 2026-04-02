@@ -7,7 +7,7 @@ const Ministries = () => {
       {/* 🖼️ IMAGE FIRST */}
       <div style={styles.imageContainer}>
         <Image
-          src="/images/ministries.jpeg"
+          src={process.env.PUBLIC_URL + "/images/ministries.jpeg"}
           alt="Choir Ministry"
           style={styles.image}
         />
@@ -25,7 +25,6 @@ const Ministries = () => {
             How You Can Serve
           </h2>
 
-          {/* MUSIC MINISTRY */}
           <div style={styles.section}>
             <h5 style={styles.sectionTitle}>
               Music Ministry
@@ -44,7 +43,6 @@ const Ministries = () => {
             </p>
           </div>
 
-          {/* WISH */}
           <div style={styles.section}>
             <h5 style={styles.sectionTitle}>
               WISH (Women in Service to Him)
@@ -62,7 +60,6 @@ const Ministries = () => {
             </p>
           </div>
 
-          {/* CARE TEAM */}
           <div style={styles.section}>
             <h5 style={styles.sectionTitle}>
               Congregational Care Team
@@ -73,7 +70,6 @@ const Ministries = () => {
             </p>
           </div>
 
-          {/* HOSPITALITY */}
           <div style={styles.section}>
             <h5 style={styles.sectionTitle}>
               Hospitality Team
@@ -85,7 +81,6 @@ const Ministries = () => {
             </p>
           </div>
 
-          {/* BUILDING */}
           <div style={styles.sectionLast}>
             <h5 style={styles.sectionTitle}>
               Building Stewards
@@ -107,7 +102,7 @@ const styles = {
   imageContainer: {
     width: "100%",
     textAlign: "center",
-    backgroundColor: "#f9fafb"   // ❌ removed paddingTop
+    backgroundColor: "#f9fafb"
   },
 
   image: {

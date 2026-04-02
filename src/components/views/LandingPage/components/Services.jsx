@@ -7,7 +7,7 @@ const Services = () => {
       {/* 🖼️ IMAGE FIRST */}
       <div style={styles.imageContainer}>
         <Image
-          src="/images/services.jpg"
+          src={process.env.PUBLIC_URL + "/images/services.jpg"}
           alt="Sunday Worship"
           style={styles.image}
         />
@@ -21,9 +21,9 @@ const Services = () => {
       <Row className="justify-content-center m-0">
         <Col xs={12} md={10} lg={8} className="px-3 px-md-0 py-5">
 
-		<h2 style={styles.title}>
-		  Visiting Us
-		</h2>
+          <h2 style={styles.title}>
+            Visiting Us
+          </h2>
 
           <p style={styles.paragraph}>
             Whether you're just beginning your Christian journey or have been a believer for years, 
@@ -33,8 +33,6 @@ const Services = () => {
           <p style={styles.paragraph}>
             If you're thinking about visiting us, here’s what our service is like:
           </p>
-
-          {/* SECTIONS */}
 
           <div style={styles.section}>
             <h5 style={styles.sectionTitle}>How long is the service?</h5>
@@ -89,7 +87,7 @@ const styles = {
   imageContainer: {
     width: "100%",
     textAlign: "center",
-    backgroundColor: "#f9fafb"   // ❌ removed paddingTop
+    backgroundColor: "#f9fafb"
   },
 
   image: {

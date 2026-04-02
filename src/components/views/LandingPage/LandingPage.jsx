@@ -42,7 +42,7 @@ const LandingPage = () => {
       <div
         className="w-100 overflow-hidden position-relative"
         style={{
-          backgroundImage: "url('/images/UNC.jpg')",
+          backgroundImage: "url(" + process.env.PUBLIC_URL + "/images/UNC.jpg)",
           backgroundSize: "cover",
           backgroundPosition: "center",
           minHeight: "100vh",
@@ -77,7 +77,7 @@ const LandingPage = () => {
               {/* HEADER */}
               <div className="py-4 border-bottom text-center">
                 <img
-                  src="/images/UCNLogo.jpg"
+                  src={process.env.PUBLIC_URL + "/images/UCNLogo.jpg"}
                   alt="UCN Logo"
                   style={{ height: "60px", marginBottom: "10px" }}
                 />
@@ -94,7 +94,7 @@ const LandingPage = () => {
               {/* NEWS TICKER */}
               <NewsTicker />
 
-              {/* 📱 MOBILE TOP BAR (FIXED) */}
+              {/* MOBILE TOP BAR */}
               <div
                 className="d-flex align-items-center px-3 py-2 d-md-none position-relative"
                 style={{
@@ -102,7 +102,6 @@ const LandingPage = () => {
                   borderBottom: "1px solid #e5e7eb",
                 }}
               >
-                {/* HAMBURGER */}
                 <Dropdown>
                   <Dropdown.Toggle
                     size="sm"
@@ -127,7 +126,6 @@ const LandingPage = () => {
                   </Dropdown.Menu>
                 </Dropdown>
 
-                {/* ✅ TAB TITLE (FIXES GAP) */}
                 <p
                   className="mb-0 position-absolute start-50 translate-middle-x"
                   style={{

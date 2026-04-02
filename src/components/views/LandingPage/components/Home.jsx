@@ -7,7 +7,7 @@ const Home = () => {
       {/* 🖼️ IMAGE FIRST */}
       <div style={styles.imageContainer}>
         <Image
-          src="/images/home.jpeg"
+          src={process.env.PUBLIC_URL + "/images/home.jpeg"}
           alt="Church"
           style={styles.image}
         />
@@ -29,12 +29,10 @@ const Home = () => {
             We invite you to join us in worship and fellowship as we share God’s love and grace together.
           </p>
 
-          {/* 🙏 SERVICE TIME */}
           <p style={styles.service}>
             Sunday Worship: 10:00 AM
           </p>
 
-          {/* 🔥 FACEBOOK BUTTON */}
           <div style={{ marginTop: "12px" }}>
             <a
               href="https://www.facebook.com/unitedchurchofnorwood/"
@@ -61,7 +59,6 @@ const Home = () => {
             www.efca.org
           </a>
 
-          {/* 🙏 SCRIPTURE */}
           <p style={styles.scripture}>
             “Let all that you do be done in love.” — 1 Corinthians 16:14
           </p>
@@ -93,11 +90,10 @@ const styles = {
     marginTop: "8px"
   },
 
-  /* 🔥 MATCHED TITLE STYLE */
   title: {
     fontFamily: "Playfair Display, serif",
     color: "#111827",
-    fontWeight: "500",     // softer
+    fontWeight: "500",
     fontSize: "1.6rem",
     marginBottom: "20px"
   },
@@ -109,14 +105,12 @@ const styles = {
     fontSize: "15px"
   },
 
-  /* 🔥 SLIGHTLY SOFTER */
   service: {
     color: "#1f2937",
     fontWeight: "500",
     marginBottom: "10px"
   },
 
-  /* 🔥 FACEBOOK BUTTON (CONSISTENT WITH CONTACT) */
   button: {
     display: "inline-block",
     backgroundColor: "#1f3a5f",

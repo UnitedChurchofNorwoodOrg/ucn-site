@@ -23,7 +23,7 @@ const Photos = () => {
               }}
             >
               <img
-                src={`/images/${photo}`}
+                src={process.env.PUBLIC_URL + "/images/" + photo}
                 alt={photo}
                 style={{
                   width: "100%",
