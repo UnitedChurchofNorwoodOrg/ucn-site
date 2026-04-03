@@ -23,60 +23,69 @@ const RootLanding = () => {
       position: "absolute",
       inset: 0,
       background:
-        "linear-gradient(to bottom, rgba(15,23,42,0.6), rgba(15,23,42,0.35))",
+        "linear-gradient(to bottom, rgba(15,23,42,0.55), rgba(15,23,42,0.25))",
       zIndex: 0
     },
 
     content: {
       position: "relative",
       zIndex: 1,
-      background: "rgba(255,255,255,0.92)",
-      backdropFilter: "blur(8px)",
-      padding: "40px 30px",
+      background: "rgba(255,255,255,0.94)",
+      backdropFilter: "blur(6px)",
+      padding: "36px 28px",
       borderRadius: "16px",
-      maxWidth: "640px",
+      maxWidth: "620px",
       width: "100%",
       color: "#1f2937",
-      boxShadow: "0 10px 30px rgba(0,0,0,0.15)"
+      boxShadow: "0 8px 25px rgba(0,0,0,0.12)"
     },
 
     logo: {
-      height: "60px",
-      marginBottom: "10px"
+      height: "56px",
+      marginBottom: "12px"
     },
 
     title: {
       fontFamily: "Playfair Display, serif",
-      fontSize: "2rem",
-      fontWeight: "600",
-      marginBottom: "8px",
-      letterSpacing: "0.5px"
+      fontSize: "1.9rem",
+      fontWeight: "500",
+      marginBottom: "6px",
+      color: "#111827"
     },
 
     subtitle: {
-      fontSize: "1.2rem",
+      fontSize: "1.05rem",
       fontWeight: "500",
       color: "#374151",
-      marginBottom: "8px"
+      marginBottom: "6px"
     },
 
     tagline: {
-      fontSize: "0.95rem",
-      color: "#6b7280"
+      fontSize: "0.9rem",
+      color: "#6b7280",
+      marginBottom: "12px"
     },
 
     buttonPrimary: {
+      display: "inline-block",
       backgroundColor: "#1f3a5f",
+      color: "#ffffff",
       border: "none",
-      borderRadius: "8px",
-      padding: "10px"
+      borderRadius: "24px",
+      padding: "10px 18px",
+      fontSize: "14px",
+      fontWeight: "500",
+      boxShadow: "0 2px 6px rgba(0,0,0,0.15)"
     },
 
     buttonSecondary: {
+      display: "inline-block",
       borderColor: "#1f3a5f",
       color: "#1f3a5f",
-      borderRadius: "8px",
-      padding: "10px"
+      borderRadius: "24px",
+      padding: "10px 18px",
+      fontSize: "14px",
+      fontWeight: "500"
     }
   };
 
@@ -108,7 +117,7 @@ const RootLanding = () => {
 
           <div className="d-flex flex-column flex-md-row gap-3 mt-4 w-100">
             <Link to="/english" className="w-100">
-              <Button style={styles.buttonPrimary} className="w-100 fw-semibold">
+              <Button style={styles.buttonPrimary} className="w-100">
                 English Congregation
               </Button>
             </Link>
@@ -117,7 +126,7 @@ const RootLanding = () => {
               <Button
                 variant="outline-dark"
                 style={styles.buttonSecondary}
-                className="w-100 fw-semibold"
+                className="w-100"
               >
                 Spanish Congregation
               </Button>
