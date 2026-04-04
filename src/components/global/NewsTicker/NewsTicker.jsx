@@ -1,51 +1,47 @@
 import "./NewsTicker.scss";
+import siteContent from "../../../content/siteContent"; // ✅ NEW
 
 const NewsTicker = () => {
+  const content = siteContent.newsTicker;
+
+  const renderTickerContent = () => (
+    <>
+      {content.items.map((item, index) => (
+        <span key={index}>
+          {item}
+          &nbsp;&nbsp;&nbsp;&nbsp;✦&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>
+      ))}
+
+      {content.live && (
+        <span>
+          {content.live.text}&nbsp;
+          <a
+            href={content.live.link}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="ticker-link"
+          >
+            {content.live.platform}
+          </a>
+          &nbsp;&nbsp;&nbsp;&nbsp;✦&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>
+      )}
+    </>
+  );
+
   return (
     <div className="news-ticker-wrapper">
       <div className="news-ticker-track">
 
+        {/* ORIGINAL */}
         <div className="news-ticker-item">
-          ✝️ Good Friday — 7:30 PM joint service ✦
-          &nbsp;&nbsp;&nbsp;&nbsp;
-          🌅 Easter Sunrise — 6:30 AM (Church Lawn) ✦
-          &nbsp;&nbsp;&nbsp;&nbsp;
-          ⛪ Easter Worship — 10:00 AM (No Coffee) ✦
-          &nbsp;&nbsp;&nbsp;&nbsp;
-          🌎 Spanish Worship — Sunday 12:00 PM ✦
-          &nbsp;&nbsp;&nbsp;&nbsp;
-          📺 Join us live on{" "}
-          <a
-            href="https://www.facebook.com/unitedchurchofnorwood/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="ticker-link"
-          >
-            Facebook
-          </a>
-          &nbsp;&nbsp;&nbsp;&nbsp;✦&nbsp;&nbsp;&nbsp;&nbsp;
+          {renderTickerContent()}
         </div>
 
-        {/* DUPLICATE FOR SEAMLESS LOOP */}
+        {/* DUPLICATE FOR SMOOTH LOOP */}
         <div className="news-ticker-item">
-          ✝️ Good Friday — 7:30 PM joint service ✦
-          &nbsp;&nbsp;&nbsp;&nbsp;
-          🌅 Easter Sunrise — 6:30 AM (Church Lawn) ✦
-          &nbsp;&nbsp;&nbsp;&nbsp;
-          ⛪ Easter Worship — 10:00 AM (No Coffee) ✦
-          &nbsp;&nbsp;&nbsp;&nbsp;
-          🌎 Spanish Worship — Sunday 12:00 PM ✦
-          &nbsp;&nbsp;&nbsp;&nbsp;
-          📺 Join us live on{" "}
-          <a
-            href="https://www.facebook.com/unitedchurchofnorwood/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="ticker-link"
-          >
-            Facebook
-          </a>
-          &nbsp;&nbsp;&nbsp;&nbsp;✦&nbsp;&nbsp;&nbsp;&nbsp;
+          {renderTickerContent()}
         </div>
 
       </div>

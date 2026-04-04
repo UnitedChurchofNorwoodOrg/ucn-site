@@ -108,17 +108,22 @@ const RootLanding = () => {
           </h1>
 
           <p style={styles.subtitle}>
-            Many Peoples. One Church
-          </p>
-
-          <p style={styles.tagline}>
-            Evangelical Free Church of America
-          </p>
+          Evangelical Free Church of America
+          </p>         
+		  
+		 <p style={styles.tagline}>
+		              The United Church of Norwood is an interdenominational fellowship of Christians. 
+		             		     </p>
+		<p style={styles.tagline}>
+					             
+			         We are committed to sharing God's love and grace as revealed in the Bible and through 
+		             His Son, our Lord and Savior, Jesus Christ.
+					            </p>		           
 
           <div className="d-flex flex-column flex-md-row gap-3 mt-4 w-100">
             <Link to="/english" className="w-100">
               <Button style={styles.buttonPrimary} className="w-100">
-                English Congregation
+                English Service
               </Button>
             </Link>
 
@@ -128,7 +133,7 @@ const RootLanding = () => {
                 style={styles.buttonSecondary}
                 className="w-100"
               >
-                Spanish Congregation
+                Spanish Service
               </Button>
             </Link>
           </div>

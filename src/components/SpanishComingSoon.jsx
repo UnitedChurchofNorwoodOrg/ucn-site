@@ -2,7 +2,6 @@ import React from "react";
 import Navbar from "./layout/Navbar";
 import Footer from "./layout/Footer";
 import { Image } from "react-bootstrap";
-import { Link } from "react-router-dom";
 
 const SpanishComingSoon = () => {
   return (
@@ -42,11 +41,7 @@ const SpanishComingSoon = () => {
           </p>
 
           {/* BUTTONS */}
-          <div style={styles.buttonGroup}>
-
-            <Link to="/english" style={styles.button}>
-              English Service
-            </Link>
+          <div style={styles.buttonGroup}>           
 
             <a
               href="https://www.facebook.com/profile.php?id=100064846384317"
