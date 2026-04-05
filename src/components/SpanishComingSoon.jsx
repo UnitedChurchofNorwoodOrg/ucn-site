@@ -9,7 +9,6 @@ const SpanishComingSoon = () => {
       <Navbar />
 
       <div style={styles.container}>
-
         {/* 🔥 OVERLAY CARD */}
         <div style={styles.overlay}>
 
@@ -40,9 +39,8 @@ const SpanishComingSoon = () => {
             Sunday Worship: 12:00 PM
           </p>
 
-          {/* BUTTONS */}
-          <div style={styles.buttonGroup}>           
-
+          {/* BUTTON */}
+          <div style={styles.buttonGroup}>
             <a
               href="https://www.facebook.com/profile.php?id=100064846384317"
               target="_blank"
@@ -51,11 +49,9 @@ const SpanishComingSoon = () => {
             >
               Follow on Facebook
             </a>
-
           </div>
 
         </div>
-
       </div>
 
       <Footer />
@@ -87,12 +83,16 @@ const styles = {
     backdropFilter: "blur(4px)"
   },
 
+  // ✅ BIGGER + RESPONSIVE LOGO
   logo: {
-    maxWidth: "140px",
     width: "100%",
+    maxWidth: "260px",   // 👈 increased size
     height: "auto",
     marginBottom: "20px",
-    borderRadius: "8px"
+    borderRadius: "8px",
+    display: "block",
+    marginLeft: "auto",
+    marginRight: "auto",
   },
 
   title: {
@@ -126,18 +126,6 @@ const styles = {
     flexDirection: "column",
     gap: "12px",
     alignItems: "center"
-  },
-
-  button: {
-    display: "inline-block",
-    backgroundColor: "#1f3a5f",
-    color: "#ffffff",
-    padding: "10px 18px",
-    borderRadius: "20px",
-    textDecoration: "none",
-    fontSize: "14px",
-    fontWeight: "500",
-    boxShadow: "0 2px 6px rgba(0,0,0,0.2)"
   },
 
   buttonSecondary: {

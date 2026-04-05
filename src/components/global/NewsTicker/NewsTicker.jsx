@@ -1,5 +1,5 @@
 import "./NewsTicker.scss";
-import siteContent from "../../../content/siteContent"; // ✅ NEW
+import siteContent from "../../../content/englishSiteContent"; // ✅ NEW
 
 const NewsTicker = () => {
   const content = siteContent.newsTicker;

@@ -75,14 +75,25 @@ const LandingPage = () => {
             >
 
               {/* HEADER */}
-              <div className="py-4 border-bottom text-center">
+              <div className="pt-4 pb-3 border-bottom text-center">
                 <img
-                  src={process.env.PUBLIC_URL + "/images/UCNLogo.jpg"}
+                  src={process.env.PUBLIC_URL + "/images/UNCLogoTrans.png"}
                   alt="UCN Logo"
-                  style={{ height: "60px", marginBottom: "10px" }}
+                  style={{
+                    height: "80px",
+                    marginBottom: "10px", // ✅ reduced gap
+                    display: "block",
+                    marginLeft: "auto",
+                    marginRight: "auto"
+                  }}
                 />
 
-                <h2 style={{ fontFamily: "Playfair Display, serif" }}>
+                <h2
+                  style={{
+                    fontFamily: "Playfair Display, serif",
+                    marginBottom: "5px" // ✅ tighter spacing
+                  }}
+                >
                   United Church of Norwood
                 </h2>
 

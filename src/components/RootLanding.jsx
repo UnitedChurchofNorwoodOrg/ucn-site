@@ -2,8 +2,12 @@ import { Link } from "react-router-dom";
 import { Button } from "react-bootstrap";
 import Footer from "./layout/Footer";
 import NewsTicker from "./global/NewsTicker/NewsTicker";
+import englishSiteContent from "../content/englishSiteContent";
 
 const RootLanding = () => {
+
+  const content = englishSiteContent.rootLanding;
+
   const styles = {
     container: {
       minHeight: "100vh",
@@ -40,10 +44,14 @@ const RootLanding = () => {
       boxShadow: "0 8px 25px rgba(0,0,0,0.12)"
     },
 
-    logo: {
-      height: "56px",
-      marginBottom: "12px"
-    },
+	logo: {
+	  height: "72px",      // 👈 increased from 56 → nice boost
+	  width: "auto",       // keep aspect ratio (no distortion)
+	  marginBottom: "14px",
+	  display: "block",
+	  marginLeft: "auto",
+	  marginRight: "auto"
+	},
 
     title: {
       fontFamily: "Playfair Display, serif",
@@ -98,32 +106,31 @@ const RootLanding = () => {
 
         <div style={styles.content}>
           <img
-            src={process.env.PUBLIC_URL + "/images/UCNLogo.jpg"}
+            src={process.env.PUBLIC_URL + "/images/UNCLogoTrans.png"}
             alt="Church Logo"
             style={styles.logo}
           />
 
           <h1 style={styles.title}>
-            United Church of Norwood
+            {content.title}
           </h1>
 
           <p style={styles.subtitle}>
-          Evangelical Free Church of America
-          </p>         
-		  
-		 <p style={styles.tagline}>
-		              The United Church of Norwood is an interdenominational fellowship of Christians. 
-		             		     </p>
-		<p style={styles.tagline}>
-					             
-			         We are committed to sharing God's love and grace as revealed in the Bible and through 
-		             His Son, our Lord and Savior, Jesus Christ.
-					            </p>		           
+            {content.subtitle}
+          </p>
+
+          <p style={styles.tagline}>
+            {content.tagline1}
+          </p>
+
+          <p style={styles.tagline}>
+            {content.tagline2}
+          </p>
 
           <div className="d-flex flex-column flex-md-row gap-3 mt-4 w-100">
             <Link to="/english" className="w-100">
               <Button style={styles.buttonPrimary} className="w-100">
-                English Service
+                {content.buttons.english}
               </Button>
             </Link>
 
@@ -133,7 +140,7 @@ const RootLanding = () => {
                 style={styles.buttonSecondary}
                 className="w-100"
               >
-                Spanish Service
+                {content.buttons.spanish}
               </Button>
             </Link>
           </div>
