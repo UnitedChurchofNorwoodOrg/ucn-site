@@ -1,7 +1,7 @@
 import { Route, Switch } from "react-router-dom";
 import RootLanding from "./components/RootLanding";
 import LandingPage from "./components/views/LandingPage/LandingPage";
-import SpanishComingSoon from "./components/SpanishComingSoon";
+import SpanishComingSoon from "./components/views/LandingPageSpanish/SpanishComingSoon";
 
 function App() {
   return (
