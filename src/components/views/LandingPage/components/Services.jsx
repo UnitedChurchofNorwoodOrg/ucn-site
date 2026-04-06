@@ -1,19 +1,22 @@
 import { Row, Col, Image } from "react-bootstrap";
+import englishSiteContent from "../../../../content/englishSiteContent";
 
 const Services = () => {
+  const { services } = englishSiteContent;
+
   return (
     <div className="bg-white">
 
       {/* 🖼️ IMAGE FIRST */}
       <div style={styles.imageContainer}>
         <Image
-          src={process.env.PUBLIC_URL + "/images/services.jpg"}
-          alt="Sunday Worship"
+          src={process.env.PUBLIC_URL + services.image.src}
+          alt={services.image.alt}
           style={styles.image}
         />
 
         <p style={styles.caption}>
-          Sunday Worship Service
+          {services.image.caption}
         </p>
       </div>
 
@@ -22,59 +25,37 @@ const Services = () => {
         <Col xs={12} md={10} lg={8} className="px-3 px-md-0 py-5">
 
           <h2 style={styles.title}>
-            Visiting Us
+            {services.title}
           </h2>
 
-          <p style={styles.paragraph}>
-            Whether you're just beginning your Christian journey or have been a believer for years, 
-            we want you to feel comfortable and spiritually nourished here.
-          </p>
-
-          <p style={styles.paragraph}>
-            If you're thinking about visiting us, here’s what our service is like:
-          </p>
-
-          <div style={styles.section}>
-            <h5 style={styles.sectionTitle}>How long is the service?</h5>
-            <p style={styles.paragraph}>
-              Our Sunday morning service begins at 10:00 and concludes at 11:00.
+          {/* INTRO */}
+          {services.intro.map((text, index) => (
+            <p key={index} style={styles.paragraph}>
+              {text}
             </p>
-          </div>
+          ))}
 
-          <div style={styles.section}>
-            <h5 style={styles.sectionTitle}>What kind of message will I hear?</h5>
-            <p style={styles.paragraph}>
-              You will hear a Bible-based, inspirational message designed to encourage, teach, 
-              and help us navigate daily life.
-            </p>
-          </div>
+          {/* SECTIONS */}
+          {services.sections.map((section, index) => (
+            <div
+              key={index}
+              style={
+                index === services.sections.length - 1
+                  ? styles.sectionLast
+                  : styles.section
+              }
+            >
+              <h5 style={styles.sectionTitle}>
+                {section.title}
+              </h5>
 
-          <div style={styles.section}>
-            <h5 style={styles.sectionTitle}>What should I wear?</h5>
-            <p style={styles.paragraph}>
-              There is no dress code, so wear what you're comfortable in. 
-              Some attend casually, while others dress more formally.
-            </p>
-          </div>
-
-          <div style={styles.section}>
-            <h5 style={styles.sectionTitle}>What is the music like?</h5>
-            <p style={styles.paragraph}>
-              Our service features a blended mix of praise songs, traditional hymns, and gospel music. 
-              The choir sings weekly from September through June and monthly during summer.
-            </p>
-          </div>
-
-          <div style={styles.sectionLast}>
-            <h5 style={styles.sectionTitle}>What about children?</h5>
-            <p style={styles.paragraph}>
-              Sunday School is available during the service for children ages 4 and up.
-            </p>
-            <p style={styles.paragraph}>
-              A church parlor near the sanctuary is also available for children of all ages, 
-              with an audio feed of the service, toys, and books.
-            </p>
-          </div>
+              {section.paragraphs.map((text, i) => (
+                <p key={i} style={styles.paragraph}>
+                  {text}
+                </p>
+              ))}
+            </div>
+          ))}
 
         </Col>
       </Row>

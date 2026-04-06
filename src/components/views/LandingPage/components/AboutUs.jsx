@@ -1,19 +1,22 @@
 import { Row, Col, Image } from "react-bootstrap";
+import englishSiteContent from "../../../../content/englishSiteContent";
 
 const AboutUs = () => {
+  const { aboutUs } = englishSiteContent;
+
   return (
     <div className="bg-white">
 
       {/* 🖼️ IMAGE FIRST */}
       <div style={styles.imageContainer}>
         <Image
-          src={process.env.PUBLIC_URL + "/images/aboutus.jpg"}
-          alt="Congregation"
+          src={process.env.PUBLIC_URL + aboutUs.image.src}
+          alt={aboutUs.image.alt}
           style={styles.image}
         />
 
         <p style={styles.caption}>
-          Our Congregation
+          {aboutUs.image.caption}
         </p>
       </div>
 
@@ -21,38 +24,32 @@ const AboutUs = () => {
       <Row className="justify-content-center m-0">
         <Col xs={12} md={10} lg={8} className="px-3 px-md-0 py-5">
 
-          <p style={styles.paragraph}>
-            The United Church of Norwood is an interdenominational fellowship of Christians. 
-            We are committed to sharing God's love and grace as revealed in the Bible and through 
-            His Son, our Lord and Savior, Jesus Christ.
-          </p>
-
-          <p style={styles.paragraph}>
-            We pray that worshipping with us will give you comfort and strength to meet your needs. 
-            Please call on us if we can minister to you in any way.
-          </p>
-
-          <div style={styles.section}>
-            <h5 style={styles.sectionTitle}>Our Congregation</h5>
-            <p style={styles.paragraph}>
-              We are a friendly and caring congregation who would love to have you join us as we worship the Lord.
+          {/* INTRO PARAGRAPHS */}
+          {aboutUs.intro.map((text, index) => (
+            <p key={index} style={styles.paragraph}>
+              {text}
             </p>
-          </div>
+          ))}
 
-          <div style={styles.section}>
-            <h5 style={styles.sectionTitle}>Our Building</h5>
-            <p style={styles.paragraph}>
-              The cornerstone for our historic building was laid in 1885. It has been alive with worship ever since.
-            </p>
-          </div>
+          {/* SECTIONS */}
+          {aboutUs.sections.map((section, index) => (
+            <div
+              key={index}
+              style={
+                index === aboutUs.sections.length - 1
+                  ? styles.sectionLast
+                  : styles.section
+              }
+            >
+              <h5 style={styles.sectionTitle}>
+                {section.title}
+              </h5>
 
-          <div style={styles.sectionLast}>
-            <h5 style={styles.sectionTitle}>Norwood, Massachusetts</h5>
-            <p style={styles.paragraph}>
-              Norwood, Massachusetts, located approximately 12 miles southwest of Boston, is home to over 29,000 residents. 
-              Named after Norwood, England, the area was first settled by Ezra Morse in 1678 and officially formed in 1872.
-            </p>
-          </div>
+              <p style={styles.paragraph}>
+                {section.text}
+              </p>
+            </div>
+          ))}
 
         </Col>
       </Row>

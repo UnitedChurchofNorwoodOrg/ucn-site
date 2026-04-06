@@ -1,19 +1,22 @@
 import { Row, Col, Image } from "react-bootstrap";
+import englishSiteContent from "../../../../content/englishSiteContent";
 
 const Home = () => {
+  const { home } = englishSiteContent;
+
   return (
     <div className="bg-white">
 
       {/* 🖼️ IMAGE FIRST */}
       <div style={styles.imageContainer}>
         <Image
-          src={process.env.PUBLIC_URL + "/images/home.jpeg"}
-          alt="Church"
+          src={process.env.PUBLIC_URL + home.image.src}
+          alt={home.image.alt}
           style={styles.image}
         />
 
         <p style={styles.caption}>
-          United Church of Norwood
+          {home.image.caption}
         </p>
       </div>
 
@@ -22,45 +25,45 @@ const Home = () => {
         <Col xs={12} className="px-4 py-5">
 
           <h2 style={styles.title}>
-            Welcome
+            {home.title}
           </h2>
 
           <p style={styles.paragraph}>
-            We invite you to join us in worship and fellowship as we share God’s love and grace together.
+            {home.intro}
           </p>
 
           <p style={styles.service}>
-            Sunday Worship: 10:00 AM
+            {home.serviceTime}
           </p>
 
           <div style={{ marginTop: "12px" }}>
             <a
-              href="https://www.facebook.com/unitedchurchofnorwood/"
+              href={home.live.link}
               target="_blank"
               rel="noreferrer"
               style={styles.button}
             >
-              Join us live on Facebook
+              {home.live.text}
             </a>
           </div>
 
           <hr style={styles.divider} />
 
           <p style={styles.paragraph}>
-            For more information about the Evangelical Free Church of America:
+            {home.efca.text}
           </p>
 
           <a
-            href="https://www.efca.org/"
+            href={home.efca.link}
             target="_blank"
             rel="noreferrer"
             style={styles.link}
           >
-            www.efca.org
+            {home.efca.label}
           </a>
 
           <p style={styles.scripture}>
-            “Let all that you do be done in love.” — 1 Corinthians 16:14
+            {home.scripture}
           </p>
 
         </Col>

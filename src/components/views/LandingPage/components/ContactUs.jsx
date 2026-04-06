@@ -1,43 +1,46 @@
 import { Row, Col } from "react-bootstrap";
+import englishSiteContent from "../../../../content/englishSiteContent";
 
 const ContactUs = () => {
+  const { contactUs } = englishSiteContent;
+
+  const mapQuery = contactUs.map.query;
+  const mapUrl = `https://www.google.com/maps?q=${encodeURIComponent(mapQuery)}`;
+
   return (
     <div className="bg-white">
 
       <Row className="w-100 m-0 justify-content-center">
-
         <Col xs={12} md={10} lg={8} className="px-4 py-5 text-center">
 
           <h2 style={styles.title}>
-            Contact Us
+            {contactUs.title}
           </h2>
 
           <p style={styles.paragraph}>
-            We would love to hear from you. Please feel free to reach out using the information below.
+            {contactUs.description}
           </p>
 
           {/* CONTACT INFO */}
           <div style={styles.infoBlock}>
-
             <p style={styles.info}>
-              📞 781-762-2589
+              📞 {contactUs.contact.phone}
             </p>
 
             <p style={styles.info}>
-              ✉️ unitedchurchofnorwood@gmail.com
+              ✉️ {contactUs.contact.email}
             </p>
-
           </div>
 
-          {/* 🔥 BUTTON */}
+          {/* BUTTON */}
           <div style={{ marginTop: "18px" }}>
             <a
-              href="https://www.google.com/maps?q=595+Washington+Street+Norwood+MA"
+              href={mapUrl}
               target="_blank"
               rel="noreferrer"
               style={styles.button}
             >
-              Get Directions
+              {contactUs.map.buttonText}
             </a>
           </div>
 
@@ -45,7 +48,7 @@ const ContactUs = () => {
           <div style={styles.mapWrapper}>
             <iframe
               title="Church Location"
-              src="https://www.google.com/maps?q=595+Washington+Street+Norwood+MA&output=embed"
+              src={`${mapUrl}&output=embed`}
               width="100%"
               height="320"
               style={styles.map}
@@ -55,7 +58,6 @@ const ContactUs = () => {
           </div>
 
         </Col>
-
       </Row>
 
     </div>
@@ -88,13 +90,12 @@ const styles = {
     marginBottom: "6px"
   },
 
-  /* 🔥 GOOGLE-STYLE BUTTON */
   button: {
     display: "inline-block",
     backgroundColor: "#1f3a5f",
     color: "#ffffff",
     padding: "10px 18px",
-    borderRadius: "20px",     // pill shape
+    borderRadius: "20px",
     textDecoration: "none",
     fontSize: "14px",
     fontWeight: "500",

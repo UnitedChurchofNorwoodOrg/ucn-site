@@ -1,20 +1,20 @@
 import { Row, Col } from "react-bootstrap";
-
-const photoAlbum = require('../photos.json');
+import englishSiteContent from "../../../../content/englishSiteContent";
+const photoAlbum = require("../photos.json");
 
 const Photos = () => {
+  const { photos } = englishSiteContent;
+
   return (
     <div className="bg-white px-3 py-3">
 
       <h2 className="fw-bold mb-4" style={{ color: "#111827" }}>
-        Photo Gallery
+        {photos.title}
       </h2>
 
       <Row className="g-4">
-
         {[...photoAlbum.photos].reverse().map((photo) => (
           <Col xs={12} key={photo}>
-
             <div
               style={{
                 borderRadius: "10px",
@@ -32,10 +32,8 @@ const Photos = () => {
                 }}
               />
             </div>
-
           </Col>
         ))}
-
       </Row>
 
     </div>

@@ -1,6 +1,6 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
 import { Row, Col, Dropdown } from "react-bootstrap";
-import Home from './components/Home';
+import Home from "./components/Home";
 import AboutUs from "./components/AboutUs";
 import MenuButton from "../../global/MenuButton/MenuButton";
 import Services from "./components/Services";
@@ -11,14 +11,18 @@ import ContactUs from "./components/ContactUs";
 import Hamburger from "hamburger-react";
 import Footer from "../../layout/Footer";
 import NewsTicker from "../../global/NewsTicker/NewsTicker";
+import englishSiteContent from "../../../content/englishSiteContent";
 
 const LandingPage = () => {
-  const [tab, setTab] = useState('Home');
+  const [tab, setTab] = useState("Home");
   const [openHamburger, setOpenHamburger] = useState(false);
-  const [selected, setSelected] = useState('Home');
+  const [selected, setSelected] = useState("Home");
+
+  const { landingPage } = englishSiteContent;
+  const menuArray = landingPage.menu;
 
   useEffect(() => {
-    setTab('Home');
+    setTab("Home");
   }, []);
 
   const handleMenuClick = (value) => {
@@ -27,22 +31,13 @@ const LandingPage = () => {
     setSelected(value);
   };
 
-  const menuArray = [
-    'Home',
-    'About Us',
-    'Services',
-    'Our Staff',
-    'Ministries',
-    'Photos',
-    'Contact Us',
-  ];
-
   return (
     <>
       <div
         className="w-100 overflow-hidden position-relative"
         style={{
-          backgroundImage: "url(" + process.env.PUBLIC_URL + "/images/UNC.jpg)",
+          backgroundImage:
+            "url(" + process.env.PUBLIC_URL + "/images/UNC.jpg)",
           backgroundSize: "cover",
           backgroundPosition: "center",
           minHeight: "100vh",
@@ -73,32 +68,34 @@ const LandingPage = () => {
                 backdropFilter: "blur(6px)",
               }}
             >
-
               {/* HEADER */}
               <div className="pt-4 pb-3 border-bottom text-center">
                 <img
-                  src={process.env.PUBLIC_URL + "/images/UNCLogoTrans.png"}
+                  src={
+                    process.env.PUBLIC_URL +
+                    "/images/UNCLogoTrans.png"
+                  }
                   alt="UCN Logo"
                   style={{
                     height: "80px",
-                    marginBottom: "10px", // ✅ reduced gap
+                    marginBottom: "10px",
                     display: "block",
                     marginLeft: "auto",
-                    marginRight: "auto"
+                    marginRight: "auto",
                   }}
                 />
 
                 <h2
                   style={{
                     fontFamily: "Playfair Display, serif",
-                    marginBottom: "5px" // ✅ tighter spacing
+                    marginBottom: "5px",
                   }}
                 >
-                  United Church of Norwood
+                  {landingPage.header.title}
                 </h2>
 
                 <p className="text-muted mb-0">
-                  Many Peoples. One Church
+                  {landingPage.header.subtitle}
                 </p>
               </div>
 
@@ -144,7 +141,7 @@ const LandingPage = () => {
                     fontSize: "1.05rem",
                     fontWeight: "600",
                     color: "#1f2937",
-                    letterSpacing: "0.5px"
+                    letterSpacing: "0.5px",
                   }}
                 >
                   {tab}
@@ -153,7 +150,6 @@ const LandingPage = () => {
 
               {/* CONTENT */}
               <div className="d-flex flex-wrap">
-
                 {/* SIDEBAR */}
                 <div className="d-none d-md-flex flex-column col-md-3 border-end">
                   {menuArray.map((item) => (
@@ -177,7 +173,6 @@ const LandingPage = () => {
                   {tab === "Photos" && <Photos />}
                   {tab === "Contact Us" && <ContactUs />}
                 </div>
-
               </div>
             </Col>
           </Row>

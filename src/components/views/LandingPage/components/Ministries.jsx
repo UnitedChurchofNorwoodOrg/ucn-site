@@ -1,19 +1,22 @@
 import { Row, Col, Image } from "react-bootstrap";
+import englishSiteContent from "../../../../content/englishSiteContent";
 
 const Ministries = () => {
+  const { ministries } = englishSiteContent;
+
   return (
     <div className="bg-white">
 
       {/* 🖼️ IMAGE FIRST */}
       <div style={styles.imageContainer}>
         <Image
-          src={process.env.PUBLIC_URL + "/images/ministries.jpeg"}
-          alt="Choir Ministry"
+          src={process.env.PUBLIC_URL + ministries.image.src}
+          alt={ministries.image.alt}
           style={styles.image}
         />
 
         <p style={styles.caption}>
-          Choir & Worship Ministry
+          {ministries.image.caption}
         </p>
       </div>
 
@@ -22,74 +25,29 @@ const Ministries = () => {
         <Col xs={12} md={10} lg={8} className="px-3 px-md-0 py-5">
 
           <h2 style={styles.title}>
-            How You Can Serve
+            {ministries.title}
           </h2>
 
-          <div style={styles.section}>
-            <h5 style={styles.sectionTitle}>
-              Music Ministry
-            </h5>
+          {ministries.sections.map((section, index) => (
+            <div
+              key={index}
+              style={
+                index === ministries.sections.length - 1
+                  ? styles.sectionLast
+                  : styles.section
+              }
+            >
+              <h5 style={styles.sectionTitle}>
+                {section.title}
+              </h5>
 
-            <p style={styles.paragraph}>
-              The Worship Team leads congregational hymns and praise songs each Sunday morning. 
-              If you play an instrument and feel called to serve the Lord with your music, please 
-              speak to Worship Team leader, Rachel McMahon.
-            </p>
-
-            <p style={styles.paragraph}>
-              The Choir joyfully provides special music every Sunday from September through June, 
-              as well as on Communion Sundays in July and August. If you have a heart to serve God 
-              in song, speak to Steve Rudolph, the choir director.
-            </p>
-          </div>
-
-          <div style={styles.section}>
-            <h5 style={styles.sectionTitle}>
-              WISH (Women in Service to Him)
-            </h5>
-
-            <p style={styles.paragraph}>
-              WISH is a fellowship and service group open to all women in the church. Our mission 
-              is to be a light to the world by serving others while nurturing our faith as Christian women.
-            </p>
-
-            <p style={styles.paragraph}>
-              Activities include fundraisers supporting missions worldwide, helping with local needs, 
-              brunches with our Spanish sisters, craft activities, guest speakers, and meaningful discussions 
-              that strengthen friendships and faith.
-            </p>
-          </div>
-
-          <div style={styles.section}>
-            <h5 style={styles.sectionTitle}>
-              Congregational Care Team
-            </h5>
-
-            <p style={styles.paragraph}>
-              Providing for the needs of those in our church community.
-            </p>
-          </div>
-
-          <div style={styles.section}>
-            <h5 style={styles.sectionTitle}>
-              Hospitality Team
-            </h5>
-
-            <p style={styles.paragraph}>
-              Keeping our church community connected through special times of fellowship, 
-              including weekly coffee time.
-            </p>
-          </div>
-
-          <div style={styles.sectionLast}>
-            <h5 style={styles.sectionTitle}>
-              Building Stewards
-            </h5>
-
-            <p style={styles.paragraph}>
-              Giving vision to the use and care of our property and overseeing the needs of our building.
-            </p>
-          </div>
+              {section.paragraphs.map((text, i) => (
+                <p key={i} style={styles.paragraph}>
+                  {text}
+                </p>
+              ))}
+            </div>
+          ))}
 
         </Col>
       </Row>
