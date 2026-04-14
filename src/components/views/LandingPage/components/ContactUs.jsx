@@ -1,8 +1,12 @@
 import { Row, Col } from "react-bootstrap";
+import { useState } from "react";
 import englishSiteContent from "../../../../content/englishSiteContent";
 
 const ContactUs = () => {
   const { contactUs } = englishSiteContent;
+
+  const [hovered, setHovered] = useState(false);
+  const [active, setActive] = useState(false);
 
   const mapQuery = contactUs.map.query;
   const mapUrl = `https://www.google.com/maps?q=${encodeURIComponent(mapQuery)}`;
@@ -38,7 +42,25 @@ const ContactUs = () => {
               href={mapUrl}
               target="_blank"
               rel="noreferrer"
-              style={styles.button}
+              style={{
+                ...styles.button,
+                backgroundColor: active
+                  ? "#162c47"
+                  : hovered
+                  ? "#3a5f85"
+                  : "#1f3a5f",
+                transform: active ? "scale(0.97)" : "scale(1)",
+                boxShadow: active
+                  ? "0 1px 3px rgba(0,0,0,0.2)"
+                  : "0 2px 6px rgba(0,0,0,0.1)"
+              }}
+              onMouseEnter={() => setHovered(true)}
+              onMouseLeave={() => {
+                setHovered(false);
+                setActive(false);
+              }}
+              onMouseDown={() => setActive(true)}
+              onMouseUp={() => setActive(false)}
             >
               {contactUs.map.buttonText}
             </a>
@@ -99,7 +121,9 @@ const styles = {
     textDecoration: "none",
     fontSize: "14px",
     fontWeight: "500",
-    boxShadow: "0 2px 6px rgba(0,0,0,0.1)"
+    boxShadow: "0 2px 6px rgba(0,0,0,0.1)",
+    transition: "all 0.15s ease",
+    cursor: "pointer"
   },
 
   mapWrapper: {

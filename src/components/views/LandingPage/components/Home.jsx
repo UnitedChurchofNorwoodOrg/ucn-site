@@ -1,8 +1,12 @@
 import { Row, Col, Image } from "react-bootstrap";
+import { useState } from "react";
 import englishSiteContent from "../../../../content/englishSiteContent";
 
 const Home = () => {
   const { home } = englishSiteContent;
+
+  const [hovered, setHovered] = useState(false);
+  const [active, setActive] = useState(false);
 
   return (
     <div className="bg-white">
@@ -41,7 +45,25 @@ const Home = () => {
               href={home.live.link}
               target="_blank"
               rel="noreferrer"
-              style={styles.button}
+              style={{
+                ...styles.button,
+                backgroundColor: active
+                  ? "#162c47"
+                  : hovered
+                  ? "#3a5f85"
+                  : "#1f3a5f",
+                transform: active ? "scale(0.97)" : "scale(1)",
+                boxShadow: active
+                  ? "0 1px 3px rgba(0,0,0,0.2)"
+                  : "0 2px 6px rgba(0,0,0,0.1)"
+              }}
+              onMouseEnter={() => setHovered(true)}
+              onMouseLeave={() => {
+                setHovered(false);
+                setActive(false);
+              }}
+              onMouseDown={() => setActive(true)}
+              onMouseUp={() => setActive(false)}
             >
               {home.live.text}
             </a>
@@ -123,7 +145,9 @@ const styles = {
     textDecoration: "none",
     fontSize: "14px",
     fontWeight: "500",
-    boxShadow: "0 2px 6px rgba(0,0,0,0.1)"
+    boxShadow: "0 2px 6px rgba(0,0,0,0.1)",
+    transition: "all 0.15s ease",
+    cursor: "pointer"
   },
 
   link: {

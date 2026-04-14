@@ -77,12 +77,13 @@ const RootLanding = () => {
       marginBottom: "12px"
     },
 
+    // ✅ UPDATED HERE
     buttonPrimary: {
       backgroundColor:
         active === "eng"
           ? "#162c47"
           : hovered === "eng"
-          ? "#27496d"
+          ? "#3a5f85" // 👈 lighter navy hover
           : "#1f3a5f",
       color: "#ffffff",
       border: "none",
@@ -95,16 +96,16 @@ const RootLanding = () => {
           ? "0 1px 3px rgba(0,0,0,0.2)"
           : "0 2px 6px rgba(0,0,0,0.15)",
       transform: active === "eng" ? "scale(0.97)" : "scale(1)",
-      transition: "all 0.15s ease",
+      transition: "all 0.2s ease-in-out",
       cursor: "pointer"
     },
 
     buttonSecondary: {
       backgroundColor:
         active === "spa"
-          ? "#d1d5db" // click
+          ? "#d1d5db"
           : hovered === "spa"
-          ? "#e5e7eb" // hover (light grey)
+          ? "#e5e7eb"
           : "#f9fafb",
       border: "1px solid #1f3a5f",
       color: "#1f3a5f",
@@ -113,7 +114,7 @@ const RootLanding = () => {
       fontSize: "14px",
       fontWeight: "500",
       transform: active === "spa" ? "scale(0.97)" : "scale(1)",
-      transition: "all 0.15s ease",
+      transition: "all 0.2s ease-in-out",
       cursor: "pointer"
     }
   };
