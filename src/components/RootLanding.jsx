@@ -1,12 +1,15 @@
 import { Link } from "react-router-dom";
 import { Button } from "react-bootstrap";
+import { useState } from "react";
 import Footer from "./layout/Footer";
 import NewsTicker from "./global/NewsTicker/NewsTicker";
 import englishSiteContent from "../content/englishSiteContent";
 
 const RootLanding = () => {
-
   const content = englishSiteContent.rootLanding;
+
+  const [hovered, setHovered] = useState(null);
+  const [active, setActive] = useState(null);
 
   const styles = {
     container: {
@@ -44,14 +47,14 @@ const RootLanding = () => {
       boxShadow: "0 8px 25px rgba(0,0,0,0.12)"
     },
 
-	logo: {
-	  height: "72px",      // 👈 increased from 56 → nice boost
-	  width: "auto",       // keep aspect ratio (no distortion)
-	  marginBottom: "14px",
-	  display: "block",
-	  marginLeft: "auto",
-	  marginRight: "auto"
-	},
+    logo: {
+      height: "72px",
+      width: "auto",
+      marginBottom: "14px",
+      display: "block",
+      marginLeft: "auto",
+      marginRight: "auto"
+    },
 
     title: {
       fontFamily: "Playfair Display, serif",
@@ -75,25 +78,43 @@ const RootLanding = () => {
     },
 
     buttonPrimary: {
-      display: "inline-block",
-      backgroundColor: "#1f3a5f",
+      backgroundColor:
+        active === "eng"
+          ? "#162c47"
+          : hovered === "eng"
+          ? "#27496d"
+          : "#1f3a5f",
       color: "#ffffff",
       border: "none",
       borderRadius: "24px",
       padding: "10px 18px",
       fontSize: "14px",
       fontWeight: "500",
-      boxShadow: "0 2px 6px rgba(0,0,0,0.15)"
+      boxShadow:
+        active === "eng"
+          ? "0 1px 3px rgba(0,0,0,0.2)"
+          : "0 2px 6px rgba(0,0,0,0.15)",
+      transform: active === "eng" ? "scale(0.97)" : "scale(1)",
+      transition: "all 0.15s ease",
+      cursor: "pointer"
     },
 
     buttonSecondary: {
-      display: "inline-block",
-      borderColor: "#1f3a5f",
+      backgroundColor:
+        active === "spa"
+          ? "#d1d5db" // click
+          : hovered === "spa"
+          ? "#e5e7eb" // hover (light grey)
+          : "#f9fafb",
+      border: "1px solid #1f3a5f",
       color: "#1f3a5f",
       borderRadius: "24px",
       padding: "10px 18px",
       fontSize: "14px",
-      fontWeight: "500"
+      fontWeight: "500",
+      transform: active === "spa" ? "scale(0.97)" : "scale(1)",
+      transition: "all 0.15s ease",
+      cursor: "pointer"
     }
   };
 
@@ -111,34 +132,35 @@ const RootLanding = () => {
             style={styles.logo}
           />
 
-          <h1 style={styles.title}>
-            {content.title}
-          </h1>
+          <h1 style={styles.title}>{content.title}</h1>
 
-          <p style={styles.subtitle}>
-            {content.subtitle}
-          </p>
+          <p style={styles.subtitle}>{content.subtitle}</p>
 
-          <p style={styles.tagline}>
-            {content.tagline1}
-          </p>
-
-          <p style={styles.tagline}>
-            {content.tagline2}
-          </p>
+          <p style={styles.tagline}>{content.tagline1}</p>
+          <p style={styles.tagline}>{content.tagline2}</p>
 
           <div className="d-flex flex-column flex-md-row gap-3 mt-4 w-100">
             <Link to="/english" className="w-100">
-              <Button style={styles.buttonPrimary} className="w-100">
+              <Button
+                style={styles.buttonPrimary}
+                className="w-100"
+                onMouseEnter={() => setHovered("eng")}
+                onMouseLeave={() => setHovered(null)}
+                onMouseDown={() => setActive("eng")}
+                onMouseUp={() => setActive(null)}
+              >
                 {content.buttons.english}
               </Button>
             </Link>
 
             <Link to="/spanish" className="w-100">
               <Button
-                variant="outline-dark"
                 style={styles.buttonSecondary}
                 className="w-100"
+                onMouseEnter={() => setHovered("spa")}
+                onMouseLeave={() => setHovered(null)}
+                onMouseDown={() => setActive("spa")}
+                onMouseUp={() => setActive(null)}
               >
                 {content.buttons.spanish}
               </Button>
