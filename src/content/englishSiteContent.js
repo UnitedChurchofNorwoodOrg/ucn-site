@@ -12,11 +12,12 @@ const englishSiteContent = {
    * ============================================================
    */
   rootLanding: {
-    title: "United Church of Norwood",
+	title: "United Church of Norwood",
+	spanishTitle: "Iglesia Cristiana de Norwood",
     subtitle: "Evangelical Free Church of America",
 
     tagline1:
-      "The United Church of Norwood is an interdenominational fellowship of Christians.",
+      "The United Church of Norwood is a fellowship of Christians.",
 
     tagline2:
       "We are committed to sharing God's love and grace as revealed in the Bible and through His Son, our Lord and Savior, Jesus Christ.",
@@ -108,7 +109,8 @@ const englishSiteContent = {
     intro:
       "We invite you to join us in worship and fellowship as we share God’s love and grace together.",
 
-    serviceTime: "Sunday Worship: 10:00 AM",
+    serviceTime1: "Sunday Worship",
+	serviceTime2: "⛪ English : 10:00 AM ⛪ Spanish : 12:00 PM",
 
     live: {
       text: "Join us live on Facebook",
@@ -134,7 +136,7 @@ const englishSiteContent = {
     image: {
       src: "/images/ministries.jpeg",
       alt: "Choir Ministry",
-      caption: "Choir & Worship Ministry"
+      caption: "Music Ministry Team"
     },
 
     title: "How You Can Serve",
@@ -240,9 +242,9 @@ const englishSiteContent = {
     sections: [
       {
         title: "How long is the service?",
-        paragraphs: [
-          "Our Sunday morning service begins at 10:00 and concludes at 11:00."
-        ]
+		paragraphs: [
+		  "Our Sunday morning English-language service begins at 10:00 AM and typically lasts about one hour."
+		]
       },
       {
         title: "What kind of message will I hear?",
@@ -315,7 +317,7 @@ const englishSiteContent = {
     },
 
     intro: [
-      "The United Church of Norwood is an interdenominational fellowship of Christians. We are committed to sharing God's love and grace as revealed in the Bible and through His Son, our Lord and Savior, Jesus Christ.",
+      "We are committed to sharing God's love and grace as revealed in the Bible and through His Son, our Lord and Savior, Jesus Christ.",
 
       "We pray that worshipping with us will give you comfort and strength to meet your needs. Please call on us if we can minister to you in any way."
     ],
@@ -329,7 +331,7 @@ const englishSiteContent = {
       {
         title: "Our Building",
         text:
-          "The cornerstone for our historic building was laid in 1885. It has been alive with worship ever since."
+          "The cornerstone for our historic building was laid in 1885. It has been alive with worship since United Church was formed in 1934."
       },
       {
         title: "Norwood, Massachusetts",

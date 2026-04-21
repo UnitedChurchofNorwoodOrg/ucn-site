@@ -4,6 +4,7 @@ import { useState } from "react";
 import Footer from "./layout/Footer";
 import NewsTicker from "./global/NewsTicker/NewsTicker";
 import englishSiteContent from "../content/englishSiteContent";
+import CalendarSimple from "./global/CalendarSimple";
 
 const RootLanding = () => {
   const content = englishSiteContent.rootLanding;
@@ -14,7 +15,8 @@ const RootLanding = () => {
   const styles = {
     container: {
       minHeight: "100vh",
-      backgroundImage: "url(" + process.env.PUBLIC_URL + "/images/home.jpeg)",
+      backgroundImage:
+        "url(" + process.env.PUBLIC_URL + "/images/home.jpeg)",
       backgroundSize: "cover",
       backgroundPosition: "center",
       display: "flex",
@@ -77,13 +79,12 @@ const RootLanding = () => {
       marginBottom: "12px"
     },
 
-    // ✅ UPDATED HERE
     buttonPrimary: {
       backgroundColor:
         active === "eng"
           ? "#162c47"
           : hovered === "eng"
-          ? "#3a5f85" // 👈 lighter navy hover
+          ? "#3a5f85"
           : "#1f3a5f",
       color: "#ffffff",
       border: "none",
@@ -116,6 +117,16 @@ const RootLanding = () => {
       transform: active === "spa" ? "scale(0.97)" : "scale(1)",
       transition: "all 0.2s ease-in-out",
       cursor: "pointer"
+    },
+
+    // ✅ NEW CALENDAR BOX STYLE
+    calendarBox: {
+      marginTop: "20px",
+      background: "rgba(255,255,255,0.95)",
+      borderRadius: "16px",
+      padding: "16px",
+      boxShadow: "0 6px 20px rgba(0,0,0,0.1)",
+      width: "100%"
     }
   };
 
@@ -133,7 +144,12 @@ const RootLanding = () => {
             style={styles.logo}
           />
 
-          <h1 style={styles.title}>{content.title}</h1>
+		  <h1 style={styles.title}>
+		    {content.title}
+		    <span style={{ display: "block", fontSize: "0.8em", fontWeight: "400" }}>
+		      {content.spanishTitle}
+		    </span>
+		  </h1>
 
           <p style={styles.subtitle}>{content.subtitle}</p>
 
@@ -167,6 +183,14 @@ const RootLanding = () => {
               </Button>
             </Link>
           </div>
+
+          {/* ✅ CALENDAR SECTION */}
+		  <div style={styles.calendarBox}>
+		    <h5 style={{ marginBottom: "10px", color: "#1f2937" }}>
+		      Upcoming Events
+		    </h5>
+		    <CalendarSimple />
+		  </div>
         </div>
       </div>
 

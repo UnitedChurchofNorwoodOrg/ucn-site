@@ -1,4 +1,5 @@
 import { Row, Col, Image } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import englishSiteContent from "../../../../content/englishSiteContent";
 
 const Services = () => {
@@ -49,11 +50,29 @@ const Services = () => {
                 {section.title}
               </h5>
 
-              {section.paragraphs.map((text, i) => (
-                <p key={i} style={styles.paragraph}>
-                  {text}
-                </p>
-              ))}
+              {/* 🔥 UPDATED PARAGRAPH RENDER */}
+              {section.paragraphs.map((text, i) => {
+                if (section.title === "How long is the service?") {
+                  return (
+                    <p key={i} style={styles.paragraph}>
+                      Our Sunday morning English-language service begins at 10:00 AM and typically lasts about one hour. Our Spanish service begins at 12:00 PM. {" "}
+                      <Link
+                        to="/spanish"
+                        style={{ color: "#1f3a5f", fontWeight: "500" }}
+                      >
+                        (Click for more on Spanish Worship)
+                      </Link>{" "}
+                    
+                    </p>
+                  );
+                }
+
+                return (
+                  <p key={i} style={styles.paragraph}>
+                    {text}
+                  </p>
+                );
+              })}
             </div>
           ))}
 

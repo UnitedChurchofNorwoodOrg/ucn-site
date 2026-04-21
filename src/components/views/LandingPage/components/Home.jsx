@@ -37,8 +37,11 @@ const Home = () => {
           </p>
 
           <p style={styles.service}>
-            {home.serviceTime}
+            {home.serviceTime1}
           </p>
+		  <p style={styles.service}>
+		              {home.serviceTime2}
+		            </p>
 
           <div style={{ marginTop: "12px" }}>
             <a
