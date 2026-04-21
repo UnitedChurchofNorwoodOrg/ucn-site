@@ -1,16 +1,50 @@
 const CalendarSimple = () => {
+  const calendarId =
+    "1b1b5d22d089ff60b2ef371f51fcda2a7bc2aab3c4243e0ea025f27bb71d789f@group.calendar.google.com";
+
   return (
-    <iframe
-      src="https://calendar.google.com/calendar/embed?src=1b1b5d22d089ff60b2ef371f51fcda2a7bc2aab3c4243e0ea025f27bb71d789f%40group.calendar.google.com&mode=AGENDA&showTitle=0&showTabs=0&showCalendars=0&showPrint=0"
+    <div
       style={{
-        border: 0,
-        width: "100%",
-        height: "280px"
+        borderRadius: "12px",
+        overflow: "hidden",
+        border: "1px solid #e5e7eb",
+        background: "#ffffff"
       }}
-      frameBorder="0"
-      scrolling="no"
-      title="Church Events"
-    />
+    >
+      {/* 📅 Calendar (Agenda View) */}
+      <iframe
+        src={`https://calendar.google.com/calendar/embed?src=${encodeURIComponent(
+          calendarId
+        )}&mode=AGENDA&showTitle=0&showTabs=0&showCalendars=0&showPrint=0`}
+        style={{
+          border: 0,
+          width: "100%",
+          height: "220px" // 👈 compact height
+        }}
+        frameBorder="0"
+        scrolling="no"
+        title="Upcoming Events"
+      />
+
+      {/* 🔗 View Full Calendar */}
+	  <a
+	    href="https://calendar.google.com/calendar/embed?src=1b1b5d22d089ff60b2ef371f51fcda2a7bc2aab3c4243e0ea025f27bb71d789f%40group.calendar.google.com&ctz=America%2FNew_York"
+	    target="_blank"
+	    rel="noopener noreferrer"
+	    style={{
+	      display: "block",
+	      textAlign: "center",
+	      padding: "10px",
+	      fontSize: "14px",
+	      color: "#1f3a5f",
+	      textDecoration: "none",
+	      borderTop: "1px solid #e5e7eb",
+	      background: "#f9fafb"
+	    }}
+	  >
+	    View Full Calendar →
+	  </a>
+    </div>
   );
 };
 
