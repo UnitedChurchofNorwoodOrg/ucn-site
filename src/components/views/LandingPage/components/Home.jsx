@@ -39,10 +39,12 @@ const Home = () => {
           <p style={styles.service}>
             {home.serviceTime1}
           </p>
-		  <p style={styles.service}>
-		              {home.serviceTime2}
-		            </p>
-
+		  <p style={styles.paragraph}>
+		         {home.serviceTime2}
+		  </p>
+		  <p style={styles.paragraph}>
+		         {home.serviceTime3}
+		  </p>
           <div style={{ marginTop: "12px" }}>
             <a
               href={home.live.link}

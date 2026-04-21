@@ -110,7 +110,8 @@ const englishSiteContent = {
       "We invite you to join us in worship and fellowship as we share God’s love and grace together.",
 
     serviceTime1: "Sunday Worship",
-	serviceTime2: "⛪ English : 10:00 AM ⛪ Spanish : 12:00 PM",
+	serviceTime2: "⛪ English : 10:00 AM",
+	serviceTime3: "⛪ Spanish : 12:00 PM",
 
     live: {
       text: "Join us live on Facebook",
