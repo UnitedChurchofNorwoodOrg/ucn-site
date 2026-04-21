@@ -9,7 +9,14 @@ const ContactUs = () => {
   const [active, setActive] = useState(false);
 
   const mapQuery = contactUs.map.query;
-  const mapUrl = `https://www.google.com/maps?q=${encodeURIComponent(mapQuery)}`;
+
+  const mapEmbedUrl = `https://www.google.com/maps?q=${encodeURIComponent(
+    mapQuery
+  )}&z=15&output=embed`;
+
+  const mapLinkUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
+    mapQuery
+  )}`;
 
   return (
     <div className="bg-white">
@@ -28,18 +35,25 @@ const ContactUs = () => {
           {/* CONTACT INFO */}
           <div style={styles.infoBlock}>
             <p style={styles.info}>
-              📞 {contactUs.contact.phone}
+              📞{" "}
+              <a href={`tel:${contactUs.contact.phone}`} style={styles.link}>
+                {contactUs.contact.phone}
+              </a>
             </p>
 
             <p style={styles.info}>
-              ✉️ {contactUs.contact.email}
+              ✉️{" "}
+              <a href={`mailto:${contactUs.contact.email}`} style={styles.link}>
+                {contactUs.contact.email}
+              </a>
             </p>
           </div>
 
-          {/* BUTTON */}
+          {/* BUTTONS */}
           <div style={{ marginTop: "18px" }}>
+            {/* Get Directions */}
             <a
-              href={mapUrl}
+              href={mapLinkUrl}
               target="_blank"
               rel="noreferrer"
               style={{
@@ -64,17 +78,31 @@ const ContactUs = () => {
             >
               {contactUs.map.buttonText}
             </a>
+
+            {/* Facebook Button */}
+            <div style={{ marginTop: "10px" }}>
+              <a
+                href={contactUs.social.facebook}
+                target="_blank"
+                rel="noreferrer"
+                style={{
+                  ...styles.button,
+                  backgroundColor: "#1877F2"
+                }}
+              >
+                Follow us on Facebook
+              </a>
+            </div>
           </div>
 
           {/* MAP */}
           <div style={styles.mapWrapper}>
             <iframe
               title="Church Location"
-              src={`${mapUrl}&output=embed`}
+              src={mapEmbedUrl}
               width="100%"
               height="320"
               style={styles.map}
-              allowFullScreen=""
               loading="lazy"
             ></iframe>
           </div>
@@ -112,6 +140,11 @@ const styles = {
     marginBottom: "6px"
   },
 
+  link: {
+    color: "#1f3a5f",
+    textDecoration: "none"
+  },
+
   button: {
     display: "inline-block",
     backgroundColor: "#1f3a5f",
@@ -132,7 +165,8 @@ const styles = {
 
   map: {
     border: 0,
-    borderRadius: "10px"
+    borderRadius: "10px",
+    boxShadow: "0 6px 20px rgba(0,0,0,0.1)"
   }
 };
 

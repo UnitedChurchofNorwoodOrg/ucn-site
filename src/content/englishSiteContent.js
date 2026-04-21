@@ -302,7 +302,10 @@ const englishSiteContent = {
     map: {
       query: "595 Washington Street Norwood MA",
       buttonText: "Get Directions"
-    }
+    },
+	social: {
+	   facebook: "https://www.facebook.com/unitedchurchofnorwood/"
+	 }
   },
   
   /**
