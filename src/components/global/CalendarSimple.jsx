@@ -25,26 +25,7 @@ const CalendarSimple = () => {
         scrolling="no"
         title="Upcoming Events"
       />
-
-      {/* 🔗 View Full Calendar */}
-	  <a
-	    href="https://calendar.google.com/calendar/embed?src=1b1b5d22d089ff60b2ef371f51fcda2a7bc2aab3c4243e0ea025f27bb71d789f%40group.calendar.google.com&ctz=America%2FNew_York"
-	    target="_blank"
-	    rel="noopener noreferrer"
-	    style={{
-	      display: "block",
-	      textAlign: "center",
-	      padding: "10px",
-	      fontSize: "14px",
-	      color: "#1f3a5f",
-	      textDecoration: "none",
-	      borderTop: "1px solid #e5e7eb",
-	      background: "#f9fafb"
-	    }}
-	  >
-	    View Full Calendar →
-	  </a>
-    </div>
+     </div>
   );
 };
 

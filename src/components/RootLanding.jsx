@@ -4,7 +4,7 @@ import { useState } from "react";
 import Footer from "./layout/Footer";
 import NewsTicker from "./global/NewsTicker/NewsTicker";
 import englishSiteContent from "../content/englishSiteContent";
-import CalendarSimple from "./global/CalendarSimple";
+import UpcomingEvents from "./global/Calendar/UpcomingEvents";
 
 const RootLanding = () => {
   const content = englishSiteContent.rootLanding;
@@ -189,7 +189,8 @@ const RootLanding = () => {
 		    <h5 style={{ marginBottom: "10px", color: "#1f2937" }}>
 		      Upcoming Events
 		    </h5>
-		    <CalendarSimple />
+
+		    <UpcomingEvents />
 		  </div>
         </div>
       </div>
