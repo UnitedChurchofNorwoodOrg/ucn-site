@@ -36,17 +36,20 @@ const RootLanding = () => {
       zIndex: 0
     },
 
+    // ☁️ MAIN SOFT WHITE BOX
     content: {
       position: "relative",
       zIndex: 1,
-      background: "rgba(255,255,255,0.94)",
-      backdropFilter: "blur(6px)",
+      background: "rgba(255,255,255,0.84)",
+      backdropFilter: "blur(5px)",
+      WebkitBackdropFilter: "blur(5px)",
+      border: "1px solid rgba(255,255,255,0.65)",
       padding: "36px 28px",
       borderRadius: "16px",
       maxWidth: "620px",
       width: "100%",
       color: "#1f2937",
-      boxShadow: "0 8px 25px rgba(0,0,0,0.12)"
+      boxShadow: "0 8px 25px rgba(0,0,0,0.10)"
     },
 
     logo: {
@@ -119,14 +122,17 @@ const RootLanding = () => {
       cursor: "pointer"
     },
 
-    // ✅ NEW CALENDAR BOX STYLE
+    // ☁️ CALENDAR BOX (slightly lighter layer)
     calendarBox: {
       marginTop: "20px",
-      background: "rgba(255,255,255,0.95)",
+      background: "rgba(255,255,255,0.80)",
+      backdropFilter: "blur(4px)",
+      WebkitBackdropFilter: "blur(4px)",
+      border: "1px solid rgba(255,255,255,0.6)",
       borderRadius: "16px",
       padding: "16px",
-      boxShadow: "0 6px 20px rgba(0,0,0,0.1)",
-      width: "100%"
+      width: "100%",
+      boxShadow: "0 6px 18px rgba(0,0,0,0.08)"
     }
   };
 
@@ -144,12 +150,18 @@ const RootLanding = () => {
             style={styles.logo}
           />
 
-		  <h1 style={styles.title}>
-		    {content.title}
-		    <span style={{ display: "block", fontSize: "0.8em", fontWeight: "400" }}>
-		      {content.spanishTitle}
-		    </span>
-		  </h1>
+          <h1 style={styles.title}>
+            {content.title}
+            <span
+              style={{
+                display: "block",
+                fontSize: "0.8em",
+                fontWeight: "400"
+              }}
+            >
+              {content.spanishTitle}
+            </span>
+          </h1>
 
           <p style={styles.subtitle}>{content.subtitle}</p>
 
@@ -184,14 +196,14 @@ const RootLanding = () => {
             </Link>
           </div>
 
-          {/* ✅ CALENDAR SECTION */}
-		  <div style={styles.calendarBox}>
-		    <h5 style={{ marginBottom: "10px", color: "#1f2937" }}>
-		      Upcoming Events
-		    </h5>
+          {/* Upcoming Events */}
+          <div style={styles.calendarBox}>
+            <h5 style={{ marginBottom: "10px", color: "#1f2937" }}>
+              Upcoming Events
+            </h5>
 
-		    <UpcomingEvents />
-		  </div>
+            <UpcomingEvents />
+          </div>
         </div>
       </div>
 

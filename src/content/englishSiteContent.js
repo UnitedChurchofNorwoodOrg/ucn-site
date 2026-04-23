@@ -17,7 +17,7 @@ const englishSiteContent = {
     subtitle: "Evangelical Free Church of America",
 
     tagline1:
-      "The United Church of Norwood is a fellowship of Christians.",
+      "",
 
     tagline2:
       "We are committed to sharing God's love and grace as revealed in the Bible and through His Son, our Lord and Savior, Jesus Christ.",
