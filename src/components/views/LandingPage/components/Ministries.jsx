@@ -7,18 +7,20 @@ const Ministries = () => {
   return (
     <div className="bg-white">
 
-      {/* 🖼️ IMAGE FIRST */}
-      <div style={styles.imageContainer}>
-        <Image
-          src={process.env.PUBLIC_URL + ministries.image.src}
-          alt={ministries.image.alt}
-          style={styles.image}
-        />
+      
+	  
+	  {/* 🖼️ IMAGE FIRST */}
+	      <div style={styles.imageContainer}>
+	        <Image
+	          src={process.env.PUBLIC_URL + ministries.image2.src}
+	          alt={ministries.image2.alt}
+	          style={styles.image}
+	        />
 
-        <p style={styles.caption}>
-          {ministries.image.caption}
-        </p>
-      </div>
+	        <p style={styles.caption}>
+	          {ministries.image2.caption}
+	        </p>
+	      </div>
 
       {/* 🔥 CENTERED CONTENT */}
       <Row className="justify-content-center m-0">

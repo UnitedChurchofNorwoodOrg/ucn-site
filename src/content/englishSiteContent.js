@@ -24,7 +24,7 @@ const englishSiteContent = {
 
     buttons: {
       english: "English Service",
-      spanish: "Spanish Service"
+      spanish: "Servicios en español"
     }
   },
 
@@ -48,7 +48,7 @@ const englishSiteContent = {
   newsTicker: {
     items: [
       "⛪ English Worship — Sunday 10:00 AM",
-      "🌎 Spanish Worship — Sunday 12:00 PM",
+      "🌎 Servicios en español — Sunday 12:00 PM",
       "📖 Bible Study — Wednesday 6:30 PM"
     ],
 
@@ -139,6 +139,12 @@ const englishSiteContent = {
       alt: "Choir Ministry",
       caption: "Music Ministry Team"
     },
+	
+	image2: {
+	     src: "/images/UNCChoir.jpg",
+	     alt: "Choir",
+	     caption: "United Church of Norwood Choir"
+	   },
 
     title: "How You Can Serve",
 
