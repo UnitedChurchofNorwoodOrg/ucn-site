@@ -1,4 +1,4 @@
-import { Row, Col } from "react-bootstrap";
+import { Row, Col, Image } from "react-bootstrap";
 import { useState } from "react";
 import englishSiteContent from "../../../../content/englishSiteContent";
 
@@ -20,9 +20,20 @@ const ContactUs = () => {
 
   return (
     <div className="bg-white">
-
       <Row className="w-100 m-0 justify-content-center">
         <Col xs={12} md={10} lg={8} className="px-4 py-5 text-center">
+
+          {/* 🖼️ IMAGE (NOW INSIDE CONTAINER) */}
+          <div style={styles.imageContainer}>
+            <Image
+              src={process.env.PUBLIC_URL + "/images/contactus.jpeg"}
+              alt="Contact Us"
+              style={styles.image}
+            />
+            <p style={styles.caption}>
+              Visit us in person or reach out—we’d love to connect with you.
+            </p>
+          </div>
 
           <h2 style={styles.title}>
             {contactUs.title}
@@ -50,8 +61,21 @@ const ContactUs = () => {
           </div>
 
           {/* BUTTONS */}
+		  <div style={{ marginTop: "10px" }}>
+		            <a
+		              href={contactUs.social.facebook}
+		              target="_blank"
+		              rel="noreferrer"
+		              style={{
+		                ...styles.button,
+		                backgroundColor: "#1877F2"
+		              }}
+		            >
+		              Follow us on Facebook
+		            </a>
+		          </div>
           <div style={{ marginTop: "18px" }}>
-            {/* Get Directions */}
+		  
             <a
               href={mapLinkUrl}
               target="_blank"
@@ -78,21 +102,7 @@ const ContactUs = () => {
             >
               {contactUs.map.buttonText}
             </a>
-
-            {/* Facebook Button */}
-            <div style={{ marginTop: "10px" }}>
-              <a
-                href={contactUs.social.facebook}
-                target="_blank"
-                rel="noreferrer"
-                style={{
-                  ...styles.button,
-                  backgroundColor: "#1877F2"
-                }}
-              >
-                Follow us on Facebook
-              </a>
-            </div>
+        
           </div>
 
           {/* MAP */}
@@ -109,12 +119,29 @@ const ContactUs = () => {
 
         </Col>
       </Row>
-
     </div>
   );
 };
 
 const styles = {
+  imageContainer: {
+    marginBottom: "20px"
+  },
+
+  image: {
+    width: "100%",
+    maxHeight: "320px",
+    objectFit: "cover",
+    borderRadius: "10px",
+    boxShadow: "0 6px 20px rgba(0,0,0,0.1)"
+  },
+
+  caption: {
+    fontSize: "13px",
+    color: "#6b7280",
+    marginTop: "8px"
+  },
+
   title: {
     fontFamily: "Playfair Display, serif",
     color: "#111827",

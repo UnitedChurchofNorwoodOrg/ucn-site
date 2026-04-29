@@ -193,26 +193,21 @@ const englishSiteContent = {
    */
   ourStaff: {
     members: [
-      {
-        name: "Pastor Kevin",
-        image: "/images/pastor-kevin.jpeg",
-        text: "Soon after starting his journey as a Christian, Pastor Kevin was inspired to go into the ministry because of the caring and encouraging community of believers he experienced in his church. He has a Bachelor’s Degree in Political Science from Eastern CT State, a Master’s Degree in International Relations from UCONN, a Master’s Degree in Church History from Gordon Conwell Theological Seminary, plus he has taken Christian Spirituality courses from various Protestant and Catholic learning institutions. He has served at churches, a Christian High School, and with the Southern New England Walk to Emmaus team over the years. His favorite book of the Bible to preach from is Paul’s Letter to the Romans. When he’s not busy with ministry at the church, he can be found spending time with his wife, daughters, and grandsons. He might also be found studying Biblical Greek, or on a canoe/kayak trip out in the New England wilderness."
-      },
-	  {
-	  name: "Pastor Omar",
-	  image: "/images/pastor-omar.jpeg",
-	  text: `At the age of seventeen, Pastor Omar experienced a transformative encounter with Jesus in a Spanish church in Boston. It was there that he accepted the Lord as his personal Savior, and soon after, he took the important step of being baptized.
-	  For twenty-two years, Pastor Omar’s primary focus in ministry was music. During this time, he faithfully served, using his talents to lead and inspire others through worship. Alongside his work as a music minister, Pastor Omar furthered his theological education by earning a diploma in Urban Ministry from Gordon-Conwell’s Boston campus. This achievement enriched his understanding and effectiveness in ministering within urban communities.
-	  His other achievements include a chaplaincy certificate, serving as a Spanish Christian radio host, and working as a Sunday School educator.
-	  In 2018, Pastor Omar accepted the calling to serve as a church planting pastor to the Spanish community in the town of Norwood, under the leadership and guidance of Pastor Kevin Smith and the Church Council.
-	  Omar and Maritsa Medina have been married since 1994. They are blessed with two wonderful children and are thrilled to be new grandparents to a beautiful granddaughter.
-	  As a fun fact, Pastor Omar is also a piano tuner, and in his leisure time, he enjoys learning different languages.`
-	  },
+		{
+		name: "Pastor Kevin Smith",
+		image: "/images/pastor-kevin.jpeg",
+		text: "Pastor Kevin was inspired to enter ministry through the caring and encouraging Christian community he experienced early in his faith. He holds a Bachelor’s Degree in Political Science from Eastern CT State, a Master’s in International Relations from UCONN, and a Master’s in Church History from Gordon-Conwell Theological Seminary, along with studies in Christian Spirituality across Protestant and Catholic institutions. He has served in churches, a Christian high school, and with the Southern New England Walk to Emmaus team. He especially enjoys preaching from Paul’s Letter to the Romans. Outside ministry, he spends time with his wife, daughters, and grandsons, studies Biblical Greek, and enjoys canoeing and kayaking in the New England wilderness."
+		},
+		{
+		name: "Pastor Omar Medina",
+		image: "/images/pastor-omar.jpeg",
+		text: "At age seventeen, Pastor Omar had a life-changing encounter with Jesus at a Spanish church in Boston, where he accepted Christ and was baptized. For twenty-two years, he focused on music ministry, faithfully leading and inspiring others in worship. He earned a diploma in Urban Ministry from Gordon-Conwell’s Boston campus, strengthening his work in urban communities. His experience also includes chaplaincy certification, serving as a Spanish Christian radio host, and teaching Sunday School. In 2018, he answered the call to serve as a church planting pastor to the Spanish community in Norwood under Pastor Kevin Smith and the Church Council. Omar and his wife Maritsa have been married since 1994 and have two children and a granddaughter. He is also a piano tuner and enjoys learning languages in his free time."
+		},
 
       {
         name: "Janna Peterson, Church Administrator",
         image: "/images/janna.jpg",
-        text: "Janna loves being able to see how people in the church can work together to allow different ministry areas to flourish. She began serving on staff at United Church of Norwood just under 10 years ago and has been active in our WISH and Faith Seeds ministries. Her favorite book on Christian living is a classic, first sold as a book of sermons back in 1896. “In His Steps” by Charles Sheldon challenges readers not to make choices without first asking the popular question “What would Jesus do?”. When Janna isn’t in the church office, it’s likely you’ll find her with her family, sewing, or at a local quilting shop."
+        text: "Janna loves being able to see how people in the church can work together to allow different ministry areas to flourish. She began serving on staff at United Church of Norwood just under 10 years ago and has been active in our WISH and Faith Seeds ministries. Her favorite book on Christian living is a classic, first sold as a book of sermons back in 1896. “In His Steps” by Charles Sheldon challenges readers not to make choices without first asking the popular question “What would Jesus do?” When Janna isn’t in the church office, it’s likely you’ll find her with her family, sewing, or at a local quilting shop."
       },
 	  {
 	    name: "Steve Rudolph, Choir Director",
@@ -227,12 +222,12 @@ const englishSiteContent = {
       {
         name: "Chris Marinuzzi, Accompanist/Organist",
         image: "/images/chris.jpeg",
-        text: "Chris loves being able to use his musical gifts to connect spiritually with the community. One of his biggest inspirations was JS Bach, who wrote and performed all music, whether sacred or secular, for the glory of God. Chris loves serving in an atmosphere where music is a tool for community and spiritual growth more than it is a spotlight for musical performance. He has a Bachelor’s Degree in Music Performance and Composition from the Hartt School of Music, and a Master’s in composition from Tufts University. His favorite hymn to lead the congregation is “The Church’s One Foundation”. When not rehearsing at the church he can be found teaching piano lessons, working at Ogawa Coffee in Boston, and trying to fit in a good run."
+        text: "Chris loves being able to use his musical gifts to connect spiritually with the community. One of his biggest inspirations was JS Bach, who wrote and performed all music, whether sacred or secular, for the glory of God. Chris loves serving in an atmosphere where music is a tool for community and spiritual growth more than it is a spotlight for musical performance. He has a Bachelor’s Degree in Music Performance and Composition from the Hartt School of Music, and a Master’s in composition from Tufts University. His favorite hymn to lead the congregation is “The Church’s One Foundation”. When not rehearsing at the church, he can be found teaching piano lessons, working at Ogawa Coffee in Boston, and trying to fit in a good run."
       },
       {
         name: "Scott Eagles, Custodian",
         image: "/images/scott.jpeg",
-        text: "Staying connected to the great community at United Church of Norwood is Scott’s greatest motivation as he invests his time into caring for our building. He first started attending this church a number of years ago because he had heard about the exciting things his mom had to say about the church. His favorite church memory is from his first Sunday attending the service, when he is convinced God had the sermon prepared just for him to hear that day. When he has a chance to take time off from all of his various work duties, he loves to work on his motorcycle and take it out to enjoy our beautiful surroundings."
+        text: "Staying connected to the great community at United Church of Norwood is Scott’s greatest motivation as he invests his time into caring for our building. He first started attending this church a number of years ago because he had heard about the exciting things his mom had to say about the church. His favorite church memory is from his first Sunday attending the service, when he was convinced God had prepared the sermon just for him to hear that day. When he has a chance to take time off from all of his various work duties, he loves to work on his motorcycle and take it out to enjoy our beautiful surroundings."
       }
     ]
   },
