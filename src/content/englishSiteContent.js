@@ -73,7 +73,7 @@ const englishSiteContent = {
   
   /**
    * ============================================================
-   * EGMISH LANDING PAGE
+   * ENGLISH LANDING PAGE
    * ============================================================
    */
   landingPage: {
@@ -110,8 +110,8 @@ const englishSiteContent = {
       "We invite you to join us in worship and fellowship as we share God’s love and grace together.",
 
     serviceTime1: "Sunday Worship",
-	serviceTime2: "⛪ English : 10:00 AM",
-	serviceTime3: "⛪ Spanish : 12:00 PM",
+	serviceTime2: "⛪ English: 10:00 AM",
+	serviceTime3: "⛪ Spanish: 12:00 PM",
 
     live: {
       text: "Join us live on Facebook",
@@ -152,9 +152,9 @@ const englishSiteContent = {
       {
         title: "Music Ministry",
         paragraphs: [
-          "The Worship Team leads congregational hymns and praise songs each Sunday morning. If you play an instrument and feel called to serve the Lord with your music, please speak to Worship Team leader, Rachel McMahon.",
+          "The Worship Team leads congregational hymns and praise songs each Sunday morning. If you play an instrument and feel called to serve the Lord with your music, please speak to Worship Team leader Rachel McMahon.",
 
-          "The Choir joyfully provides special music every Sunday from September through June, as well as on Communion Sundays in July and August. If you have a heart to serve God in song, speak to Steve Rudolph, the choir director."
+          "The Choir joyfully provides special music every Sunday from September through June, as well as on Communion Sundays in July and August. If you have a heart to serve God in song, please speak to Steve Rudolph, the choir director."
         ]
       },
       {
@@ -198,6 +198,17 @@ const englishSiteContent = {
         image: "/images/pastor-kevin.jpeg",
         text: "Soon after starting his journey as a Christian, Pastor Kevin was inspired to go into the ministry because of the caring and encouraging community of believers he experienced in his church. He has a Bachelor’s Degree in Political Science from Eastern CT State, a Master’s Degree in International Relations from UCONN, a Master’s Degree in Church History from Gordon Conwell Theological Seminary, plus he has taken Christian Spirituality courses from various Protestant and Catholic learning institutions. He has served at churches, a Christian High School, and with the Southern New England Walk to Emmaus team over the years. His favorite book of the Bible to preach from is Paul’s Letter to the Romans. When he’s not busy with ministry at the church, he can be found spending time with his wife, daughters, and grandsons. He might also be found studying Biblical Greek, or on a canoe/kayak trip out in the New England wilderness."
       },
+	  {
+	  name: "Pastor Omar",
+	  image: "/images/pastor-omar.jpeg",
+	  text: `At the age of seventeen, Pastor Omar experienced a transformative encounter with Jesus in a Spanish church in Boston. It was there that he accepted the Lord as his personal Savior, and soon after, he took the important step of being baptized.
+	  For twenty-two years, Pastor Omar’s primary focus in ministry was music. During this time, he faithfully served, using his talents to lead and inspire others through worship. Alongside his work as a music minister, Pastor Omar furthered his theological education by earning a diploma in Urban Ministry from Gordon-Conwell’s Boston campus. This achievement enriched his understanding and effectiveness in ministering within urban communities.
+	  His other achievements include a chaplaincy certificate, serving as a Spanish Christian radio host, and working as a Sunday School educator.
+	  In 2018, Pastor Omar accepted the calling to serve as a church planting pastor to the Spanish community in the town of Norwood, under the leadership and guidance of Pastor Kevin Smith and the Church Council.
+	  Omar and Maritsa Medina have been married since 1994. They are blessed with two wonderful children and are thrilled to be new grandparents to a beautiful granddaughter.
+	  As a fun fact, Pastor Omar is also a piano tuner, and in his leisure time, he enjoys learning different languages.`
+	  },
+
       {
         name: "Janna Peterson, Church Administrator",
         image: "/images/janna.jpg",

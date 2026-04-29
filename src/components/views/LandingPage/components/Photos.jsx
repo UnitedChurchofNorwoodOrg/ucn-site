@@ -2,7 +2,7 @@ import { Row, Col } from "react-bootstrap";
 import { useEffect, useState } from "react";
 import englishSiteContent from "../../../../content/englishSiteContent";
 
-const TOTAL_PHOTOS = 149;
+const TOTAL_PHOTOS = 150;
 
 const Photos = () => {
   const { photos } = englishSiteContent;

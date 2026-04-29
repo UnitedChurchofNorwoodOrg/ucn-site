@@ -163,7 +163,20 @@ const RootLanding = () => {
             </span>
           </h1>
 
-          <p style={styles.subtitle}>{content.subtitle}</p>
+		  <p style={styles.subtitle}>
+		    <a
+		      href="https://www.efca.org/sof"
+		      target="_blank"
+		      rel="noopener noreferrer"
+		      style={{
+		        color: "#1f3a5f",
+		        textDecoration: "none",
+		        borderBottom: "1px dotted #1f3a5f"
+		      }}
+		    >
+		      {content.subtitle}
+		    </a>
+		  </p>
 
           <p style={styles.tagline}>{content.tagline1}</p>
           <p style={styles.tagline}>{content.tagline2}</p>
