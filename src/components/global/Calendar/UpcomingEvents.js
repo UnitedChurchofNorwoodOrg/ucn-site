@@ -27,7 +27,6 @@ const UpcomingEvents = () => {
         next6.setHours(23, 59, 59, 999);
 
         const grouped = {};
-        const seen = new Set();
 
         vevents.forEach((vevent) => {
           const event = new ICAL.Event(vevent);
@@ -36,7 +35,7 @@ const UpcomingEvents = () => {
           let occurrence;
 
           while ((occurrence = iterator.next())) {
-            // ✅ FIX: Force correct timezone
+            // ✅ Force correct timezone
             const start = new Date(
               occurrence.toJSDate().toLocaleString("en-US", {
                 timeZone: "America/New_York"
@@ -46,10 +45,6 @@ const UpcomingEvents = () => {
             if (start > next6) break;
             if (start < today) continue;
 
-            const uid = event.uid + start.toISOString();
-            if (seen.has(uid)) continue;
-            seen.add(uid);
-
             const dateKey = start.toDateString();
 
             const time = start.toLocaleTimeString([], {
@@ -58,6 +53,7 @@ const UpcomingEvents = () => {
             });
 
             const rawTitle = event.summary || "Event";
+
             const title = rawTitle
               .replace(/[\u{1F300}-\u{1FAFF}]/gu, "")
               .trim();
@@ -66,15 +62,32 @@ const UpcomingEvents = () => {
 
             if (!grouped[dateKey]) grouped[dateKey] = [];
 
-            grouped[dateKey].push({
+            // ✅ unique key for each occurrence
+            const uid =
+              event.uid + start.toDateString() + time;
+
+            // ✅ replace recurring overrides correctly
+            const existingIndex = grouped[dateKey].findIndex(
+              (e) => e.uid === uid
+            );
+
+            const eventData = {
+              uid,
               time,
               title,
               venue,
               start
-            });
+            };
+
+            if (existingIndex !== -1) {
+              grouped[dateKey][existingIndex] = eventData;
+            } else {
+              grouped[dateKey].push(eventData);
+            }
           }
         });
 
+        // ✅ sort events inside each day
         Object.keys(grouped).forEach((date) => {
           grouped[date].sort((a, b) => a.start - b.start);
         });
@@ -119,6 +132,7 @@ const UpcomingEvents = () => {
   }
 
   const todayStr = new Date().toDateString();
+
   const tomorrow = new Date();
   tomorrow.setDate(tomorrow.getDate() + 1);
 
@@ -128,17 +142,27 @@ const UpcomingEvents = () => {
         .sort((a, b) => new Date(a[0]) - new Date(b[0]))
         .map(([date, items]) => {
           const dateObj = new Date(date);
-          const isToday = dateObj.toDateString() === todayStr;
+
+          const isToday =
+            dateObj.toDateString() === todayStr;
+
           const isTomorrow =
-            dateObj.toDateString() === tomorrow.toDateString();
+            dateObj.toDateString() ===
+            tomorrow.toDateString();
 
           return (
-            <div key={date} style={{ marginBottom: "14px" }}>
+            <div
+              key={date}
+              style={{ marginBottom: "14px" }}
+            >
+              {/* 📅 Date Header */}
               <div
                 style={{
                   fontWeight: "600",
                   marginBottom: "6px",
-                  color: isToday ? "#1f3a5f" : "#1f2937"
+                  color: isToday
+                    ? "#1f3a5f"
+                    : "#1f2937"
                 }}
               >
                 {isToday
@@ -146,6 +170,7 @@ const UpcomingEvents = () => {
                   : isTomorrow
                   ? "Tomorrow • "
                   : ""}
+
                 {dateObj.toLocaleDateString("en-US", {
                   weekday: "short",
                   month: "short",
@@ -153,6 +178,7 @@ const UpcomingEvents = () => {
                 })}
               </div>
 
+              {/* 📌 Events */}
               {items.map((e, i) => (
                 <div
                   key={i}
@@ -164,11 +190,21 @@ const UpcomingEvents = () => {
                     border: "1px solid #e5e7eb"
                   }}
                 >
-                  <div style={{ fontSize: "14px", fontWeight: "500" }}>
+                  <div
+                    style={{
+                      fontSize: "14px",
+                      fontWeight: "500"
+                    }}
+                  >
                     {e.time} — {e.title}
                   </div>
 
-                  <div style={{ fontSize: "12px", color: "#6b7280" }}>
+                  <div
+                    style={{
+                      fontSize: "12px",
+                      color: "#6b7280"
+                    }}
+                  >
                     📍 {e.venue}
                   </div>
                 </div>
