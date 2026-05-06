@@ -28,10 +28,10 @@ const UpcomingEvents = () => {
 
         const grouped = {};
 
-        // ✅ Track recurrence override dates
+        // ✅ Track override dates
         const overrideDates = new Set();
 
-        // First pass: collect overrides
+        // First pass: collect recurrence overrides
         vevents.forEach((vevent) => {
           const event = new ICAL.Event(vevent);
 
@@ -50,86 +50,118 @@ const UpcomingEvents = () => {
           }
         });
 
+        // ✅ Shared occurrence processor
+        const processOccurrence = (
+          occurrence,
+          event,
+          vevent
+        ) => {
+          const start = new Date(
+            occurrence.toJSDate().toLocaleString(
+              "en-US",
+              {
+                timeZone:
+                  "America/New_York"
+              }
+            )
+          );
+
+          if (start > next6) return;
+          if (start < today) return;
+
+          const overrideKey =
+            event.uid +
+            start.toDateString();
+
+          const isOverride =
+            vevent.hasProperty(
+              "recurrence-id"
+            );
+
+          // ✅ Skip recurring occurrence
+          // if override exists
+          if (
+            !isOverride &&
+            overrideDates.has(
+              overrideKey
+            )
+          ) {
+            return;
+          }
+
+          const dateKey =
+            start.toDateString();
+
+          const time =
+            start.toLocaleTimeString([], {
+              hour: "2-digit",
+              minute: "2-digit"
+            });
+
+          const rawTitle =
+            event.summary || "Event";
+
+          const title = rawTitle
+            .replace(
+              /[\u{1F300}-\u{1FAFF}]/gu,
+              ""
+            )
+            .trim();
+
+          const venue =
+            event.location || "Church";
+
+          if (!grouped[dateKey]) {
+            grouped[dateKey] = [];
+          }
+
+          const uid =
+            event.uid +
+            start.toDateString() +
+            time;
+
+          grouped[dateKey].push({
+            uid,
+            time,
+            title,
+            venue,
+            start
+          });
+        };
+
         // Second pass: process events
         vevents.forEach((vevent) => {
           const event = new ICAL.Event(vevent);
+
+          const recurrenceId =
+            vevent.getFirstPropertyValue(
+              "recurrence-id"
+            );
+
+          // ✅ Override events = single occurrence
+          if (recurrenceId) {
+            processOccurrence(
+              recurrenceId,
+              event,
+              vevent
+            );
+
+            return;
+          }
+
+          // ✅ Normal recurring events
           const iterator = event.iterator();
 
           let occurrence;
 
-          while ((occurrence = iterator.next())) {
-            // ✅ Force correct timezone
-            const start = new Date(
-              occurrence.toJSDate().toLocaleString(
-                "en-US",
-                {
-                  timeZone:
-                    "America/New_York"
-                }
-              )
+          while (
+            (occurrence = iterator.next())
+          ) {
+            processOccurrence(
+              occurrence,
+              event,
+              vevent
             );
-
-            if (start > next6) break;
-            if (start < today) continue;
-
-            // ✅ Skip recurring occurrence
-            // if override exists for same date
-            const overrideKey =
-              event.uid +
-              start.toDateString();
-
-            const isOverride =
-              vevent.hasProperty(
-                "recurrence-id"
-              );
-
-            if (
-              !isOverride &&
-              overrideDates.has(
-                overrideKey
-              )
-            ) {
-              continue;
-            }
-
-            const dateKey =
-              start.toDateString();
-
-            const time =
-              start.toLocaleTimeString([], {
-                hour: "2-digit",
-                minute: "2-digit"
-              });
-
-            const rawTitle =
-              event.summary || "Event";
-
-            const title = rawTitle
-              .replace(
-                /[\u{1F300}-\u{1FAFF}]/gu,
-                ""
-              )
-              .trim();
-
-            const venue =
-              event.location || "Church";
-
-            if (!grouped[dateKey]) {
-              grouped[dateKey] = [];
-            }
-
-            const uid =
-              event.uid +
-              start.toDateString() +
-              time;
-
-            grouped[dateKey].push({
-              uid,
-              time,
-              title,
-              venue,
-              start
-            });
           }
         });
 
@@ -188,7 +220,9 @@ const UpcomingEvents = () => {
   }
 
   // ✅ Empty state
-  if (Object.keys(events).length === 0) {
+  if (
+    Object.keys(events).length === 0
+  ) {
     return (
       <p
         style={{
@@ -255,7 +289,7 @@ const UpcomingEvents = () => {
                 {dateObj.toLocaleDateString(
                   "en-US",
                   {
-                    weekday: "short",
+                    weekday: "long",
                     month: "short",
                     day: "numeric"
                   }
