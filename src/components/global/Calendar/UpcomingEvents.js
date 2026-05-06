@@ -28,160 +28,73 @@ const UpcomingEvents = () => {
 
         const grouped = {};
 
-        // ✅ Track override dates
-        const overrideDates = new Set();
-
-        // First pass: collect recurrence overrides
         vevents.forEach((vevent) => {
           const event = new ICAL.Event(vevent);
-
-          const recurrenceId =
-            vevent.getFirstPropertyValue(
-              "recurrence-id"
-            );
-
-          if (recurrenceId) {
-            overrideDates.add(
-              event.uid +
-                recurrenceId
-                  .toJSDate()
-                  .toDateString()
-            );
-          }
-        });
-
-        // ✅ Shared occurrence processor
-        const processOccurrence = (
-          occurrence,
-          event,
-          vevent
-        ) => {
-          const start = new Date(
-            occurrence.toJSDate().toLocaleString(
-              "en-US",
-              {
-                timeZone:
-                  "America/New_York"
-              }
-            )
-          );
-
-          if (start > next6) return;
-          if (start < today) return;
-
-          const overrideKey =
-            event.uid +
-            start.toDateString();
-
-          const isOverride =
-            vevent.hasProperty(
-              "recurrence-id"
-            );
-
-          // ✅ Skip recurring occurrence
-          // if override exists
-          if (
-            !isOverride &&
-            overrideDates.has(
-              overrideKey
-            )
-          ) {
-            return;
-          }
-
-          const dateKey =
-            start.toDateString();
-
-          const time =
-            start.toLocaleTimeString([], {
-              hour: "2-digit",
-              minute: "2-digit"
-            });
-
-          const rawTitle =
-            event.summary || "Event";
-
-          const title = rawTitle
-            .replace(
-              /[\u{1F300}-\u{1FAFF}]/gu,
-              ""
-            )
-            .trim();
-
-          const venue =
-            event.location || "Church";
-
-          if (!grouped[dateKey]) {
-            grouped[dateKey] = [];
-          }
-
-          const uid =
-            event.uid +
-            start.toDateString() +
-            time;
-
-          grouped[dateKey].push({
-            uid,
-            time,
-            title,
-            venue,
-            start
-          });
-        };
-
-        // Second pass: process events
-        vevents.forEach((vevent) => {
-          const event = new ICAL.Event(vevent);
-
-          const recurrenceId =
-            vevent.getFirstPropertyValue(
-              "recurrence-id"
-            );
-
-          // ✅ Override events = single occurrence
-          if (recurrenceId) {
-            processOccurrence(
-              recurrenceId,
-              event,
-              vevent
-            );
-
-            return;
-          }
-
-          // ✅ Normal recurring events
           const iterator = event.iterator();
 
           let occurrence;
 
-          while (
-            (occurrence = iterator.next())
-          ) {
-            processOccurrence(
-              occurrence,
-              event,
-              vevent
+          while ((occurrence = iterator.next())) {
+            // ✅ Force correct timezone
+            const start = new Date(
+              occurrence.toJSDate().toLocaleString("en-US", {
+                timeZone: "America/New_York"
+              })
             );
+
+            if (start > next6) break;
+            if (start < today) continue;
+
+            const dateKey = start.toDateString();
+
+            const time = start.toLocaleTimeString([], {
+              hour: "2-digit",
+              minute: "2-digit"
+            });
+
+            const rawTitle = event.summary || "Event";
+
+            const title = rawTitle
+              .replace(/[\u{1F300}-\u{1FAFF}]/gu, "")
+              .trim();
+
+            const venue = event.location || "Church";
+
+            if (!grouped[dateKey]) grouped[dateKey] = [];
+
+            // ✅ unique key for each occurrence
+            const uid =
+              event.uid + start.toDateString() + time;
+
+            // ✅ replace recurring overrides correctly
+            const existingIndex = grouped[dateKey].findIndex(
+              (e) => e.uid === uid
+            );
+
+            const eventData = {
+              uid,
+              time,
+              title,
+              venue,
+              start
+            };
+
+            if (existingIndex !== -1) {
+              grouped[dateKey][existingIndex] = eventData;
+            } else {
+              grouped[dateKey].push(eventData);
+            }
           }
         });
 
-        // ✅ Sort events inside each day
-        Object.keys(grouped).forEach(
-          (date) => {
-            grouped[date].sort(
-              (a, b) =>
-                a.start - b.start
-            );
-          }
-        );
+        // ✅ sort events inside each day
+        Object.keys(grouped).forEach((date) => {
+          grouped[date].sort((a, b) => a.start - b.start);
+        });
 
         setEvents(grouped);
       } catch (err) {
-        console.error(
-          "Error loading calendar:",
-          err
-        );
-
+        console.error("Error loading calendar:", err);
         setError(true);
       } finally {
         setLoading(false);
@@ -194,12 +107,7 @@ const UpcomingEvents = () => {
   // ✅ Loading state
   if (loading) {
     return (
-      <p
-        style={{
-          color: "#6b7280",
-          fontSize: "14px"
-        }}
-      >
+      <p style={{ color: "#6b7280", fontSize: "14px" }}>
         Loading events...
       </p>
     );
@@ -208,56 +116,35 @@ const UpcomingEvents = () => {
   // ✅ Error state
   if (error) {
     return (
-      <p
-        style={{
-          color: "#b91c1c",
-          fontSize: "14px"
-        }}
-      >
+      <p style={{ color: "#b91c1c", fontSize: "14px" }}>
         Unable to load events right now.
       </p>
     );
   }
 
   // ✅ Empty state
-  if (
-    Object.keys(events).length === 0
-  ) {
+  if (Object.keys(events).length === 0) {
     return (
-      <p
-        style={{
-          color: "#6b7280",
-          fontSize: "14px"
-        }}
-      >
+      <p style={{ color: "#6b7280", fontSize: "14px" }}>
         No events scheduled for this week.
       </p>
     );
   }
 
-  const todayStr =
-    new Date().toDateString();
+  const todayStr = new Date().toDateString();
 
   const tomorrow = new Date();
-  tomorrow.setDate(
-    tomorrow.getDate() + 1
-  );
+  tomorrow.setDate(tomorrow.getDate() + 1);
 
   return (
     <div>
       {Object.entries(events)
-        .sort(
-          (a, b) =>
-            new Date(a[0]) -
-            new Date(b[0])
-        )
+        .sort((a, b) => new Date(a[0]) - new Date(b[0]))
         .map(([date, items]) => {
-          const dateObj =
-            new Date(date);
+          const dateObj = new Date(date);
 
           const isToday =
-            dateObj.toDateString() ===
-            todayStr;
+            dateObj.toDateString() === todayStr;
 
           const isTomorrow =
             dateObj.toDateString() ===
@@ -266,9 +153,7 @@ const UpcomingEvents = () => {
           return (
             <div
               key={date}
-              style={{
-                marginBottom: "14px"
-              }}
+              style={{ marginBottom: "14px" }}
             >
               {/* 📅 Date Header */}
               <div
@@ -286,14 +171,11 @@ const UpcomingEvents = () => {
                   ? "Tomorrow • "
                   : ""}
 
-                {dateObj.toLocaleDateString(
-                  "en-US",
-                  {
-                    weekday: "long",
-                    month: "short",
-                    day: "numeric"
-                  }
-                )}
+                {dateObj.toLocaleDateString("en-US", {
+                  weekday: "short",
+                  month: "short",
+                  day: "numeric"
+                })}
               </div>
 
               {/* 📌 Events */}
@@ -301,36 +183,26 @@ const UpcomingEvents = () => {
                 <div
                   key={i}
                   style={{
-                    background:
-                      "#f9fafb",
-                    padding:
-                      "6px 10px",
-                    borderRadius:
-                      "8px",
-                    marginBottom:
-                      "6px",
-                    border:
-                      "1px solid #e5e7eb"
+                    background: "#f9fafb",
+                    padding: "6px 10px",
+                    borderRadius: "8px",
+                    marginBottom: "6px",
+                    border: "1px solid #e5e7eb"
                   }}
                 >
                   <div
                     style={{
-                      fontSize:
-                        "14px",
-                      fontWeight:
-                        "500"
+                      fontSize: "14px",
+                      fontWeight: "500"
                     }}
                   >
-                    {e.time} —{" "}
-                    {e.title}
+                    {e.time} — {e.title}
                   </div>
 
                   <div
                     style={{
-                      fontSize:
-                        "12px",
-                      color:
-                        "#6b7280"
+                      fontSize: "12px",
+                      color: "#6b7280"
                     }}
                   >
                     📍 {e.venue}
