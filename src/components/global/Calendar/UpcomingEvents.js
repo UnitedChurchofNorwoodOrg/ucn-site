@@ -62,14 +62,18 @@ const UpcomingEvents = () => {
 
             if (!grouped[dateKey]) grouped[dateKey] = [];
 
-            // ✅ unique key for each occurrence
+            // ✅ Unique key for each occurrence
             const uid =
               event.uid + start.toDateString() + time;
 
-            // ✅ replace recurring overrides correctly
+            // ✅ Find matching recurring occurrence
             const existingIndex = grouped[dateKey].findIndex(
               (e) => e.uid === uid
             );
+
+            // ✅ Detect Google Calendar override
+            const isOverride =
+              vevent.hasProperty("recurrence-id");
 
             const eventData = {
               uid,
@@ -80,14 +84,18 @@ const UpcomingEvents = () => {
             };
 
             if (existingIndex !== -1) {
-              grouped[dateKey][existingIndex] = eventData;
+              // ✅ Override replaces recurring event
+              if (isOverride) {
+                grouped[dateKey][existingIndex] =
+                  eventData;
+              }
             } else {
               grouped[dateKey].push(eventData);
             }
           }
         });
 
-        // ✅ sort events inside each day
+        // ✅ Sort events inside each day
         Object.keys(grouped).forEach((date) => {
           grouped[date].sort((a, b) => a.start - b.start);
         });
