@@ -26,42 +26,26 @@ const UpcomingEvents = () => {
         next6.setDate(today.getDate() + 6);
         next6.setHours(23, 59, 59, 999);
 
-        // ✅ Deduplicated event store
-        const eventsMap = {};
+        const grouped = {};
 
         vevents.forEach((vevent) => {
           const event = new ICAL.Event(vevent);
+          const iterator = event.iterator();
 
-          // ✅ Check if this is a recurrence override
-          const recurrenceId =
-            vevent.getFirstPropertyValue("recurrence-id");
+          let occurrence;
 
-          // ✅ Override events = single occurrence only
-          const occurrences = recurrenceId
-            ? [recurrenceId]
-            : (() => {
-                const arr = [];
-                const iterator = event.iterator();
-
-                let next;
-
-                while ((next = iterator.next())) {
-                  arr.push(next);
-                }
-
-                return arr;
-              })();
-
-          occurrences.forEach((occurrence) => {
-            // ✅ Force timezone consistency
+          while ((occurrence = iterator.next())) {
+            // ✅ Force correct timezone
             const start = new Date(
               occurrence.toJSDate().toLocaleString("en-US", {
                 timeZone: "America/New_York"
               })
             );
 
-            if (start > next6) return;
-            if (start < today) return;
+            if (start > next6) break;
+            if (start < today) continue;
+
+            const dateKey = start.toDateString();
 
             const time = start.toLocaleTimeString([], {
               hour: "2-digit",
@@ -76,59 +60,41 @@ const UpcomingEvents = () => {
 
             const venue = event.location || "Church";
 
-            // ✅ Stable unique event key
+            if (!grouped[dateKey]) grouped[dateKey] = [];
+
+            // ✅ unique key for each occurrence
             const uid =
-              event.uid +
-              start.toDateString() +
-              time;
+              event.uid + start.toDateString() + time;
+
+            // ✅ replace recurring overrides correctly
+            const existingIndex = grouped[dateKey].findIndex(
+              (e) => e.uid === uid
+            );
 
             const eventData = {
               uid,
               time,
               title,
               venue,
-              start,
-              isOverride: !!recurrenceId
+              start
             };
 
-            // ✅ Override events replace recurring defaults
-            if (
-              !eventsMap[uid] ||
-              eventData.isOverride
-            ) {
-              eventsMap[uid] = eventData;
+            if (existingIndex !== -1) {
+              grouped[dateKey][existingIndex] = eventData;
+            } else {
+              grouped[dateKey].push(eventData);
             }
-          });
-        });
-
-        // ✅ Group by date AFTER dedupe
-        const grouped = {};
-
-        Object.values(eventsMap).forEach((event) => {
-          const dateKey =
-            event.start.toDateString();
-
-          if (!grouped[dateKey]) {
-            grouped[dateKey] = [];
           }
-
-          grouped[dateKey].push(event);
         });
 
-        // ✅ Sort events within each day
+        // ✅ sort events inside each day
         Object.keys(grouped).forEach((date) => {
-          grouped[date].sort(
-            (a, b) => a.start - b.start
-          );
+          grouped[date].sort((a, b) => a.start - b.start);
         });
 
         setEvents(grouped);
       } catch (err) {
-        console.error(
-          "Error loading calendar:",
-          err
-        );
-
+        console.error("Error loading calendar:", err);
         setError(true);
       } finally {
         setLoading(false);
@@ -141,12 +107,7 @@ const UpcomingEvents = () => {
   // ✅ Loading state
   if (loading) {
     return (
-      <p
-        style={{
-          color: "#6b7280",
-          fontSize: "14px"
-        }}
-      >
+      <p style={{ color: "#6b7280", fontSize: "14px" }}>
         Loading events...
       </p>
     );
@@ -155,12 +116,7 @@ const UpcomingEvents = () => {
   // ✅ Error state
   if (error) {
     return (
-      <p
-        style={{
-          color: "#b91c1c",
-          fontSize: "14px"
-        }}
-      >
+      <p style={{ color: "#b91c1c", fontSize: "14px" }}>
         Unable to load events right now.
       </p>
     );
@@ -169,12 +125,7 @@ const UpcomingEvents = () => {
   // ✅ Empty state
   if (Object.keys(events).length === 0) {
     return (
-      <p
-        style={{
-          color: "#6b7280",
-          fontSize: "14px"
-        }}
-      >
+      <p style={{ color: "#6b7280", fontSize: "14px" }}>
         No events scheduled for this week.
       </p>
     );
@@ -188,16 +139,12 @@ const UpcomingEvents = () => {
   return (
     <div>
       {Object.entries(events)
-        .sort(
-          (a, b) =>
-            new Date(a[0]) - new Date(b[0])
-        )
+        .sort((a, b) => new Date(a[0]) - new Date(b[0]))
         .map(([date, items]) => {
           const dateObj = new Date(date);
 
           const isToday =
-            dateObj.toDateString() ===
-            todayStr;
+            dateObj.toDateString() === todayStr;
 
           const isTomorrow =
             dateObj.toDateString() ===
@@ -206,9 +153,7 @@ const UpcomingEvents = () => {
           return (
             <div
               key={date}
-              style={{
-                marginBottom: "14px"
-              }}
+              style={{ marginBottom: "14px" }}
             >
               {/* 📅 Date Header */}
               <div
@@ -226,14 +171,11 @@ const UpcomingEvents = () => {
                   ? "Tomorrow • "
                   : ""}
 
-                {dateObj.toLocaleDateString(
-                  "en-US",
-                  {
-                    weekday: "short",
-                    month: "short",
-                    day: "numeric"
-                  }
-                )}
+                {dateObj.toLocaleDateString("en-US", {
+                  weekday: "short",
+                  month: "short",
+                  day: "numeric"
+                })}
               </div>
 
               {/* 📌 Events */}
@@ -245,8 +187,7 @@ const UpcomingEvents = () => {
                     padding: "6px 10px",
                     borderRadius: "8px",
                     marginBottom: "6px",
-                    border:
-                      "1px solid #e5e7eb"
+                    border: "1px solid #e5e7eb"
                   }}
                 >
                   <div
