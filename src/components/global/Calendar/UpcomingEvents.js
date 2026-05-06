@@ -26,25 +26,42 @@ const UpcomingEvents = () => {
         next6.setDate(today.getDate() + 6);
         next6.setHours(23, 59, 59, 999);
 
-        // ✅ master deduplicated event store
+        // ✅ Deduplicated event store
         const eventsMap = {};
 
         vevents.forEach((vevent) => {
           const event = new ICAL.Event(vevent);
-          const iterator = event.iterator();
 
-          let occurrence;
+          // ✅ Check if this is a recurrence override
+          const recurrenceId =
+            vevent.getFirstPropertyValue("recurrence-id");
 
-          while ((occurrence = iterator.next())) {
-            // ✅ force timezone consistency
+          // ✅ Override events = single occurrence only
+          const occurrences = recurrenceId
+            ? [recurrenceId]
+            : (() => {
+                const arr = [];
+                const iterator = event.iterator();
+
+                let next;
+
+                while ((next = iterator.next())) {
+                  arr.push(next);
+                }
+
+                return arr;
+              })();
+
+          occurrences.forEach((occurrence) => {
+            // ✅ Force timezone consistency
             const start = new Date(
               occurrence.toJSDate().toLocaleString("en-US", {
                 timeZone: "America/New_York"
               })
             );
 
-            if (start > next6) break;
-            if (start < today) continue;
+            if (start > next6) return;
+            if (start < today) return;
 
             const time = start.toLocaleTimeString([], {
               hour: "2-digit",
@@ -59,32 +76,32 @@ const UpcomingEvents = () => {
 
             const venue = event.location || "Church";
 
-            // ✅ stable occurrence id
+            // ✅ Stable unique event key
             const uid =
               event.uid +
               start.toDateString() +
               time;
-
-            // ✅ Google recurring override detection
-            const isOverride =
-              vevent.hasProperty("recurrence-id");
 
             const eventData = {
               uid,
               time,
               title,
               venue,
-              start
+              start,
+              isOverride: !!recurrenceId
             };
 
-            // ✅ override recurring events cleanly
-            if (!eventsMap[uid] || isOverride) {
+            // ✅ Override events replace recurring defaults
+            if (
+              !eventsMap[uid] ||
+              eventData.isOverride
+            ) {
               eventsMap[uid] = eventData;
             }
-          }
+          });
         });
 
-        // ✅ group by date AFTER dedupe
+        // ✅ Group by date AFTER dedupe
         const grouped = {};
 
         Object.values(eventsMap).forEach((event) => {
@@ -98,7 +115,7 @@ const UpcomingEvents = () => {
           grouped[dateKey].push(event);
         });
 
-        // ✅ sort events inside each day
+        // ✅ Sort events within each day
         Object.keys(grouped).forEach((date) => {
           grouped[date].sort(
             (a, b) => a.start - b.start
