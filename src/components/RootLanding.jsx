@@ -181,33 +181,115 @@ const RootLanding = () => {
           <p style={styles.tagline}>{content.tagline1}</p>
           <p style={styles.tagline}>{content.tagline2}</p>
 
-          <div className="d-flex flex-column flex-md-row gap-3 mt-4 w-100">
-            <Link to="/english" className="w-100">
-              <Button
-                style={styles.buttonPrimary}
-                className="w-100"
-                onMouseEnter={() => setHovered("eng")}
-                onMouseLeave={() => setHovered(null)}
-                onMouseDown={() => setActive("eng")}
-                onMouseUp={() => setActive(null)}
-              >
-                {content.buttons.english}
-              </Button>
-            </Link>
+		  <div className="d-flex flex-column flex-md-row gap-3 mt-4 w-100">
 
-            <Link to="/spanish" className="w-100">
-              <Button
-                style={styles.buttonSecondary}
-                className="w-100"
-                onMouseEnter={() => setHovered("spa")}
-                onMouseLeave={() => setHovered(null)}
-                onMouseDown={() => setActive("spa")}
-                onMouseUp={() => setActive(null)}
-              >
-                {content.buttons.spanish}
-              </Button>
-            </Link>
-          </div>
+		    {/* English Service */}
+		    <Link
+		      to="/english"
+		      className="w-100 text-decoration-none"
+		    >
+		      <Button
+		        style={{
+		          ...styles.buttonPrimary,
+		          padding: "16px 20px",
+		          textAlign: "left",
+		          minHeight: "92px",
+		          transform:
+		            hovered === "eng"
+		              ? "translateY(-2px)"
+		              : active === "eng"
+		              ? "scale(0.98)"
+		              : "scale(1)",
+		          transition: "all 0.22s ease"
+		        }}
+		        className="w-100"
+		        onMouseEnter={() => setHovered("eng")}
+		        onMouseLeave={() => setHovered(null)}
+		        onMouseDown={() => setActive("eng")}
+		        onMouseUp={() => setActive(null)}
+		      >
+			  <div
+			    style={{
+			      display: "flex",
+			      alignItems: "center",
+			      justifyContent: "space-between",
+			      fontSize: "1rem",
+			      fontWeight: "600"
+			    }}
+			  >
+			    <span>Explore English Service</span>
+
+			    <span
+			      style={{
+			        fontSize: "1.2rem",
+			        marginLeft: "6px",
+			        transform:
+			          hovered === "eng"
+			            ? "translateX(3px)"
+			            : "translateX(0)",
+			        transition: "transform 0.2s ease"
+			      }}
+			    >
+			      {"→"}
+			    </span>
+			  </div>      
+		      </Button>
+		    </Link>
+
+		    {/* Spanish Service */}
+		    <Link
+		      to="/spanish"
+		      className="w-100 text-decoration-none"
+		    >
+		      <Button
+		        style={{
+		          ...styles.buttonSecondary,
+		          padding: "16px 20px",
+		          textAlign: "left",
+		          minHeight: "92px",
+		          transform:
+		            hovered === "spa"
+		              ? "translateY(-2px)"
+		              : active === "spa"
+		              ? "scale(0.98)"
+		              : "scale(1)",
+		          transition: "all 0.22s ease"
+		        }}
+		        className="w-100"
+		        onMouseEnter={() => setHovered("spa")}
+		        onMouseLeave={() => setHovered(null)}
+		        onMouseDown={() => setActive("spa")}
+		        onMouseUp={() => setActive(null)}
+		      >
+			  <div
+			    style={{
+			      display: "flex",
+			      alignItems: "center",
+			      justifyContent: "space-between",
+			      fontSize: "1rem",
+			      fontWeight: "600"
+			    }}
+			  >
+			    <span>Explorar Servicio en Español</span>
+
+			    <span
+			      style={{
+			        fontSize: "1.2rem",
+			        marginLeft: "6px",
+			        transform:
+			          hovered === "spa"
+			            ? "translateX(3px)"
+			            : "translateX(0)",
+			        transition: "transform 0.2s ease"
+			      }}
+			    >
+			      {"→"}
+			    </span>
+			  </div>    
+		      </Button>
+		    </Link>
+
+		  </div>
 
           {/* Upcoming Events */}
           <div style={styles.calendarBox}>
