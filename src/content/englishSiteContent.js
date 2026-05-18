@@ -46,16 +46,18 @@ const englishSiteContent = {
    * ============================================================
    */
   newsTicker: {
-    items: [
-      "⛪ English Worship — Sunday 10:00 AM",
-      "🌎 Servicios en español — Sunday 12:00 PM",
-      "📖 Bible Study — Wednesday 6:30 PM"
+    items: [     
+      "⛪ English Worship - Sunday 10:00 AM",
+      "⛪ Servicios en español - Sunday 12:00 PM",
+	  "📖 Bible Study - Wednesday 6:30 PM",	 
+      "📖 Estudio Bíblico y Oración - Wednesday 07:00 PM",
+	  "🔵 Follow us on Facebook",
+	  "🔵 Síguenos en Facebook"
     ],
 
-    live: {
-      text: "📺 Join us live on",
-      platform: "Facebook",
-      link: "https://www.facebook.com/unitedchurchofnorwood/"
+    links: {
+      englishFacebook: "https://www.facebook.com/unitedchurchofnorwood/",
+      spanishFacebook: "https://www.facebook.com/profile.php?id=100064846384317"
     }
   },
 
