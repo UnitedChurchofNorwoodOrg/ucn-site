@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "https://www.unitedchurchofnorwood.org/static/css/main.7400b0ec.css",
-    "main.js": "https://www.unitedchurchofnorwood.org/static/js/main.c41b7460.js",
+    "main.js": "https://www.unitedchurchofnorwood.org/static/js/main.18efe0df.js",
     "index.html": "https://www.unitedchurchofnorwood.org/index.html",
     "main.7400b0ec.css.map": "https://www.unitedchurchofnorwood.org/static/css/main.7400b0ec.css.map",
-    "main.c41b7460.js.map": "https://www.unitedchurchofnorwood.org/static/js/main.c41b7460.js.map"
+    "main.18efe0df.js.map": "https://www.unitedchurchofnorwood.org/static/js/main.18efe0df.js.map"
   },
   "entrypoints": [
     "static/css/main.7400b0ec.css",
-    "static/js/main.c41b7460.js"
+    "static/js/main.18efe0df.js"
   ]
 }
