@@ -2,7 +2,7 @@ import { Button } from "react-bootstrap";
 import { useEffect, useState } from "react";
 import englishSiteContent from "../../../../content/englishSiteContent";
 
-const TOTAL_PHOTOS = 101;
+const TOTAL_PHOTOS = 100;
 const THUMBNAILS_VISIBLE = 3;
 
 const Photos = () => {
@@ -116,7 +116,8 @@ const Photos = () => {
     transition: "all 0.22s ease",
     opacity: disabled ? 0.4 : 1,
     cursor: disabled ? "default" : "pointer",
-    flexShrink: 0
+    flexShrink: 0,
+    zIndex: 2
   });
 
   const arrowIconStyle = {
@@ -148,10 +149,12 @@ const Photos = () => {
               position: "relative",
               borderRadius: "18px",
               overflow: "hidden",
-              background: "#f3f4f6",
+              background: "#f8fafc",
               boxShadow:
                 "0 4px 14px rgba(0,0,0,0.08)",
-              marginBottom: "22px"
+              marginBottom: "22px",
+              width: "100%",
+              height: "clamp(260px, 65vw, 560px)"
             }}
           >
             <img
@@ -163,8 +166,9 @@ const Photos = () => {
               alt="Church Gallery"
               style={{
                 width: "100%",
-                height: "70vh",
-                objectFit: "cover",
+                height: "100%",
+                objectFit: "contain",
+                objectPosition: "center",
                 display: "block"
               }}
             />
@@ -282,7 +286,8 @@ const Photos = () => {
                       boxShadow:
                         selectedIndex === actualIndex
                           ? "0 0 12px rgba(37,99,235,0.35)"
-                          : "0 2px 6px rgba(0,0,0,0.08)"
+                          : "0 2px 6px rgba(0,0,0,0.08)",
+                      background: "#f8fafc"
                     }}
                   >
                     <img
@@ -296,6 +301,7 @@ const Photos = () => {
                         width: "100%",
                         height: "100%",
                         objectFit: "cover",
+                        objectPosition: "center",
                         display: "block"
                       }}
                     />
