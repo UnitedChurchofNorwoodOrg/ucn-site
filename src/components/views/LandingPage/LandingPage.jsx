@@ -43,7 +43,9 @@ const LandingPage = () => {
           minHeight: "100vh",
         }}
       >
-        {/* Overlay */}
+        {/* ===================================================== */}
+        {/* 🌫 OVERLAY */}
+        {/* ===================================================== */}
         <div
           style={{
             position: "absolute",
@@ -58,17 +60,23 @@ const LandingPage = () => {
           <Row className="w-100 m-0 py-5">
             <Col xs={0} md={2} lg={3} />
 
+            {/* ===================================================== */}
+            {/* ✨ MAIN CONTENT CARD */}
+            {/* ===================================================== */}
             <Col
               xs={12}
               md={8}
               lg={6}
-              className="shadow-lg px-0 mb-4 rounded-4"
+              className="shadow-lg px-0 mb-4 rounded-4 overflow-hidden"
               style={{
                 background: "rgba(255,255,255,0.94)",
                 backdropFilter: "blur(6px)",
               }}
             >
-              {/* HEADER */}
+
+              {/* ===================================================== */}
+              {/* ⛪ HEADER */}
+              {/* ===================================================== */}
               <div className="pt-4 pb-3 border-bottom text-center">
                 <img
                   src={
@@ -99,10 +107,102 @@ const LandingPage = () => {
                 </p>
               </div>
 
-              {/* NEWS TICKER */}
+              {/* ===================================================== */}
+              {/* 📢 NEWS TICKER */}
+              {/* ===================================================== */}
               <NewsTicker />
 
-              {/* MOBILE TOP BAR */}
+              {/* ===================================================== */}
+              {/* 📱 MOBILE HORIZONTAL NAVIGATION */}
+              {/* ===================================================== */}
+              <div
+                className="
+                  d-flex
+                  d-md-none
+                  overflow-auto
+                  px-2
+                  py-2
+                  gap-2
+                "
+                style={{
+                  background:
+                    "linear-gradient(to bottom, #ffffff, #f8fafc)",
+
+                  borderBottom: "1px solid #e5e7eb",
+
+                  WebkitOverflowScrolling: "touch",
+
+                  scrollbarWidth: "none"
+                }}
+              >
+                {[
+                  "Home",
+                  "About Us",
+                  "Services",
+                  "Photos",
+                  "Contact Us"
+                ].map((item) => {
+
+                  const isActive = selected === item;
+
+                  return (
+                    <button
+                      key={item}
+                      onClick={() => handleMenuClick(item)}
+                      style={{
+                        flexShrink: 0,
+
+                        border: "none",
+
+                        borderRadius: "999px",
+
+                        padding: "7px 14px",
+
+                        minHeight: "36px",
+
+                        background: isActive
+                          ? "linear-gradient(to bottom, #1f3a5f, #27496d)"
+                          : "#ffffff",
+
+                        color:
+                          isActive
+                            ? "#ffffff"
+                            : "#1f2937",
+
+                        fontSize: "0.82rem",
+
+                        fontWeight:
+                          isActive ? "600" : "500",
+
+                        letterSpacing: "0.15px",
+
+                        whiteSpace: "nowrap",
+
+                        boxShadow: isActive
+                          ? "0 4px 10px rgba(31,58,95,0.18)"
+                          : "0 1px 4px rgba(0,0,0,0.05)",
+
+                        transition: "all 0.2s ease",
+
+                        fontFamily:
+                          "'Inter', sans-serif"
+                      }}
+                    >
+                      {
+                        item === "About Us"
+                          ? "About"
+                          : item === "Contact Us"
+                          ? "Contact"
+                          : item
+                      }
+                    </button>
+                  );
+                })}
+              </div>
+
+              {/* ===================================================== */}
+              {/* 📱 MOBILE TOP BAR */}
+              {/* ===================================================== */}
               <div
                 className="d-flex align-items-center px-3 py-2 d-md-none position-relative"
                 style={{
@@ -110,23 +210,40 @@ const LandingPage = () => {
                   borderBottom: "1px solid #e5e7eb",
                 }}
               >
-                <Dropdown>
+                <Dropdown
+                  show={openHamburger}
+                  onToggle={setOpenHamburger}
+                >
                   <Dropdown.Toggle
                     size="sm"
-                    className="border-0 bg-transparent"
+                    className="border-0 bg-transparent shadow-none p-0"
                   >
                     <Hamburger
                       toggled={openHamburger}
                       toggle={setOpenHamburger}
                       color="#1f2937"
+                      size={22}
                     />
                   </Dropdown.Toggle>
 
-                  <Dropdown.Menu className="w-100">
+                  <Dropdown.Menu
+                    className="w-100 shadow border-0 rounded-4 mt-2"
+                    style={{
+                      minWidth: "220px",
+                      overflow: "hidden"
+                    }}
+                  >
                     {menuArray.map((item) => (
                       <Dropdown.Item
                         key={item}
-                        onClick={() => handleMenuClick(item)}
+                        active={selected === item}
+                        onClick={() =>
+                          handleMenuClick(item)
+                        }
+                        style={{
+                          padding: "12px 18px",
+                          fontWeight: "500"
+                        }}
                       >
                         {item}
                       </Dropdown.Item>
@@ -134,6 +251,7 @@ const LandingPage = () => {
                   </Dropdown.Menu>
                 </Dropdown>
 
+                {/* CURRENT PAGE TITLE */}
                 <p
                   className="mb-0 position-absolute start-50 translate-middle-x"
                   style={{
@@ -144,13 +262,24 @@ const LandingPage = () => {
                     letterSpacing: "0.5px",
                   }}
                 >
-                  {tab}
+                  {
+                    tab === "About Us"
+                      ? "About"
+                      : tab === "Contact Us"
+                      ? "Contact"
+                      : tab
+                  }
                 </p>
               </div>
 
-              {/* CONTENT */}
+              {/* ===================================================== */}
+              {/* 📄 CONTENT */}
+              {/* ===================================================== */}
               <div className="d-flex flex-wrap">
-                {/* SIDEBAR */}
+
+                {/* ===================================================== */}
+                {/* 🖥 DESKTOP SIDEBAR */}
+                {/* ===================================================== */}
                 <div className="d-none d-md-flex flex-column col-md-3 border-end">
                   {menuArray.map((item) => (
                     <MenuButton
@@ -163,7 +292,9 @@ const LandingPage = () => {
                   ))}
                 </div>
 
-                {/* MAIN CONTENT */}
+                {/* ===================================================== */}
+                {/* 📄 MAIN CONTENT */}
+                {/* ===================================================== */}
                 <div className="col-12 col-md-9 px-3 py-4">
                   {tab === "Home" && <Home />}
                   {tab === "About Us" && <AboutUs />}
@@ -175,6 +306,8 @@ const LandingPage = () => {
                 </div>
               </div>
             </Col>
+
+            <Col xs={0} md={2} lg={3} />
           </Row>
         </div>
       </div>

@@ -26,7 +26,7 @@ const RootLanding = () => {
   const [active, setActive] = useState(null);
 
   // =========================================================
-  // 🎨 PREMIUM STYLES
+  // 🎨 STYLES
   // =========================================================
   const styles = {
 
@@ -58,7 +58,7 @@ const RootLanding = () => {
     },
 
     // =========================================================
-    // 🌫 LIGHT CINEMATIC OVERLAY
+    // 🌫 LIGHT OVERLAY
     // =========================================================
     overlayBg: {
       position: "absolute",
@@ -76,7 +76,7 @@ const RootLanding = () => {
     },
 
     // =========================================================
-    // ✨ PREMIUM GLASS CARD
+    // ✨ GLASS CARD
     // =========================================================
     content: {
       position: "relative",
@@ -85,7 +85,7 @@ const RootLanding = () => {
       width: "100%",
       maxWidth: "650px",
 
-      padding: "42px 34px",
+      padding: "36px 30px",
 
       borderRadius: "28px",
 
@@ -118,19 +118,19 @@ const RootLanding = () => {
       justifyContent: "center",
       alignItems: "center",
 
-      marginBottom: "24px",
+      marginBottom: "22px",
 
       isolation: "isolate"
     },
 
     // =========================================================
-    // 🌅 PREMIUM SUNRISE GLOW
+    // 🌅 SOFT GLOW
     // =========================================================
     logoGlow: {
       position: "absolute",
 
-      width: "175px",
-      height: "175px",
+      width: "140px",
+      height: "140px",
 
       borderRadius: "50%",
 
@@ -138,10 +138,8 @@ const RootLanding = () => {
         radial-gradient(
           circle,
           rgba(255,255,255,1.0) 0%,
-          rgba(255,255,255,0.98) 18%,
-          rgba(255,255,255,0.92) 34%,
-          rgba(255,250,240,0.62) 50%,
-          rgba(255,248,235,0.28) 66%,
+          rgba(255,255,255,0.92) 24%,
+          rgba(255,255,255,0.62) 48%,
           rgba(255,255,255,0.00) 84%
         )
       `,
@@ -161,7 +159,7 @@ const RootLanding = () => {
     logo: {
       position: "relative",
 
-      height: "112px",
+      height: "88px",
       width: "auto",
 
       display: "block",
@@ -170,9 +168,9 @@ const RootLanding = () => {
 
       filter: `
         brightness(1.01)
-        contrast(1.14)
-        saturate(1.05)
-        drop-shadow(0 4px 12px rgba(0,0,0,0.32))
+        contrast(1.10)
+        saturate(1.03)
+        drop-shadow(0 3px 10px rgba(0,0,0,0.28))
       `,
 
       transition: "all 0.3s ease"
@@ -182,7 +180,7 @@ const RootLanding = () => {
     // 📖 SUBTITLE
     // =========================================================
     subtitle: {
-      fontSize: "1.05rem",
+      fontSize: "1rem",
 
       fontWeight: "600",
 
@@ -190,11 +188,10 @@ const RootLanding = () => {
 
       marginBottom: "12px",
 
-      letterSpacing: "0.2px",
+      letterSpacing: "0.18px",
 
       textShadow: `
-        0 2px 6px rgba(0,0,0,0.75),
-        0 4px 14px rgba(0,0,0,0.50)
+        0 2px 5px rgba(0,0,0,0.65)
       `
     },
 
@@ -202,30 +199,29 @@ const RootLanding = () => {
     // 🤝 WELCOME MESSAGE
     // =========================================================
     welcomeMessage: {
-      fontSize: "1.02rem",
+      fontSize: "0.98rem",
 
-      lineHeight: "1.8",
+      lineHeight: "1.72",
 
       fontWeight: "400",
 
-      color: "rgba(255,255,255,0.97)",
+      color: "rgba(255,255,255,0.96)",
 
-      marginTop: "18px",
+      marginTop: "16px",
 
-      marginBottom: "14px",
+      marginBottom: "12px",
 
-      maxWidth: "560px",
+      maxWidth: "540px",
 
       marginLeft: "auto",
       marginRight: "auto",
 
       fontStyle: "italic",
 
-      letterSpacing: "0.2px",
+      letterSpacing: "0.16px",
 
       textShadow: `
-        0 2px 6px rgba(0,0,0,0.68),
-        0 4px 12px rgba(0,0,0,0.42)
+        0 2px 5px rgba(0,0,0,0.55)
       `
     },
 
@@ -233,48 +229,47 @@ const RootLanding = () => {
     // ✨ TAGLINES
     // =========================================================
     tagline: {
-      fontSize: "1rem",
+      fontSize: "0.98rem",
 
-      lineHeight: "1.75",
+      lineHeight: "1.72",
 
       fontWeight: "500",
 
-      color: "rgba(255,255,255,0.98)",
+      color: "rgba(255,255,255,0.97)",
 
-      marginBottom: "10px",
+      marginBottom: "8px",
 
       textShadow: `
-        0 2px 6px rgba(0,0,0,0.72),
-        0 4px 12px rgba(0,0,0,0.45)
+        0 2px 5px rgba(0,0,0,0.58)
       `
     },
 
     // =========================================================
-    // 🔘 PREMIUM GLASS BUTTON
+    // 🔘 BUTTONS
     // =========================================================
     buttonPrimary: {
       background: `
         linear-gradient(
           to bottom,
-          rgba(255,255,255,0.46),
-          rgba(255,255,255,0.28)
+          rgba(255,255,255,0.44),
+          rgba(255,255,255,0.26)
         )
       `,
 
-      border: "1px solid rgba(255,255,255,0.48)",
+      border: "1px solid rgba(255,255,255,0.44)",
 
-      borderRadius: "22px",
+      borderRadius: "20px",
 
-      padding: "16px 20px",
+      padding: "14px 18px",
 
-      minHeight: "92px",
+      minHeight: "82px",
 
       backdropFilter: "blur(12px)",
       WebkitBackdropFilter: "blur(12px)",
 
       boxShadow: `
-        0 10px 30px rgba(0,0,0,0.24),
-        inset 0 1px 0 rgba(255,255,255,0.28)
+        0 10px 24px rgba(0,0,0,0.22),
+        inset 0 1px 0 rgba(255,255,255,0.22)
       `,
 
       transform:
@@ -289,32 +284,29 @@ const RootLanding = () => {
       cursor: "pointer"
     },
 
-    // =========================================================
-    // 🔘 PREMIUM GLASS BUTTON
-    // =========================================================
     buttonSecondary: {
       background: `
         linear-gradient(
           to bottom,
-          rgba(255,255,255,0.46),
-          rgba(255,255,255,0.28)
+          rgba(255,255,255,0.44),
+          rgba(255,255,255,0.26)
         )
       `,
 
-      border: "1px solid rgba(255,255,255,0.48)",
+      border: "1px solid rgba(255,255,255,0.44)",
 
-      borderRadius: "22px",
+      borderRadius: "20px",
 
-      padding: "16px 20px",
+      padding: "14px 18px",
 
-      minHeight: "92px",
+      minHeight: "82px",
 
       backdropFilter: "blur(12px)",
       WebkitBackdropFilter: "blur(12px)",
 
       boxShadow: `
-        0 10px 30px rgba(0,0,0,0.24),
-        inset 0 1px 0 rgba(255,255,255,0.28)
+        0 10px 24px rgba(0,0,0,0.22),
+        inset 0 1px 0 rgba(255,255,255,0.22)
       `,
 
       transform:
@@ -330,10 +322,10 @@ const RootLanding = () => {
     },
 
     // =========================================================
-    // 📅 EVENTS BOX
+    // 📅 EVENTS
     // =========================================================
     calendarBox: {
-      marginTop: "24px",
+      marginTop: "22px",
 
       background: `
         linear-gradient(
@@ -348,22 +340,19 @@ const RootLanding = () => {
 
       border: "1px solid rgba(255,255,255,0.50)",
 
-      borderRadius: "20px",
+      borderRadius: "18px",
 
       padding: "18px",
 
       width: "100%",
 
       boxShadow: `
-        0 10px 26px rgba(0,0,0,0.16)
+        0 10px 22px rgba(0,0,0,0.14)
       `,
 
       color: "#111827"
     },
 
-    // =========================================================
-    // 📅 EVENTS TITLE
-    // =========================================================
     eventTitle: {
       marginBottom: "12px",
 
@@ -371,7 +360,7 @@ const RootLanding = () => {
 
       fontWeight: "600",
 
-      fontSize: "1.05rem"
+      fontSize: "1.02rem"
     }
   };
 
@@ -381,16 +370,15 @@ const RootLanding = () => {
 
       <div style={styles.container}>
 
-        {/* 🌫 LIGHT OVERLAY */}
+        {/* 🌫 OVERLAY */}
         <div style={styles.overlayBg} />
 
-        {/* ✨ MAIN GLASS CARD */}
+        {/* ✨ MAIN CARD */}
         <div style={styles.content}>
 
           {/* ⛪ LOGO */}
           <div style={styles.logoWrapper}>
 
-            {/* 🌅 Glow */}
             <div style={styles.logoGlow} />
 
             <img
@@ -400,7 +388,7 @@ const RootLanding = () => {
             />
           </div>
 
-          {/* 🏛 CHURCH TITLES */}
+          {/* 🏛 TITLES */}
           <div
             style={{
               marginBottom: "18px"
@@ -413,20 +401,19 @@ const RootLanding = () => {
                 fontFamily:
                   "'Cormorant Garamond', 'Playfair Display', serif",
 
-                fontSize: "2.02rem",
+                fontSize: "1.72rem",
 
-                fontWeight: "500",
+                fontWeight: "400",
 
                 color: "#ffffff",
 
-                letterSpacing: "0.35px",
+                letterSpacing: "0.18px",
 
                 lineHeight: "1.1",
 
                 textShadow: `
-                  0 2px 5px rgba(0,0,0,0.58),
-                  0 5px 16px rgba(0,0,0,0.40),
-                  0 0 14px rgba(255,255,255,0.08)
+                  0 2px 4px rgba(0,0,0,0.48),
+                  0 4px 10px rgba(0,0,0,0.28)
                 `
               }}
             >
@@ -439,23 +426,23 @@ const RootLanding = () => {
                 fontFamily:
                   "'Cormorant Garamond', 'Playfair Display', serif",
 
-                fontSize: "1.72rem",
+                fontSize: "1.38rem",
 
                 fontWeight: "400",
 
                 fontStyle: "italic",
 
-                color: "rgba(255,255,255,0.96)",
+                color: "rgba(255,255,255,0.95)",
 
-                letterSpacing: "0.45px",
+                letterSpacing: "0.30px",
 
                 marginTop: "4px",
 
                 lineHeight: "1.1",
 
                 textShadow: `
-                  0 2px 5px rgba(0,0,0,0.55),
-                  0 4px 14px rgba(0,0,0,0.38)
+                  0 2px 4px rgba(0,0,0,0.48),
+                  0 4px 10px rgba(0,0,0,0.28)
                 `
               }}
             >
@@ -470,26 +457,13 @@ const RootLanding = () => {
               href="https://www.efca.org/sof"
               target="_blank"
               rel="noopener noreferrer"
-
-              onMouseEnter={(e) => {
-                e.target.style.borderBottom =
-                  "1px solid rgba(255,255,255,1)";
-                e.target.style.opacity = "0.92";
-              }}
-
-              onMouseLeave={(e) => {
-                e.target.style.borderBottom =
-                  "1px solid rgba(255,255,255,0.78)";
-                e.target.style.opacity = "1";
-              }}
-
               style={{
                 color: "#ffffff",
 
                 textDecoration: "none",
 
                 borderBottom:
-                  "1px solid rgba(255,255,255,0.78)",
+                  "1px solid rgba(255,255,255,0.76)",
 
                 paddingBottom: "2px",
 
@@ -497,23 +471,29 @@ const RootLanding = () => {
 
                 fontWeight: "600",
 
-                cursor: "pointer",
-
-                textShadow: `
-                  0 2px 6px rgba(0,0,0,0.72)
-                `
+                cursor: "pointer"
               }}
             >
               {content.subtitle}
             </a>
           </p>
 
-		  {/* 🤝 WELCOME MESSAGE */}
-		          <p style={styles.welcomeMessage}>
-		            We invite you to join us in worship and fellowship
-		            as we share God’s love and grace together.
-		          </p>
-          {/* 🔘 SERVICE BUTTONS */}
+          {/* 🤝 WELCOME MESSAGE */}
+          <p style={styles.welcomeMessage}>
+            We invite you to join us in worship and fellowship
+            as we share God’s love and grace together.
+          </p>
+
+          {/* ✨ TAGLINES */}
+          <p style={styles.tagline}>
+            {content.tagline1}
+          </p>
+
+          <p style={styles.tagline}>
+            {content.tagline2}
+          </p>
+
+          {/* 🔘 BUTTONS */}
           <div
             className="
               d-flex
@@ -546,43 +526,18 @@ const RootLanding = () => {
                     alignItems: "center",
                     justifyContent: "space-between",
 
-                    fontSize: "1rem",
+                    fontSize: "0.98rem",
 
                     fontWeight: "700",
 
-                    letterSpacing: "0.2px",
-
                     color: "#16324f",
-
-                    textShadow: `
-                      0 1px 2px rgba(255,255,255,0.22)
-                    `
                   }}
                 >
                   <span>
                     Explore English Service
                   </span>
 
-                  <span
-                    style={{
-                      fontSize: "1.2rem",
-
-                      fontWeight: "700",
-
-                      color: "#16324f",
-
-                      textShadow: `
-                        0 1px 2px rgba(255,255,255,0.22)
-                      `,
-
-                      transform:
-                        hovered === "eng"
-                          ? "translateX(3px)"
-                          : "translateX(0)",
-
-                      transition: "transform 0.2s ease"
-                    }}
-                  >
+                  <span>
                     →
                   </span>
                 </div>
@@ -610,57 +565,25 @@ const RootLanding = () => {
                     alignItems: "center",
                     justifyContent: "space-between",
 
-                    fontSize: "1rem",
+                    fontSize: "0.98rem",
 
                     fontWeight: "700",
 
-                    letterSpacing: "0.2px",
-
                     color: "#16324f",
-
-                    textShadow: `
-                      0 1px 2px rgba(255,255,255,0.22)
-                    `
                   }}
                 >
                   <span>
                     Explorar Servicio en Español
                   </span>
 
-                  <span
-                    style={{
-                      fontSize: "1.2rem",
-
-                      fontWeight: "700",
-
-                      color: "#16324f",
-
-                      textShadow: `
-                        0 1px 2px rgba(255,255,255,0.22)
-                      `,
-
-                      transform:
-                        hovered === "spa"
-                          ? "translateX(3px)"
-                          : "translateX(0)",
-
-                      transition: "transform 0.2s ease"
-                    }}
-                  >
+                  <span>
                     →
                   </span>
                 </div>
               </Button>
             </Link>
           </div>
-		  {/* ✨ TAGLINES */}
-		       <p style={styles.tagline}>
-		         {content.tagline1}
-		       </p>
 
-		       <p style={styles.tagline}>
-		         {content.tagline2}
-		       </p>
           {/* 📅 EVENTS */}
           <div style={styles.calendarBox}>
 
