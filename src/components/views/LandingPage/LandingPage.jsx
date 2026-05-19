@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Row, Col, Dropdown } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import Home from "./components/Home";
 import AboutUs from "./components/AboutUs";
 import MenuButton from "../../global/MenuButton/MenuButton";
@@ -77,35 +78,48 @@ const LandingPage = () => {
               {/* ===================================================== */}
               {/* ⛪ HEADER */}
               {/* ===================================================== */}
-              <div className="pt-4 pb-3 border-bottom text-center">
-                <img
-                  src={
-                    process.env.PUBLIC_URL +
-                    "/images/UNCLogoTrans.png"
-                  }
-                  alt="UCN Logo"
+              <Link
+                to="/"
+                style={{
+                  textDecoration: "none",
+                  color: "inherit"
+                }}
+              >
+                <div
+                  className="pt-4 pb-3 border-bottom text-center"
                   style={{
-                    height: "80px",
-                    marginBottom: "10px",
-                    display: "block",
-                    marginLeft: "auto",
-                    marginRight: "auto",
-                  }}
-                />
-
-                <h2
-                  style={{
-                    fontFamily: "Playfair Display, serif",
-                    marginBottom: "5px",
+                    cursor: "pointer"
                   }}
                 >
-                  {landingPage.header.title}
-                </h2>
+                  <img
+                    src={
+                      process.env.PUBLIC_URL +
+                      "/images/UNCLogoTrans.png"
+                    }
+                    alt="UCN Logo"
+                    style={{
+                      height: "80px",
+                      marginBottom: "10px",
+                      display: "block",
+                      marginLeft: "auto",
+                      marginRight: "auto",
+                    }}
+                  />
 
-                <p className="text-muted mb-0">
-                  {landingPage.header.subtitle}
-                </p>
-              </div>
+                  <h2
+                    style={{
+                      fontFamily: "Playfair Display, serif",
+                      marginBottom: "5px",
+                    }}
+                  >
+                    {landingPage.header.title}
+                  </h2>
+
+                  <p className="text-muted mb-0">
+                    {landingPage.header.subtitle}
+                  </p>
+                </div>
+              </Link>
 
               {/* ===================================================== */}
               {/* 📢 NEWS TICKER */}

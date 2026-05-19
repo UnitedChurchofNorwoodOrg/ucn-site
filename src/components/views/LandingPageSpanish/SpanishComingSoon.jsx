@@ -9,7 +9,7 @@ const SpanishComingSoon = () => {
       <Navbar />
 
       <div style={styles.container}>
-        {/* 🔥 OVERLAY CARD */}
+        {/* OVERLAY CARD */}
         <div style={styles.overlay}>
 
           {/* LOGO */}
@@ -20,7 +20,7 @@ const SpanishComingSoon = () => {
           />
 
           <h1 style={styles.title}>
-            Spanish Congregation
+            Congregación en Español
           </h1>
 
           <p style={styles.subtitle}>
@@ -28,16 +28,22 @@ const SpanishComingSoon = () => {
           </p>
 
           <p style={styles.subtitle}>
-            Spanish page coming soon.
+            Página en español próximamente.
           </p>
 
           <p style={styles.note}>
-            We look forward to welcoming you.
+            Esperamos darle la bienvenida.
           </p>
 
-          <p style={styles.info}>
-            Sunday Worship: 12:00 PM
-          </p>
+          <div style={styles.serviceBox}>
+            <p style={styles.info}>
+              ⛪ Servicio en español - Domingo 12:00 del mediodía
+            </p>
+
+            <p style={styles.info}>
+              📖 Estudio Bíblico y Oración - Miércoles 07:00 PM
+            </p>
+          </div>
 
           {/* BUTTON */}
           <div style={styles.buttonGroup}>
@@ -47,7 +53,7 @@ const SpanishComingSoon = () => {
               rel="noreferrer"
               style={styles.buttonSecondary}
             >
-              Follow on Facebook
+              Seguir en Facebook
             </a>
           </div>
 
@@ -83,10 +89,9 @@ const styles = {
     backdropFilter: "blur(4px)"
   },
 
-  // ✅ BIGGER + RESPONSIVE LOGO
   logo: {
     width: "100%",
-    maxWidth: "260px",   // 👈 increased size
+    maxWidth: "260px",
     height: "auto",
     marginBottom: "20px",
     borderRadius: "8px",
@@ -114,9 +119,16 @@ const styles = {
     color: "#d1d5db"
   },
 
+  serviceBox: {
+    marginTop: "20px",
+    padding: "16px",
+    backgroundColor: "rgba(255,255,255,0.08)",
+    borderRadius: "12px"
+  },
+
   info: {
     fontSize: "15px",
-    marginTop: "18px",
+    margin: "8px 0",
     fontWeight: "500"
   },
 

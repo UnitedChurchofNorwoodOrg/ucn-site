@@ -48,7 +48,7 @@ const englishSiteContent = {
   newsTicker: {
     items: [     
       "⛪ English Worship - Sunday 10:00 AM",
-      "⛪ Servicios en español - Sunday 12:00 PM",
+      "⛪ Servicio en español - Domingo 12:00 Noon",
 	  "📖 Bible Study - Wednesday 6:30 PM",	 
       "📖 Estudio Bíblico y Oración - Wednesday 07:00 PM",
 	  "🔵 Follow us on Facebook",
@@ -113,7 +113,7 @@ const englishSiteContent = {
 
     serviceTime1: "Sunday Worship",
 	serviceTime2: "⛪ English: 10:00 AM",
-	serviceTime3: "⛪ Spanish: 12:00 PM",
+	serviceTime3: "⛪ Spanish: 12:00 Noon",
 
     live: {
       text: "Join us live on Facebook",

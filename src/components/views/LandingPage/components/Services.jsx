@@ -55,7 +55,7 @@ const Services = () => {
                 if (section.title === "How long is the service?") {
                   return (
                     <p key={i} style={styles.paragraph}>
-                      Our Sunday morning English-language service begins at 10:00 AM and typically lasts about one hour. Our Spanish service begins at 12:00 PM. {" "}
+                      Our Sunday morning English-language service begins at 10:00 AM and typically lasts about one hour. Our Spanish service begins at 12:00 Noon. {" "}
                       <Link
                         to="/spanish"
                         style={{ color: "#1f3a5f", fontWeight: "500" }}
