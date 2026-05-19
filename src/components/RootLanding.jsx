@@ -118,7 +118,7 @@ const RootLanding = () => {
       justifyContent: "center",
       alignItems: "center",
 
-      marginBottom: "20px",
+      marginBottom: "24px",
 
       isolation: "isolate"
     },
@@ -129,8 +129,8 @@ const RootLanding = () => {
     logoGlow: {
       position: "absolute",
 
-      width: "205px",
-      height: "205px",
+      width: "175px",
+      height: "175px",
 
       borderRadius: "50%",
 
@@ -161,7 +161,7 @@ const RootLanding = () => {
     logo: {
       position: "relative",
 
-      height: "128px",
+      height: "112px",
       width: "auto",
 
       display: "block",
@@ -176,31 +176,6 @@ const RootLanding = () => {
       `,
 
       transition: "all 0.3s ease"
-    },
-
-    // =========================================================
-    // 🏛 MAIN TITLE
-    // =========================================================
-    title: {
-      fontFamily: "Playfair Display, serif",
-
-      fontSize: "2.25rem",
-
-      fontWeight: "600",
-
-      color: "#ffffff",
-
-      marginBottom: "14px",
-
-      letterSpacing: "0.5px",
-
-      lineHeight: "1.22",
-
-      textShadow: `
-        0 2px 6px rgba(0,0,0,0.72),
-        0 6px 18px rgba(0,0,0,0.55),
-        0 0 28px rgba(255,255,255,0.18)
-      `
     },
 
     // =========================================================
@@ -220,6 +195,37 @@ const RootLanding = () => {
       textShadow: `
         0 2px 6px rgba(0,0,0,0.75),
         0 4px 14px rgba(0,0,0,0.50)
+      `
+    },
+
+    // =========================================================
+    // 🤝 WELCOME MESSAGE
+    // =========================================================
+    welcomeMessage: {
+      fontSize: "1.02rem",
+
+      lineHeight: "1.8",
+
+      fontWeight: "400",
+
+      color: "rgba(255,255,255,0.97)",
+
+      marginTop: "18px",
+
+      marginBottom: "14px",
+
+      maxWidth: "560px",
+
+      marginLeft: "auto",
+      marginRight: "auto",
+
+      fontStyle: "italic",
+
+      letterSpacing: "0.2px",
+
+      textShadow: `
+        0 2px 6px rgba(0,0,0,0.68),
+        0 4px 12px rgba(0,0,0,0.42)
       `
     },
 
@@ -394,21 +400,69 @@ const RootLanding = () => {
             />
           </div>
 
-          {/* 🏛 TITLE */}
-          <h1 style={styles.title}>
-            {content.title}
+          {/* 🏛 CHURCH TITLES */}
+          <div
+            style={{
+              marginBottom: "18px"
+            }}
+          >
 
-            <span
+            {/* ENGLISH */}
+            <div
               style={{
-                display: "block",
-                fontSize: "0.78em",
+                fontFamily:
+                  "'Cormorant Garamond', 'Playfair Display', serif",
+
+                fontSize: "2.02rem",
+
+                fontWeight: "500",
+
+                color: "#ffffff",
+
+                letterSpacing: "0.35px",
+
+                lineHeight: "1.1",
+
+                textShadow: `
+                  0 2px 5px rgba(0,0,0,0.58),
+                  0 5px 16px rgba(0,0,0,0.40),
+                  0 0 14px rgba(255,255,255,0.08)
+                `
+              }}
+            >
+              {content.title}
+            </div>
+
+            {/* SPANISH */}
+            <div
+              style={{
+                fontFamily:
+                  "'Cormorant Garamond', 'Playfair Display', serif",
+
+                fontSize: "1.72rem",
+
                 fontWeight: "400",
-                marginTop: "4px"
+
+                fontStyle: "italic",
+
+                color: "rgba(255,255,255,0.96)",
+
+                letterSpacing: "0.45px",
+
+                marginTop: "4px",
+
+                lineHeight: "1.1",
+
+                textShadow: `
+                  0 2px 5px rgba(0,0,0,0.55),
+                  0 4px 14px rgba(0,0,0,0.38)
+                `
               }}
             >
               {content.spanishTitle}
-            </span>
-          </h1>
+            </div>
+
+          </div>
 
           {/* 📖 SUBTITLE */}
           <p style={styles.subtitle}>
@@ -416,26 +470,49 @@ const RootLanding = () => {
               href="https://www.efca.org/sof"
               target="_blank"
               rel="noopener noreferrer"
+
+              onMouseEnter={(e) => {
+                e.target.style.borderBottom =
+                  "1px solid rgba(255,255,255,1)";
+                e.target.style.opacity = "0.92";
+              }}
+
+              onMouseLeave={(e) => {
+                e.target.style.borderBottom =
+                  "1px solid rgba(255,255,255,0.78)";
+                e.target.style.opacity = "1";
+              }}
+
               style={{
                 color: "#ffffff",
+
                 textDecoration: "none",
+
                 borderBottom:
-                  "1px dotted rgba(255,255,255,0.65)"
+                  "1px solid rgba(255,255,255,0.78)",
+
+                paddingBottom: "2px",
+
+                transition: "all 0.2s ease",
+
+                fontWeight: "600",
+
+                cursor: "pointer",
+
+                textShadow: `
+                  0 2px 6px rgba(0,0,0,0.72)
+                `
               }}
             >
               {content.subtitle}
             </a>
           </p>
 
-          {/* ✨ TAGLINES */}
-          <p style={styles.tagline}>
-            {content.tagline1}
-          </p>
-
-          <p style={styles.tagline}>
-            {content.tagline2}
-          </p>
-
+		  {/* 🤝 WELCOME MESSAGE */}
+		          <p style={styles.welcomeMessage}>
+		            We invite you to join us in worship and fellowship
+		            as we share God’s love and grace together.
+		          </p>
           {/* 🔘 SERVICE BUTTONS */}
           <div
             className="
@@ -576,7 +653,14 @@ const RootLanding = () => {
               </Button>
             </Link>
           </div>
+		  {/* ✨ TAGLINES */}
+		       <p style={styles.tagline}>
+		         {content.tagline1}
+		       </p>
 
+		       <p style={styles.tagline}>
+		         {content.tagline2}
+		       </p>
           {/* 📅 EVENTS */}
           <div style={styles.calendarBox}>
 
