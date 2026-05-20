@@ -171,9 +171,7 @@ const RootLanding = () => {
         contrast(1.10)
         saturate(1.03)
         drop-shadow(0 3px 10px rgba(0,0,0,0.28))
-      `,
-
-      transition: "all 0.3s ease"
+      `
     },
 
     // =========================================================
@@ -251,74 +249,110 @@ const RootLanding = () => {
       background: `
         linear-gradient(
           to bottom,
-          rgba(255,255,255,0.44),
-          rgba(255,255,255,0.26)
+          rgba(255,255,255,0.50),
+          rgba(255,255,255,0.28)
         )
       `,
 
-      border: "1px solid rgba(255,255,255,0.44)",
+      border: hovered === "eng"
+        ? "1px solid rgba(255,255,255,0.82)"
+        : "1px solid rgba(255,255,255,0.56)",
 
-      borderRadius: "20px",
+      borderRadius: "22px",
 
-      padding: "14px 18px",
+      padding: "16px 20px",
 
-      minHeight: "82px",
+      minHeight: "92px",
 
       backdropFilter: "blur(12px)",
       WebkitBackdropFilter: "blur(12px)",
 
-      boxShadow: `
-        0 10px 24px rgba(0,0,0,0.22),
-        inset 0 1px 0 rgba(255,255,255,0.22)
-      `,
+      boxShadow:
+        hovered === "eng"
+          ? `
+            0 18px 38px rgba(0,0,0,0.28),
+            0 0 30px rgba(255,255,255,0.34),
+            0 0 58px rgba(255,255,255,0.12),
+            inset 0 1px 0 rgba(255,255,255,0.32)
+          `
+          : `
+            0 14px 28px rgba(0,0,0,0.24),
+            0 0 18px rgba(255,255,255,0.12),
+            inset 0 1px 0 rgba(255,255,255,0.24)
+          `,
 
       transform:
         active === "eng"
-          ? "scale(0.98)"
+          ? "scale(0.97)"
           : hovered === "eng"
-          ? "translateY(-2px)"
+          ? "translateY(-4px)"
           : "scale(1)",
 
-      transition: "all 0.24s ease",
+      transition: "all 0.28s ease",
 
-      cursor: "pointer"
+      cursor: "pointer",
+
+      // ✨ PULSING GLOW
+      animation:
+        hovered === "eng"
+          ? "none"
+          : "pulseGlow 3.2s ease-in-out infinite"
     },
 
     buttonSecondary: {
       background: `
         linear-gradient(
           to bottom,
-          rgba(255,255,255,0.44),
-          rgba(255,255,255,0.26)
+          rgba(255,255,255,0.50),
+          rgba(255,255,255,0.28)
         )
       `,
 
-      border: "1px solid rgba(255,255,255,0.44)",
+      border: hovered === "spa"
+        ? "1px solid rgba(255,255,255,0.82)"
+        : "1px solid rgba(255,255,255,0.56)",
 
-      borderRadius: "20px",
+      borderRadius: "22px",
 
-      padding: "14px 18px",
+      padding: "16px 20px",
 
-      minHeight: "82px",
+      minHeight: "92px",
 
       backdropFilter: "blur(12px)",
       WebkitBackdropFilter: "blur(12px)",
 
-      boxShadow: `
-        0 10px 24px rgba(0,0,0,0.22),
-        inset 0 1px 0 rgba(255,255,255,0.22)
-      `,
+      boxShadow:
+        hovered === "spa"
+          ? `
+            0 18px 38px rgba(0,0,0,0.28),
+            0 0 30px rgba(255,255,255,0.34),
+            0 0 58px rgba(255,255,255,0.12),
+            inset 0 1px 0 rgba(255,255,255,0.32)
+          `
+          : `
+            0 14px 28px rgba(0,0,0,0.24),
+            0 0 18px rgba(255,255,255,0.12),
+            inset 0 1px 0 rgba(255,255,255,0.24)
+          `,
 
       transform:
         active === "spa"
-          ? "scale(0.98)"
+          ? "scale(0.97)"
           : hovered === "spa"
-          ? "translateY(-2px)"
+          ? "translateY(-4px)"
           : "scale(1)",
 
-      transition: "all 0.24s ease",
+      transition: "all 0.28s ease",
 
-      cursor: "pointer"
+      cursor: "pointer",
+
+      // ✨ PULSING GLOW
+      animation:
+        hovered === "spa"
+          ? "none"
+          : "pulseGlow 3.2s ease-in-out infinite",
+
+      animationDelay: "1.5s"
     },
 
     // =========================================================
@@ -389,13 +423,8 @@ const RootLanding = () => {
           </div>
 
           {/* 🏛 TITLES */}
-          <div
-            style={{
-              marginBottom: "18px"
-            }}
-          >
+          <div style={{ marginBottom: "18px" }}>
 
-            {/* ENGLISH */}
             <div
               style={{
                 fontFamily:
@@ -407,20 +436,12 @@ const RootLanding = () => {
 
                 color: "#ffffff",
 
-                letterSpacing: "0.18px",
-
-                lineHeight: "1.1",
-
-                textShadow: `
-                  0 2px 4px rgba(0,0,0,0.48),
-                  0 4px 10px rgba(0,0,0,0.28)
-                `
+                lineHeight: "1.1"
               }}
             >
               {content.title}
             </div>
 
-            {/* SPANISH */}
             <div
               style={{
                 fontFamily:
@@ -434,16 +455,9 @@ const RootLanding = () => {
 
                 color: "rgba(255,255,255,0.95)",
 
-                letterSpacing: "0.30px",
-
                 marginTop: "4px",
 
-                lineHeight: "1.1",
-
-                textShadow: `
-                  0 2px 4px rgba(0,0,0,0.48),
-                  0 4px 10px rgba(0,0,0,0.28)
-                `
+                lineHeight: "1.1"
               }}
             >
               {content.spanishTitle}
@@ -453,32 +467,10 @@ const RootLanding = () => {
 
           {/* 📖 SUBTITLE */}
           <p style={styles.subtitle}>
-            <a
-              href="https://www.efca.org/sof"
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{
-                color: "#ffffff",
-
-                textDecoration: "none",
-
-                borderBottom:
-                  "1px solid rgba(255,255,255,0.76)",
-
-                paddingBottom: "2px",
-
-                transition: "all 0.2s ease",
-
-                fontWeight: "600",
-
-                cursor: "pointer"
-              }}
-            >
-              {content.subtitle}
-            </a>
+            {content.subtitle}
           </p>
 
-          {/* 🤝 WELCOME MESSAGE */}
+          {/* 🤝 MESSAGE */}
           <p style={styles.welcomeMessage}>
             We invite you to join us in worship and fellowship
             as we share God’s love and grace together.
@@ -537,7 +529,16 @@ const RootLanding = () => {
                     Explore English Service
                   </span>
 
-                  <span>
+                  <span
+                    style={{
+                      transform:
+                        hovered === "eng"
+                          ? "translateX(4px)"
+                          : "translateX(0px)",
+
+                      transition: "all 0.25s ease"
+                    }}
+                  >
                     →
                   </span>
                 </div>
@@ -576,7 +577,16 @@ const RootLanding = () => {
                     Explorar Servicio en Español
                   </span>
 
-                  <span>
+                  <span
+                    style={{
+                      transform:
+                        hovered === "spa"
+                          ? "translateX(4px)"
+                          : "translateX(0px)",
+
+                      transition: "all 0.25s ease"
+                    }}
+                  >
                     →
                   </span>
                 </div>
@@ -595,6 +605,38 @@ const RootLanding = () => {
           </div>
         </div>
       </div>
+
+      {/* ✨ PULSING GLOW ANIMATION */}
+      <style>
+        {`
+          @keyframes pulseGlow {
+
+            0% {
+              box-shadow:
+                0 14px 28px rgba(0,0,0,0.24),
+                0 0 12px rgba(255,255,255,0.08),
+                0 0 0 rgba(255,255,255,0.00),
+                inset 0 1px 0 rgba(255,255,255,0.22);
+            }
+
+            50% {
+              box-shadow:
+                0 18px 38px rgba(0,0,0,0.30),
+                0 0 34px rgba(255,255,255,0.38),
+                0 0 64px rgba(255,255,255,0.16),
+                inset 0 1px 0 rgba(255,255,255,0.34);
+            }
+
+            100% {
+              box-shadow:
+                0 14px 28px rgba(0,0,0,0.24),
+                0 0 12px rgba(255,255,255,0.08),
+                0 0 0 rgba(255,255,255,0.00),
+                inset 0 1px 0 rgba(255,255,255,0.22);
+            }
+          }
+        `}
+      </style>
 
       <Footer />
     </>
