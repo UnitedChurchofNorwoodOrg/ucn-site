@@ -108,9 +108,10 @@ const englishSiteContent = {
 
     title: "Welcome",
 
-    intro:
-      "We invite you to join us in worship and fellowship as we share God’s love and grace together.",
-
+    intro1:
+      "We are committed to sharing God's love and grace as revealed in the Bible and through His Son, our Lord and Savior, Jesus Christ.",
+	intro2:
+	       "We invite you to join us in worship and fellowship as we share God’s love and grace together.",
     serviceTime1: "Sunday Worship",
 	serviceTime2: "⛪ English: 10:00 AM",
 	serviceTime3: "⛪ Spanish: 12:00 Noon",

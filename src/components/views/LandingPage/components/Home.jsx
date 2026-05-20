@@ -33,8 +33,11 @@ const Home = () => {
           </h2>
 
           <p style={styles.paragraph}>
-            {home.intro}
+            {home.intro1}
           </p>
+		  <p style={styles.paragraph}>
+		         {home.intro2}
+		       </p>
 
           <p style={styles.service}>
             {home.serviceTime1}
