@@ -288,15 +288,14 @@ const RootLanding = () => {
           ? "translateY(-4px)"
           : "scale(1)",
 
-      transition: "all 0.28s ease",
+      transition: "all 0.18s ease",
 
       cursor: "pointer",
 
-      // ✨ PULSING GLOW
-      animation:
-        hovered === "eng"
-          ? "none"
-          : "pulseGlow 3.2s ease-in-out infinite"
+	  animation:
+	    hovered === "eng"
+	      ? "none"
+	      : "pulseGlow 3.4s ease-in-out infinite"
     },
 
     buttonSecondary: {
@@ -342,17 +341,16 @@ const RootLanding = () => {
           ? "translateY(-4px)"
           : "scale(1)",
 
-      transition: "all 0.28s ease",
+      transition: "all 0.18s ease",
 
       cursor: "pointer",
 
-      // ✨ PULSING GLOW
-      animation:
-        hovered === "spa"
-          ? "none"
-          : "pulseGlow 3.2s ease-in-out infinite",
+	  animation:
+	    hovered === "spa"
+	      ? "none"
+	      : "pulseGlow 3.4s ease-in-out infinite",
 
-      animationDelay: "1.5s"
+	  animationDelay: "1s"
     },
 
     // =========================================================
@@ -467,22 +465,35 @@ const RootLanding = () => {
 
           {/* 📖 SUBTITLE */}
           <p style={styles.subtitle}>
-            {content.subtitle}
+            <a
+              href="https://www.efca.org/sof"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                color: "#ffffff",
+
+                textDecoration: "none",
+
+                borderBottom:
+                  "1px solid rgba(255,255,255,0.76)",
+
+                paddingBottom: "2px",
+
+                transition: "all 0.2s ease",
+
+                fontWeight: "600",
+
+                cursor: "pointer"
+              }}
+            >
+              {content.subtitle}
+            </a>
           </p>
 
           {/* 🤝 MESSAGE */}
           <p style={styles.welcomeMessage}>
             We invite you to join us in worship and fellowship
             as we share God’s love and grace together.
-          </p>
-
-          {/* ✨ TAGLINES */}
-          <p style={styles.tagline}>
-            {content.tagline1}
-          </p>
-
-          <p style={styles.tagline}>
-            {content.tagline2}
           </p>
 
           {/* 🔘 BUTTONS */}
@@ -614,25 +625,31 @@ const RootLanding = () => {
             0% {
               box-shadow:
                 0 14px 28px rgba(0,0,0,0.24),
-                0 0 12px rgba(255,255,255,0.08),
+                0 0 10px rgba(255,255,255,0.08),
                 0 0 0 rgba(255,255,255,0.00),
                 inset 0 1px 0 rgba(255,255,255,0.22);
+
+              transform: scale(1);
             }
 
             50% {
               box-shadow:
-                0 18px 38px rgba(0,0,0,0.30),
-                0 0 34px rgba(255,255,255,0.38),
-                0 0 64px rgba(255,255,255,0.16),
-                inset 0 1px 0 rgba(255,255,255,0.34);
+                0 22px 44px rgba(0,0,0,0.32),
+                0 0 42px rgba(255,255,255,0.48),
+                0 0 72px rgba(255,255,255,0.20),
+                inset 0 1px 0 rgba(255,255,255,0.38);
+
+              transform: scale(1.025);
             }
 
             100% {
               box-shadow:
                 0 14px 28px rgba(0,0,0,0.24),
-                0 0 12px rgba(255,255,255,0.08),
+                0 0 10px rgba(255,255,255,0.08),
                 0 0 0 rgba(255,255,255,0.00),
                 inset 0 1px 0 rgba(255,255,255,0.22);
+
+              transform: scale(1);
             }
           }
         `}
