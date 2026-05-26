@@ -1,12 +1,12 @@
 import { Button } from "react-bootstrap";
 import { useEffect, useState } from "react";
-import englishSiteContent from "../../../../content/englishSiteContent";
+import spanishSiteContent from "../../../../content/spanishSiteContent";
 
 const TOTAL_PHOTOS = 102;
 const THUMBNAILS_VISIBLE = 3;
 
 const Photos = () => {
-  const { photos } = englishSiteContent;
+  const { photos } = spanishSiteContent;
 
   const [validImages, setValidImages] = useState([]);
   const [selectedIndex, setSelectedIndex] = useState(0);
