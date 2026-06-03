@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { Button } from "react-bootstrap";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 // Layout Components
 import Footer from "./layout/Footer";
@@ -11,6 +11,14 @@ import UpcomingEvents from "./global/Calendar/UpcomingEvents";
 
 // Content
 import englishSiteContent from "../content/englishSiteContent";
+
+const DEFAULT_VERSE = {
+  text: "Be still, and know that I am God.",
+  reference: "Psalm 46:10",
+  translation: "NIV",
+  message:
+    "May God's Word encourage and strengthen you today."
+};
 
 const RootLanding = () => {
 
@@ -24,6 +32,21 @@ const RootLanding = () => {
   // =========================================================
   const [hovered, setHovered] = useState(null);
   const [active, setActive] = useState(null);
+  const [verse, setVerse] = useState(null);
+
+  useEffect(() => {
+    fetch(
+      "https://opensheet.elk.sh/1EatdRH4Ox9OVZEPS0kC1fw4iRBzvdN49FzE4N-a4NQ0/Form%20Responses%201"
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        const latest = data[data.length - 1];
+        setVerse(latest);
+      })
+      .catch((err) =>
+        console.error("Scripture load error:", err)
+      );
+  }, []);
 
   // =========================================================
   // 🎨 STYLES
@@ -395,8 +418,22 @@ const RootLanding = () => {
       fontSize: "1.02rem"
     }
   };
+  const scriptureText =
+    verse?.["Add Scripture Text "] ||
+    DEFAULT_VERSE.text;
 
+  const scriptureReference =
+    verse?.["Add Scripture Reference "] ||
+    DEFAULT_VERSE.reference;
+
+	const translation =
+	  verse?.["Add Translation  "]?.trim() || "";
+
+  const pastorMessage =
+    verse?.["Add Pastor's Message  "] ||
+    DEFAULT_VERSE.message;
   return (
+	
     <>
       <NewsTicker />
 
@@ -495,7 +532,82 @@ const RootLanding = () => {
             We invite you to join us in worship and fellowship
             as we share God’s love and grace together.
           </p>
+		  <div
+		    style={{
+		      marginTop: "20px",
+		      marginBottom: "18px",
 
+		      background: `
+		        linear-gradient(
+		          to bottom,
+		          rgba(255,255,255,0.72),
+		          rgba(255,255,255,0.55)
+		        )
+		      `,
+
+		      border: "1px solid rgba(255,255,255,0.65)",
+
+		      borderRadius: "22px",
+
+		      padding: "18px 20px",
+
+		      backdropFilter: "blur(12px)",
+		      WebkitBackdropFilter: "blur(12px)",
+
+		      boxShadow: `
+		        0 14px 28px rgba(0,0,0,0.24),
+		        inset 0 1px 0 rgba(255,255,255,0.24)
+		      `
+		    }}
+		  >
+		  <div
+		    style={{
+		      fontSize: "0.72rem",
+		      fontWeight: "700",
+		      textTransform: "uppercase",
+		      letterSpacing: "1.5px",
+		      color: "#8B6F47",
+		      marginBottom: "10px"
+		    }}
+		  >
+		    📖 Today's Scripture
+		  </div>
+
+		  <div
+		    style={{
+		      fontSize: "0.92rem",
+		      lineHeight: "1.8",
+		      fontStyle: "italic",
+		      color: "#16324f",
+		      marginBottom: "10px"
+		    }}
+		  >
+		    "{scriptureText}"
+		  </div>
+
+		  <div
+		    style={{
+				fontSize: "0.84rem",
+				fontWeight: "600",
+				color: "#16324f",
+				marginBottom: "8px"
+		    }}
+		  >
+		    {scriptureReference}
+		    {translation ? ` (${translation})` : ""}
+		  </div>
+
+		  <div
+		    style={{
+				fontSize: "0.80rem",
+				color: "#4b5563",
+				lineHeight: "1.55",
+				marginTop: "4px"
+		    }}
+		  >
+		    {pastorMessage}
+		  </div>
+		  </div>
           {/* 🔘 BUTTONS */}
           <div
             className="
