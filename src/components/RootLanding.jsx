@@ -419,18 +419,18 @@ const RootLanding = () => {
     }
   };
   const scriptureText =
-    verse?.["Add Scripture Text "] ||
+    verse?.["Add Bible Scripture Text "] ||
     DEFAULT_VERSE.text;
 
   const scriptureReference =
-    verse?.["Add Scripture Reference "] ||
+    verse?.["Add Bible Scripture Reference "] ||
     DEFAULT_VERSE.reference;
 
-	const translation =
-	  verse?.["Add Translation  "]?.trim() || "";
+  const translation =
+    verse?.["Add Bible Translation  (Optional)"]?.trim() || "";
 
   const pastorMessage =
-    verse?.["Add Pastor's Message  "] ||
+    verse?.["Add Pastor's Message  (Optional)"] ||
     DEFAULT_VERSE.message;
   return (
 	
