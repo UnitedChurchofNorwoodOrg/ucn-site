@@ -764,7 +764,7 @@ const RootLanding = () => {
 		          fontWeight: "600"
 		        }}
 		      >
-		        🎥 Latest Pastor Message
+		        🎥 Message
 		      </h5>
 
 		      <div
