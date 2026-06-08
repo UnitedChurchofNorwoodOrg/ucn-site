@@ -33,6 +33,23 @@ const RootLanding = () => {
   const [hovered, setHovered] = useState(null);
   const [active, setActive] = useState(null);
   const [verse, setVerse] = useState(null);
+  const [latestVideo, setLatestVideo] = useState(null);
+
+  useEffect(() => {
+    fetch(
+      "https://opensheet.elk.sh/10nyBWh6DLly6_Woe5oANxFetBRPR71RnkNEy5PQ23q4/Form%20Responses%201"
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.length > 0) {
+          setLatestVideo(data[data.length - 1]);
+		  console.log("VIDEO DATA", data[data.length - 1]);
+        }
+      })
+      .catch((err) =>
+        console.error("Video load error:", err)
+      );
+  }, []);
 
   useEffect(() => {
     fetch(
@@ -432,6 +449,16 @@ const RootLanding = () => {
   const pastorMessage =
     verse?.["Add Pastor's Message  (Optional)"] ||
     DEFAULT_VERSE.message;
+	
+	const reelUrl =
+	  latestVideo?.["Facebook Reel URL"] || "";
+
+	const embedUrl = reelUrl
+	  ? `https://www.facebook.com/plugins/video.php?href=${encodeURIComponent(
+	      reelUrl
+	    )}&show_text=false`
+	  : "";
+	
   return (
 	
     <>
@@ -716,7 +743,62 @@ const RootLanding = () => {
               </Button>
             </Link>
           </div>
+		  
+		  {/* VIDEO STREAM FROM FACEBOOK */}
+		  {latestVideo && (
+		    <div
+		      style={{
+		        marginTop: "22px",
+		        background:
+		          "linear-gradient(to bottom, rgba(255,255,255,0.92), rgba(255,255,255,0.84))",
+		        borderRadius: "18px",
+		        padding: "18px",
+		        color: "#111827",
+		        boxShadow: "0 10px 22px rgba(0,0,0,0.14)",
+		        textAlign: "center"
+		      }}
+		    >
+		      <h5
+		        style={{
+		          marginBottom: "12px",
+		          fontWeight: "600"
+		        }}
+		      >
+		        🎥 Latest Pastor Message
+		      </h5>
 
+		      <div
+		        style={{
+		          fontWeight: "600",
+		          marginBottom: "16px"
+		        }}
+		      >
+		        {latestVideo["Video Title "]}
+		      </div>
+
+		      <div
+		        style={{
+		          maxWidth: "420px",
+		          margin: "0 auto",
+		          aspectRatio: "9 / 16"
+		        }}
+		      >
+		        <iframe
+		          src={embedUrl}
+		          width="100%"
+		          height="100%"
+		          style={{
+		            border: "none",
+		            borderRadius: "12px"
+		          }}
+		          scrolling="no"
+		          allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+		          allowFullScreen
+		          title="Latest Pastor Message"
+		        />
+		      </div>
+		    </div>
+		  )}
           {/* 📅 EVENTS */}
           <div style={styles.calendarBox}>
 
