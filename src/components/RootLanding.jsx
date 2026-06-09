@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { Button } from "react-bootstrap";
 import { useState, useEffect } from "react";
 
+
 // Layout Components
 import Footer from "./layout/Footer";
 
@@ -34,18 +35,26 @@ const RootLanding = () => {
   const [active, setActive] = useState(null);
   const [verse, setVerse] = useState(null);
   const [latestVideo, setLatestVideo] = useState(null);
+  const [showVideo, setShowVideo] = useState(false);
 
   useEffect(() => {
     fetch(
       "https://opensheet.elk.sh/10nyBWh6DLly6_Woe5oANxFetBRPR71RnkNEy5PQ23q4/Form%20Responses%201"
     )
       .then((res) => res.json())
-      .then((data) => {
-        if (data.length > 0) {
-          setLatestVideo(data[data.length - 1]);
-		  console.log("VIDEO DATA", data[data.length - 1]);
-        }
-      })
+	  .then((data) => {
+	    if (data.length > 0) {
+	      const latest = data[data.length - 1];
+
+	      if (
+	        latest?.["Facebook Reel URL"]?.trim() &&
+	        latest?.["Video Title "]?.trim()
+	      ) {
+	        setLatestVideo(latest);
+	        setShowVideo(false);
+	      }
+	    }
+	  })
       .catch((err) =>
         console.error("Video load error:", err)
       );
@@ -166,32 +175,34 @@ const RootLanding = () => {
     // =========================================================
     // 🌅 SOFT GLOW
     // =========================================================
-    logoGlow: {
-      position: "absolute",
+	logoGlow: {
+	  position: "absolute",
 
-      width: "140px",
-      height: "140px",
+	  width: "140px",
+	  height: "140px",
 
-      borderRadius: "50%",
+	  borderRadius: "50%",
 
-      background: `
-        radial-gradient(
-          circle,
-          rgba(255,255,255,1.0) 0%,
-          rgba(255,255,255,0.92) 24%,
-          rgba(255,255,255,0.62) 48%,
-          rgba(255,255,255,0.00) 84%
-        )
-      `,
+	  background: `
+	    radial-gradient(
+	      circle,
+	      rgba(255,255,255,1.0) 0%,
+	      rgba(255,255,255,0.92) 24%,
+	      rgba(255,255,255,0.62) 48%,
+	      rgba(255,255,255,0.00) 84%
+	    )
+	  `,
 
-      filter: "blur(10px)",
+	  filter: "blur(10px)",
 
-      transform: "translateY(-3px)",
+	  transform: "translateY(-3px)",
 
-      opacity: 1,
+	  opacity: 1,
 
-      zIndex: 0
-    },
+	  zIndex: 0,
+
+	  animation: "logoPulse 4s ease-in-out infinite"
+	},
 
     // =========================================================
     // ⛪ LOGO
@@ -458,6 +469,11 @@ const RootLanding = () => {
 	      reelUrl
 	    )}&show_text=false`
 	  : "";
+	  const hasValidVideo =
+	    latestVideo &&
+	    latestVideo?.["Facebook Reel URL"]?.trim() &&
+	    latestVideo?.["Video Title "]?.trim() &&
+	    embedUrl;
 	
   return (
 	
@@ -487,22 +503,30 @@ const RootLanding = () => {
           {/* 🏛 TITLES */}
           <div style={{ marginBottom: "18px" }}>
 
-            <div
-              style={{
-                fontFamily:
-                  "'Cormorant Garamond', 'Playfair Display', serif",
+		  <div
+		    style={{
+		      fontFamily:
+		        "'Cormorant Garamond', 'Playfair Display', serif",
 
-                fontSize: "1.72rem",
+		      fontSize: "1.72rem",
 
-                fontWeight: "400",
+		      fontWeight: "500",
 
-                color: "#ffffff",
+		      color: "#ffffff",
 
-                lineHeight: "1.1"
-              }}
-            >
-              {content.title}
-            </div>
+		      lineHeight: "1.1",
+
+		      textShadow: `
+		        0 0 10px rgba(22,50,79,1),
+		        0 0 20px rgba(22,50,79,0.95),
+		        0 0 35px rgba(22,50,79,0.85),
+		        0 0 55px rgba(22,50,79,0.65),
+		        0 3px 8px rgba(0,0,0,0.70)
+		      `
+		    }}
+		  >
+		    {content.title}
+		  </div>
 
             <div
               style={{
@@ -589,10 +613,10 @@ const RootLanding = () => {
 		  >
 		  <div
 		    style={{
-		      fontSize: "0.72rem",
+		       fontSize: "0.90rem",
 		      fontWeight: "700",
 		      textTransform: "uppercase",
-		      letterSpacing: "1.5px",
+		      letterSpacing: "1.0px",
 		      color: "#8B6F47",
 		      marginBottom: "10px"
 		    }}
@@ -744,8 +768,9 @@ const RootLanding = () => {
             </Link>
           </div>
 		  
+		
 		  {/* VIDEO STREAM FROM FACEBOOK */}
-		  {latestVideo && (
+		  {hasValidVideo && (
 		    <div
 		      style={{
 		        marginTop: "22px",
@@ -753,49 +778,143 @@ const RootLanding = () => {
 		          "linear-gradient(to bottom, rgba(255,255,255,0.92), rgba(255,255,255,0.84))",
 		        borderRadius: "18px",
 		        padding: "18px",
-		        color: "#111827",
+				color: "#16324f",
 		        boxShadow: "0 10px 22px rgba(0,0,0,0.14)",
 		        textAlign: "center"
 		      }}
 		    >
-		      <h5
-		        style={{
-		          marginBottom: "12px",
-		          fontWeight: "600"
-		        }}
-		      >
-		        🎥 Message
-		      </h5>
+			<div
+			  style={{
+			    fontSize: "0.90rem",
+			    fontWeight: "700",
+			    textTransform: "uppercase",
+			    letterSpacing: "1.0px",
+			    color: "#8B6F47",
+			    marginBottom: "12px"
+			  }}
+			>
+			  🎥 Message
+			</div>
 
 		      <div
 		        style={{
 		          fontWeight: "600",
 		          marginBottom: "16px"
+				  
 		        }}
 		      >
 		        {latestVideo["Video Title "]}
 		      </div>
 
-		      <div
-		        style={{
-		          maxWidth: "420px",
-		          margin: "0 auto",
-		          aspectRatio: "9 / 16"
-		        }}
-		      >
-		        <iframe
-		          src={embedUrl}
-		          width="100%"
-		          height="100%"
-		          style={{
-		            border: "none",
-		            borderRadius: "12px"
-		          }}
-		          scrolling="no"
-		          allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
-		          allowFullScreen
-		          title="Latest Pastor Message"
-		        />
+			  <div
+			  style={{
+			    maxWidth: "360px",
+			    width: "100%",
+			    margin: "0 auto",
+			    aspectRatio: "9 / 16",
+			    backgroundColor: "#000",
+			    borderRadius: "12px",
+			    overflow: "hidden",
+			    position: "relative"
+			  }}
+			  >
+		        {showVideo ? (
+					<iframe
+					  src={embedUrl}
+					  width="100%"
+					  height="100%"
+					  style={{
+					    border: "none",
+					    borderRadius: "12px",
+					    backgroundColor: "#000"
+					  }}
+					  scrolling="no"
+					  allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+					  allowFullScreen
+					  title="Latest Pastor Message"
+					/>
+		        ) : (
+		          <div
+				  onClick={() => {
+				    setShowVideo(true);
+				  }}
+				  style={{
+				    width: "100%",
+				    height: "100%",
+				    position: "relative",
+				    cursor: "pointer",
+				    overflow: "hidden",
+				    borderRadius: "12px",
+				    backgroundColor: "#000"
+				  }}
+		          >
+		            {/* Church Background Image */}
+					<img
+					  src={process.env.PUBLIC_URL + "/images/home.jpeg"}
+					  alt="Pastor Message"
+					  style={{
+					    width: "100%",
+					    height: "100%",
+					    objectFit: "cover",
+					    display: "block"
+					  }}
+					/>
+
+		            {/* Dark Overlay */}
+		            <div
+		              style={{
+		                position: "absolute",
+		                inset: 0,
+		                background:
+		                  "linear-gradient(to bottom, rgba(0,0,0,0.15), rgba(0,0,0,0.35))"
+		              }}
+		            />
+
+		            {/* Play Button */}
+		            <div
+		              style={{
+		                position: "absolute",
+		                top: "50%",
+		                left: "50%",
+		                transform: "translate(-50%, -50%)",
+		                width: "90px",
+		                height: "90px",
+		                borderRadius: "50%",
+		                background: "rgba(255,255,255,0.92)",
+		                display: "flex",
+		                alignItems: "center",
+		                justifyContent: "center",
+		                boxShadow: "0 8px 25px rgba(0,0,0,0.35)"
+		              }}
+		            >
+		              <span
+		                style={{
+		                  color: "#16324f",
+		                  fontSize: "42px",
+		                  marginLeft: "6px"
+		                }}
+		              >
+		                ▶
+		              </span>
+		            </div>
+
+		            {/* Optional Caption */}
+		            <div
+		              style={{
+		                position: "absolute",
+		                bottom: "16px",
+		                left: "0",
+		                right: "0",
+		                color: "#fff",
+		                fontWeight: "600",
+		                fontSize: "0.9rem",
+		                textShadow: "0 2px 6px rgba(0,0,0,0.7)"
+		              }}
+		            >
+		              Click to Watch Pastor's Message
+		            </div>
+		          </div>
+		        )}
 		      </div>
 		    </div>
 		  )}
@@ -846,6 +965,22 @@ const RootLanding = () => {
               transform: scale(1);
             }
           }
+		  @keyframes logoPulse {
+		    0% {
+		      transform: translateY(-3px) scale(1);
+		      opacity: 0.85;
+		    }
+
+		    50% {
+		      transform: translateY(-3px) scale(1.15);
+		      opacity: 1;
+		    }
+
+		    100% {
+		      transform: translateY(-3px) scale(1);
+		      opacity: 0.85;
+		    }
+		  }
         `}
       </style>
 
