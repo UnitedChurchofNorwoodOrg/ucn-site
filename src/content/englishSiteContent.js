@@ -241,11 +241,16 @@ const englishSiteContent = {
    * ============================================================
    */
   services: {
-    image: {
+    image1: {
       src: "/images/services.jpg",
       alt: "Sunday Worship",
       caption: "Sunday Worship Service"
     },
+	image2: {
+	    src: "/images/sunday-school.jpg",
+	    alt: "Sunday School",
+	    caption: "Sunday School"
+	  },
 
     title: "Visiting Us",
 

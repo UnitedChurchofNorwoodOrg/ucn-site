@@ -11,13 +11,13 @@ const Services = () => {
       {/* 🖼️ IMAGE FIRST */}
       <div style={styles.imageContainer}>
         <Image
-          src={process.env.PUBLIC_URL + services.image.src}
-          alt={services.image.alt}
+          src={process.env.PUBLIC_URL + services.image1.src}
+          alt={services.image1.alt}
           style={styles.image}
         />
 
         <p style={styles.caption}>
-          {services.image.caption}
+          {services.image1.caption}
         </p>
       </div>
 
@@ -78,7 +78,18 @@ const Services = () => {
 
         </Col>
       </Row>
+	  {/* 🖼️ IMAGE LAST */}
+	   <div style={styles.imageContainer}>
+	     <Image
+	       src={process.env.PUBLIC_URL + services.image2.src}
+	       alt={services.image2.alt}
+	       style={styles.image}
+	     />
 
+	     <p style={styles.caption}>
+	       {services.image2.caption}
+	     </p>
+	   </div>
     </div>
   );
 };
