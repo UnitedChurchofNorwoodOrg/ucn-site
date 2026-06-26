@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import Give from "./components/Give";
 import { Row, Col, Dropdown } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import Home from "./components/Home";
@@ -75,51 +76,74 @@ const LandingPage = () => {
               }}
             >
 
-              {/* ===================================================== */}
-              {/* ⛪ HEADER */}
-              {/* ===================================================== */}
-              <Link
-                to="/"
-                style={{
-                  textDecoration: "none",
-                  color: "inherit"
-                }}
-              >
-                <div
-                  className="pt-4 pb-3 border-bottom text-center"
-                  style={{
-                    cursor: "pointer"
-                  }}
-                >
-                  <img
-                    src={
-                      process.env.PUBLIC_URL +
-                      "/images/UNCLogoTrans.png"
-                    }
-                    alt="UCN Logo"
-                    style={{
-                      height: "80px",
-                      marginBottom: "10px",
-                      display: "block",
-                      marginLeft: "auto",
-                      marginRight: "auto",
-                    }}
-                  />
+			{/* ===================================================== */}
+			{/* ⛪ HEADER */}
+			{/* ===================================================== */}
+			<Link
+			  to="/"
+			  title="Return to Home"
+			  style={{
+			    textDecoration: "none",
+			    color: "inherit",
+			  }}
+			>
+			  <div
+			    className="pt-4 pb-3 border-bottom text-center"
+			    style={{
+			      cursor: "pointer",
+			      transition: "transform 0.2s ease, opacity 0.2s ease",
+			      userSelect: "none",
+			      WebkitTapHighlightColor: "transparent",
+			    }}
+			    onMouseEnter={(e) => {
+			      if (window.innerWidth >= 768) {
+			        e.currentTarget.style.opacity = "0.95";
+			        e.currentTarget.style.transform = "scale(1.01)";
+			      }
+			    }}
+			    onMouseLeave={(e) => {
+			      e.currentTarget.style.opacity = "1";
+			      e.currentTarget.style.transform = "scale(1)";
+			    }}
+			    onTouchStart={(e) => {
+			      e.currentTarget.style.transform = "scale(0.98)";
+			    }}
+			    onTouchEnd={(e) => {
+			      e.currentTarget.style.transform = "scale(1)";
+			    }}
+			    onTouchCancel={(e) => {
+			      e.currentTarget.style.transform = "scale(1)";
+			    }}
+			  >
+			    <img
+			      src={
+			        process.env.PUBLIC_URL +
+			        "/images/UNCLogoTrans.png"
+			      }
+			      alt="UCN Logo"
+			      style={{
+			        height: "80px",
+			        marginBottom: "10px",
+			        display: "block",
+			        marginLeft: "auto",
+			        marginRight: "auto",
+			      }}
+			    />
 
-                  <h2
-                    style={{
-                      fontFamily: "Playfair Display, serif",
-                      marginBottom: "5px",
-                    }}
-                  >
-                    {landingPage.header.title}
-                  </h2>
+			    <h2
+			      style={{
+			        fontFamily: "Playfair Display, serif",
+			        marginBottom: "5px",
+			      }}
+			    >
+			      {landingPage.header.title}
+			    </h2>
 
-                  <p className="text-muted mb-0">
-                    {landingPage.header.subtitle}
-                  </p>
-                </div>
-              </Link>
+			    <p className="text-muted mb-0">
+			      {landingPage.header.subtitle}
+			    </p>
+			  </div>
+			</Link>
 
               {/* ===================================================== */}
               {/* 📢 NEWS TICKER */}
@@ -154,6 +178,7 @@ const LandingPage = () => {
                   "About Us",
                   "Services",
                   "Photos",
+				  "Give",
                   "Contact Us"
                 ].map((item) => {
 
@@ -316,6 +341,7 @@ const LandingPage = () => {
                   {tab === "Our Staff" && <OurStaff />}
                   {tab === "Ministries" && <Ministries />}
                   {tab === "Photos" && <Photos />}
+				  {tab === "Give" && <Give />}
                   {tab === "Contact Us" && <ContactUs />}
                 </div>
               </div>

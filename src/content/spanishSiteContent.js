@@ -21,6 +21,7 @@ const spanishSiteContent = {
       "Inicio",
       "Sobre Nosotros",
       "Fotos",
+	  "Ofrendas",
       "Contáctanos"
     ]
   },

@@ -10,6 +10,7 @@ import Hamburger from "hamburger-react";
 import Footer from "../../layout/Footer";
 import NewsTicker from "../../global/NewsTicker/NewsTicker";
 import spanishSiteContent from "../../../content/spanishSiteContent";
+import Give from "./componentsSpanish/Give";
 
 const LandingPageSpanish = () => {
   const [tab, setTab] = useState("Inicio");
@@ -68,48 +69,72 @@ const LandingPageSpanish = () => {
               }}
             >
               {/* HEADER */}
-              <Link
-                to="/"
-                style={{
-                  textDecoration: "none",
-                  color: "inherit",
-                }}
-              >
-                <div
-                  className="pt-4 pb-3 border-bottom text-center"
-                  style={{
-                    cursor: "pointer",
-                  }}
-                >
-                  <img
-                    src={
-                      process.env.PUBLIC_URL +
-                      "/images/UNCLogoTrans.png"
-                    }
-                    alt="UCN Logo"
-                    style={{
-                      height: "80px",
-                      marginBottom: "10px",
-                      display: "block",
-                      marginLeft: "auto",
-                      marginRight: "auto",
-                    }}
-                  />
+			  {/* HEADER */}
+			  <Link
+			    to="/"
+			    title="Volver al Inicio"
+			    style={{
+			      textDecoration: "none",
+			      color: "inherit",
+			    }}
+			  >
+			    <div
+			      className="pt-4 pb-3 border-bottom text-center"
+			      style={{
+			        cursor: "pointer",
+			        transition: "transform 0.2s ease, opacity 0.2s ease",
+			        userSelect: "none",
+			        WebkitTapHighlightColor: "transparent",
+			      }}
+			      onMouseEnter={(e) => {
+			        if (window.innerWidth >= 768) {
+			          e.currentTarget.style.opacity = "0.95";
+			          e.currentTarget.style.transform = "scale(1.01)";
+			        }
+			      }}
+			      onMouseLeave={(e) => {
+			        e.currentTarget.style.opacity = "1";
+			        e.currentTarget.style.transform = "scale(1)";
+			      }}
+			      onTouchStart={(e) => {
+			        e.currentTarget.style.transform = "scale(0.98)";
+			      }}
+			      onTouchEnd={(e) => {
+			        e.currentTarget.style.transform = "scale(1)";
+			      }}
+			      onTouchCancel={(e) => {
+			        e.currentTarget.style.transform = "scale(1)";
+			      }}
+			    >
+			      <img
+			        src={
+			          process.env.PUBLIC_URL +
+			          "/images/UNCLogoTrans.png"
+			        }
+			        alt="UCN Logo"
+			        style={{
+			          height: "80px",
+			          marginBottom: "10px",
+			          display: "block",
+			          marginLeft: "auto",
+			          marginRight: "auto",
+			        }}
+			      />
 
-                  <h2
-                    style={{
-                      fontFamily: "Playfair Display, serif",
-                      marginBottom: "5px",
-                    }}
-                  >
-                    {landingPage.header.title}
-                  </h2>
+			      <h2
+			        style={{
+			          fontFamily: "Playfair Display, serif",
+			          marginBottom: "5px",
+			        }}
+			      >
+			        {landingPage.header.title}
+			      </h2>
 
-                  <p className="text-muted mb-0">
-                    {landingPage.header.subtitle}
-                  </p>
-                </div>
-              </Link>
+			      <p className="text-muted mb-0">
+			        {landingPage.header.subtitle}
+			      </p>
+			    </div>
+			  </Link>
 
               {/* NEWS */}
               <NewsTicker />
@@ -135,6 +160,7 @@ const LandingPageSpanish = () => {
                 {[
                   "Inicio",
                   "Sobre Nosotros",
+				  "Ofrendas",
                   "Fotos",
                   "Contáctanos",
                 ].map((item) => {
@@ -255,6 +281,7 @@ const LandingPageSpanish = () => {
                   {tab === "Inicio" && <Home />}
                   {tab === "Sobre Nosotros" && <AboutUs />}
                   {tab === "Fotos" && <Photos />}
+				  {tab === "Ofrendas" && <Give />}
                   {tab === "Contáctanos" && <ContactUs />}
                 </div>
               </div>

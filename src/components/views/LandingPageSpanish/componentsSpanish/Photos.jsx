@@ -2,7 +2,7 @@ import { Button } from "react-bootstrap";
 import { useEffect, useState } from "react";
 import spanishSiteContent from "../../../../content/spanishSiteContent";
 
-const TOTAL_PHOTOS = 104;
+const TOTAL_PHOTOS = 106;
 const THUMBNAILS_VISIBLE = 3;
 
 const Photos = () => {

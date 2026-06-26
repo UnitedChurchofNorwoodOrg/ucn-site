@@ -91,6 +91,7 @@ const englishSiteContent = {
       "Our Staff",
       "Ministries",
       "Photos",
+	  "Give",
       "Contact Us"
     ]
   },
