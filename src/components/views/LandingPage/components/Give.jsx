@@ -34,6 +34,83 @@ const Give = () => {
 
       </div>
 
+      {/* Zelle */}
+
+      <Card
+        className="border rounded-4 mb-4"
+        style={{
+          background: "#ffffff",
+          borderColor: "#e5e7eb",
+        }}
+      >
+        <Card.Body className="text-center py-4">
+
+          <h4
+            style={{
+              fontFamily: "Playfair Display, serif",
+              color: "#111827",
+              fontWeight: "500",
+            }}
+          >
+            Give with Zelle
+          </h4>
+
+          <p
+            style={{
+              color: "#374151",
+              lineHeight: "1.75",
+              marginBottom: "20px",
+            }}
+          >
+            Scan the QR code or use the email address
+            below to make your gift quickly and securely.
+          </p>
+
+          <img
+            src={
+              process.env.PUBLIC_URL +
+              "/images/zelle-english-qrcode.png"
+            }
+            alt="Zelle QR Code"
+            style={{
+              width: "260px",
+              maxWidth: "100%",
+              display: "block",
+              margin: "0 auto 20px",
+              background: "#fff",
+              padding: "8px",
+              borderRadius: "12px",
+              border: "1px solid #e9ecef",
+            }}
+          />
+
+          <div
+            className="p-3 rounded-3"
+            style={{
+              background: "#fafafa",
+              border: "1px solid #e5e7eb",
+            }}
+          >
+            <strong>Zelle Id</strong>
+            <br />
+            Coming Soon
+          </div>
+
+          <small
+            className="d-block mt-3"
+            style={{
+              color: "#374151",
+              lineHeight: "1.75",
+              marginBottom: "20px",
+            }}
+          >
+            If you'd like, you may include your name and
+            gift designation in the payment memo.
+          </small>
+
+        </Card.Body>
+      </Card>
+
       {/* Online Giving */}
 
       <Card
@@ -88,61 +165,6 @@ const Give = () => {
           >
             Secure online giving will be available soon.
           </div>
-
-        </Card.Body>
-      </Card>
-
-      {/* Zelle */}
-
-      <Card
-        className="border rounded-4 mb-4"
-        style={{
-          background: "#ffffff",
-          borderColor: "#e5e7eb",
-        }}
-      >
-        <Card.Body className="text-center py-4">
-
-          <h4
-            style={{
-              fontFamily: "Playfair Display, serif",
-              color: "#111827",
-              fontWeight: "500",
-            }}
-          >
-            Give with Zelle
-          </h4>
-
-          <p
-            style={{
-              color: "#374151",
-              lineHeight: "1.75",
-            }}
-          >
-            Zelle giving will be available soon for our
-            English congregation.
-          </p>
-
-          <div
-            className="p-3 rounded-3"
-            style={{
-              background: "#fafafa",
-              border: "1px solid #e5e7eb",
-            }}
-          >
-            <strong>Coming Soon</strong>
-          </div>
-
-          <small
-            className="d-block mt-3"
-            style={{
-              color: "#374151",
-              lineHeight: "1.75",
-            }}
-          >
-            Zelle giving information will be posted here
-            once it becomes available.
-          </small>
 
         </Card.Body>
       </Card>
