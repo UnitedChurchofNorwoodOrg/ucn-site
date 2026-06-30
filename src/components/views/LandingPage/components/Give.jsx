@@ -84,17 +84,17 @@ const Give = () => {
             }}
           />
 
-          <div
-            className="p-3 rounded-3"
-            style={{
-              background: "#fafafa",
-              border: "1px solid #e5e7eb",
-            }}
-          >
-            <strong>Zelle Id</strong>
-            <br />
-            Coming Soon
-          </div>
+		  <div
+		    className="p-3 rounded-3"
+		    style={{
+		      background: "#fafafa",
+		      border: "1px solid #e5e7eb",
+		    }}
+		  >
+		    <strong>Zelle</strong>
+		    <br />
+		    Email address coming soon
+		  </div>
 
           <small
             className="d-block mt-3"
