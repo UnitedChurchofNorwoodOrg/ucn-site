@@ -139,25 +139,23 @@ const Give = () => {
 	          marginBottom: "25px",
 	        }}
 	      >
-	        Give securely online using your credit card, debit card,
-	        bank account, Apple Pay, Google Pay, or PayPal through
-	        our trusted giving platform, Givebutter.
+	        We're putting the finishing touches on our secure online
+	        giving platform. Online giving will be available soon
+	        through Givebutter.
 	      </p>
 
 	      <Button
-	        as="a"
-	        href="https://givebutter.com/unitedchurchofnorwood"
-	        target="_blank"
-	        rel="noopener noreferrer"
+	        disabled
 	        size="lg"
 	        className="px-4"
 	        style={{
-	          backgroundColor: "#1f3a5f",
-	          borderColor: "#1f3a5f",
+	          backgroundColor: "#6c757d",
+	          borderColor: "#6c757d",
 	          borderRadius: "10px",
+	          cursor: "not-allowed",
 	        }}
 	      >
-	        Donate Online
+	        Coming Soon
 	      </Button>
 
 	      <div
@@ -167,7 +165,8 @@ const Give = () => {
 	          fontSize: "0.9rem",
 	        }}
 	      >
-	        You will be redirected securely to our Givebutter donation page.
+	        Online giving will be enabled once the church's secure payment
+	        setup has been completed.
 	      </div>
 
 	    </Card.Body>

@@ -139,26 +139,24 @@ const Give = () => {
 	          marginBottom: "25px",
 	        }}
 	      >
-	        Done de forma segura utilizando tarjeta de crédito,
-	        tarjeta de débito, cuenta bancaria, Apple Pay,
-	        Google Pay o PayPal a través de nuestra plataforma
-	        segura de donaciones, Givebutter.
+	        Estamos dando los últimos pasos para habilitar
+	        nuestra plataforma segura de donaciones en línea.
+	        Las donaciones estarán disponibles muy pronto a
+	        través de Givebutter.
 	      </p>
 
 	      <Button
-	        as="a"
-	        href="https://givebutter.com/iglesiacristianadenorwood"
-	        target="_blank"
-	        rel="noopener noreferrer"
+	        disabled
 	        size="lg"
 	        className="px-4"
 	        style={{
-	          backgroundColor: "#1f3a5f",
-	          borderColor: "#1f3a5f",
+	          backgroundColor: "#6c757d",
+	          borderColor: "#6c757d",
 	          borderRadius: "10px",
+	          cursor: "not-allowed",
 	        }}
 	      >
-	        Donar en Línea
+	        Próximamente
 	      </Button>
 
 	      <div
@@ -168,12 +166,12 @@ const Give = () => {
 	          fontSize: "0.9rem",
 	        }}
 	      >
-	        Será redirigido de forma segura a nuestra página de donaciones de Givebutter.
+	        Las donaciones en línea estarán disponibles una vez
+	        que se complete la configuración segura de pagos de la iglesia.
 	      </div>
 
 	    </Card.Body>
 	  </Card>
-
       {/* Mail */}
 
 	  <Card
