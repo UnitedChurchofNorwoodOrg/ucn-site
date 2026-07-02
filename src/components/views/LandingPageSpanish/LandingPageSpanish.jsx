@@ -21,7 +21,10 @@ const LandingPageSpanish = () => {
   const menuArray = landingPage.menu;
 
   useEffect(() => {
+    document.documentElement.lang = "es";
+    document.title = "Iglesia Cristiana de Norwood";
     setTab("Inicio");
+    setSelected("Inicio");
   }, []);
 
   const handleMenuClick = (value) => {
@@ -69,7 +72,6 @@ const LandingPageSpanish = () => {
               }}
             >
               {/* HEADER */}
-			  {/* HEADER */}
 			  <Link
 			    to="/"
 			    title="Volver al Inicio"
@@ -79,6 +81,7 @@ const LandingPageSpanish = () => {
 			    }}
 			  >
 			    <div
+				translate={"no"}
 			      className="pt-4 pb-3 border-bottom text-center"
 			      style={{
 			        cursor: "pointer",
@@ -141,6 +144,7 @@ const LandingPageSpanish = () => {
 
               {/* MOBILE NAV */}
               <div
+			 translate={"no"}
                 className="
                   d-flex
                   d-md-none
@@ -199,6 +203,7 @@ const LandingPageSpanish = () => {
 
               {/* MOBILE TOP BAR */}
               <div
+			  translate={"no"}
                 className="d-flex align-items-center px-3 py-2 d-md-none position-relative"
                 style={{
                   backgroundColor: "#f8fafc",
@@ -264,7 +269,8 @@ const LandingPageSpanish = () => {
               {/* CONTENT */}
               <div className="d-flex flex-wrap">
                 {/* DESKTOP SIDEBAR */}
-                <div className="d-none d-md-flex flex-column col-md-3 border-end">
+                <div translate={"no"}
+				className="d-none d-md-flex flex-column col-md-3 border-end">
                   {menuArray.map((item) => (
                     <MenuButton
                       key={item}

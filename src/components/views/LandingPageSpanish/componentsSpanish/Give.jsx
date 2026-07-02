@@ -111,7 +111,7 @@ const Give = () => {
         </Card.Body>
       </Card>
 
-      {/* Online Giving */}
+	  {/* Online Giving */}
 
 	  <Card
 	    className="border rounded-4 mb-4"
@@ -120,49 +120,59 @@ const Give = () => {
 	      borderColor: "#e5e7eb",
 	    }}
 	  >
-        <Card.Body className="text-center py-4">
+	    <Card.Body className="text-center py-4">
 
-          <h4
-		  style={{
-		      fontFamily: "Playfair Display, serif",
-		      color: "#111827",
-		      fontWeight: "500",
-		  }}
-          >
-            Donaciones en Línea
-          </h4>
+	      <h4
+	        style={{
+	          fontFamily: "Playfair Display, serif",
+	          color: "#111827",
+	          fontWeight: "500",
+	        }}
+	      >
+	        Donaciones en Línea
+	      </h4>
 
-          <p 		  style={{
-		      color:"#374151",
-		      lineHeight:"1.75"
-		  }}>
-            Estamos finalizando nuestra plataforma
-            segura de donaciones en línea.
-          </p>
+	      <p
+	        style={{
+	          color: "#374151",
+	          lineHeight: "1.75",
+	          marginBottom: "25px",
+	        }}
+	      >
+	        Done de forma segura utilizando tarjeta de crédito,
+	        tarjeta de débito, cuenta bancaria, Apple Pay,
+	        Google Pay o PayPal a través de nuestra plataforma
+	        segura de donaciones, Givebutter.
+	      </p>
 
-          <Button
-            disabled
-            size="lg"
-            className="px-4"
-            style={{
-              backgroundColor: "#6c757d",
-              borderColor: "#6c757d",
-              borderRadius: "10px",
-              cursor: "not-allowed",
-            }}
-          >
-            Próximamente
-          </Button>
+	      <Button
+	        as="a"
+	        href="https://givebutter.com/iglesiacristianadenorwood"
+	        target="_blank"
+	        rel="noopener noreferrer"
+	        size="lg"
+	        className="px-4"
+	        style={{
+	          backgroundColor: "#1f3a5f",
+	          borderColor: "#1f3a5f",
+	          borderRadius: "10px",
+	        }}
+	      >
+	        Donar en Línea
+	      </Button>
 
-          <div
-            className="mt-3 text-muted"
-            style={{ fontSize: "0.9rem" }}
-          >
-            Las donaciones en línea estarán disponibles muy pronto.
-          </div>
+	      <div
+	        className="mt-3"
+	        style={{
+	          color: "#6b7280",
+	          fontSize: "0.9rem",
+	        }}
+	      >
+	        Será redirigido de forma segura a nuestra página de donaciones de Givebutter.
+	      </div>
 
-        </Card.Body>
-      </Card>
+	    </Card.Body>
+	  </Card>
 
       {/* Mail */}
 

@@ -111,64 +111,67 @@ const Give = () => {
         </Card.Body>
       </Card>
 
-      {/* Online Giving */}
+	  {/* Online Giving */}
 
-      <Card
-        className="border rounded-4 mb-4"
-        style={{
-          background: "#ffffff",
-          borderColor: "#e5e7eb",
-        }}
-      >
-        <Card.Body className="text-center py-4">
+	  <Card
+	    className="border rounded-4 mb-4"
+	    style={{
+	      background: "#ffffff",
+	      borderColor: "#e5e7eb",
+	    }}
+	  >
+	    <Card.Body className="text-center py-4">
 
-          <h4
-            style={{
-              fontFamily: "Playfair Display, serif",
-              color: "#111827",
-              fontWeight: "500",
-            }}
-          >
-            Online Giving
-          </h4>
+	      <h4
+	        style={{
+	          fontFamily: "Playfair Display, serif",
+	          color: "#111827",
+	          fontWeight: "500",
+	        }}
+	      >
+	        Online Giving
+	      </h4>
 
-          <p
-            style={{
-              color: "#374151",
-              lineHeight: "1.75",
-            }}
-          >
-            We're putting the finishing touches on our
-            secure online giving platform.
-          </p>
+	      <p
+	        style={{
+	          color: "#374151",
+	          lineHeight: "1.75",
+	          marginBottom: "25px",
+	        }}
+	      >
+	        Give securely online using your credit card, debit card,
+	        bank account, Apple Pay, Google Pay, or PayPal through
+	        our trusted giving platform, Givebutter.
+	      </p>
 
-          <Button
-            disabled
-            size="lg"
-            className="px-4"
-            style={{
-              backgroundColor: "#6c757d",
-              borderColor: "#6c757d",
-              borderRadius: "10px",
-              cursor: "not-allowed",
-            }}
-          >
-            Coming Soon
-          </Button>
+	      <Button
+	        as="a"
+	        href="https://givebutter.com/unitedchurchofnorwood"
+	        target="_blank"
+	        rel="noopener noreferrer"
+	        size="lg"
+	        className="px-4"
+	        style={{
+	          backgroundColor: "#1f3a5f",
+	          borderColor: "#1f3a5f",
+	          borderRadius: "10px",
+	        }}
+	      >
+	        Donate Online
+	      </Button>
 
-          <div
-            className="mt-3"
-            style={{
-              color: "#6b7280",
-              fontSize: "0.9rem",
-            }}
-          >
-            Secure online giving will be available soon.
-          </div>
+	      <div
+	        className="mt-3"
+	        style={{
+	          color: "#6b7280",
+	          fontSize: "0.9rem",
+	        }}
+	      >
+	        You will be redirected securely to our Givebutter donation page.
+	      </div>
 
-        </Card.Body>
-      </Card>
-
+	    </Card.Body>
+	  </Card>
       {/* Give by Check */}
 
       <Card

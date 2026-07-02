@@ -24,9 +24,12 @@ const LandingPage = () => {
   const menuArray = landingPage.menu;
 
   useEffect(() => {
+    document.documentElement.lang = "en";
+    document.title = "United Church of Norwood";
     setTab("Home");
+    setSelected("Home");
   }, []);
-
+  
   const handleMenuClick = (value) => {
     setOpenHamburger(false);
     setTab(value);
@@ -88,6 +91,7 @@ const LandingPage = () => {
 			  }}
 			>
 			  <div
+			  	translate={"no"}
 			    className="pt-4 pb-3 border-bottom text-center"
 			    style={{
 			      cursor: "pointer",
@@ -154,6 +158,7 @@ const LandingPage = () => {
               {/* 📱 MOBILE HORIZONTAL NAVIGATION */}
               {/* ===================================================== */}
               <div
+			  translate={"no"}
                 className="
                   d-flex
                   d-md-none
@@ -243,6 +248,7 @@ const LandingPage = () => {
               {/* 📱 MOBILE TOP BAR */}
               {/* ===================================================== */}
               <div
+			  translate={"no"}
                 className="d-flex align-items-center px-3 py-2 d-md-none position-relative"
                 style={{
                   backgroundColor: "#f8fafc",
@@ -315,11 +321,12 @@ const LandingPage = () => {
               {/* 📄 CONTENT */}
               {/* ===================================================== */}
               <div className="d-flex flex-wrap">
+			  
 
                 {/* ===================================================== */}
                 {/* 🖥 DESKTOP SIDEBAR */}
                 {/* ===================================================== */}
-                <div className="d-none d-md-flex flex-column col-md-3 border-end">
+                <div  translate={"no"} className="d-none d-md-flex flex-column col-md-3 border-end">
                   {menuArray.map((item) => (
                     <MenuButton
                       key={item}
@@ -334,7 +341,7 @@ const LandingPage = () => {
                 {/* ===================================================== */}
                 {/* 📄 MAIN CONTENT */}
                 {/* ===================================================== */}
-                <div className="col-12 col-md-9 px-3 py-4">
+                <div  className="col-12 col-md-9 px-3 py-4">
                   {tab === "Home" && <Home />}
                   {tab === "About Us" && <AboutUs />}
                   {tab === "Services" && <Services />}
