@@ -19,18 +19,19 @@ const Give = () => {
           Support Our Ministry
         </h2>
 
-        <p
-          style={{
-            color: "#374151",
-            maxWidth: "650px",
-            margin: "0 auto",
-            lineHeight: "1.75",
-          }}
-        >
-          Your generosity strengthens our ministry and
-          supports worship, Bible study, community outreach,
-          and service to our community.
-        </p>
+		<p
+		  style={{
+		    color: "#374151",
+		    maxWidth: "650px",
+		    margin: "0 auto",
+		    lineHeight: "1.75",
+		  }}
+		>
+		  Your generosity strengthens the ministry of{" "}
+		  <strong>United Church of Norwood</strong>{" "}
+		  and supports worship, Bible study, discipleship,
+		  community outreach, and service to our community.
+		</p>
 
       </div>
 
@@ -122,53 +123,67 @@ const Give = () => {
 	  >
 	    <Card.Body className="text-center py-4">
 
-	      <h4
-	        style={{
-	          fontFamily: "Playfair Display, serif",
-	          color: "#111827",
-	          fontWeight: "500",
-	        }}
-	      >
-	        Online Giving
-	      </h4>
+		<h4
+		  style={{
+		    fontFamily: "Playfair Display, serif",
+		    color: "#111827",
+		    fontWeight: "500",
+		  }}
+		>
+		  Give Online
+		</h4>
 
-	      <p
-	        style={{
-	          color: "#374151",
-	          lineHeight: "1.75",
-	          marginBottom: "25px",
-	        }}
-	      >
-	        We're putting the finishing touches on our secure online
-	        giving platform. Online giving will be available soon
-	        through Givebutter.
-	      </p>
+		<p
+		  style={{
+		    color: "#374151",
+		    lineHeight: "1.75",
+		    marginBottom: "20px",
+		  }}
+		>
+		  Make a secure one-time or recurring gift through{" "}
+		  <strong>Givebutter</strong>. Your generosity supports
+		  worship, discipleship, Bible study, outreach ministries,
+		  and the mission of United Church of Norwood.
+		</p>
 
-	      <Button
-	        disabled
-	        size="lg"
-	        className="px-4"
-	        style={{
-	          backgroundColor: "#6c757d",
-	          borderColor: "#6c757d",
-	          borderRadius: "10px",
-	          cursor: "not-allowed",
-	        }}
-	      >
-	        Coming Soon
-	      </Button>
+		<div className="text-success fw-semibold mb-3">
+		  🔒 Secure donations powered by Givebutter
+		</div>
 
-	      <div
-	        className="mt-3"
-	        style={{
-	          color: "#6b7280",
-	          fontSize: "0.9rem",
-	        }}
-	      >
-	        Online giving will be enabled once the church's secure payment
-	        setup has been completed.
-	      </div>
+		<Button
+		  href="https://givebutter.com/unitedchurchofnorwood"
+		  target="_blank"
+		  rel="noopener noreferrer"
+		  size="lg"
+		  className="px-5 mt-2"
+		  style={{
+		    backgroundColor: "#198754",
+		    borderColor: "#198754",
+		    borderRadius: "10px",
+		  }}
+		>
+		  Give Securely Online
+		</Button>
 
+		<div
+		  className="mt-3"
+		  style={{
+		    color: "#6b7280",
+		    fontSize: "0.9rem",
+		  }}
+		>
+		  You will be securely redirected to our official Givebutter donation page.
+		</div>
+
+		<div
+		  className="mt-2"
+		  style={{
+		    color: "#6b7280",
+		    fontSize: "0.9rem",
+		  }}
+		>
+		  After completing your donation, you will automatically receive an email receipt.
+		</div>
 	    </Card.Body>
 	  </Card>
       {/* Give by Check */}

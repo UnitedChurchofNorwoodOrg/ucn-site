@@ -26,9 +26,10 @@ const Give = () => {
 		    lineHeight: "1.75",
 		  }}
 		>
-		  Su generosidad fortalece nuestro ministerio
-		  y apoya la adoración, el estudio bíblico
-		  y el servicio a nuestra comunidad.
+		Su generosidad fortalece el ministerio de{" "}
+		<strong>Iglesia Cristiana de Norwood</strong>{" "}
+		y apoya la adoración, el estudio bíblico, el discipulado y el
+		servicio a nuestra comunidad.
 		</p>
 
       </div>
@@ -91,9 +92,18 @@ const Give = () => {
 			  border: "1px solid #e5e7eb",
 			}}
           >
-            <strong>Zelle</strong>
-            <br />
-            iglesianorwood@outlook.com
+		  <strong>Zelle</strong>
+		  <br />
+		  <a
+		    href="mailto:iglesianorwood@outlook.com"
+		    style={{
+		      color: "#0d6efd",
+		      textDecoration: "none",
+		      fontWeight: "500",
+		    }}
+		  >
+		    iglesianorwood@outlook.com
+		  </a>
           </div>
 
           <small
@@ -136,27 +146,30 @@ const Give = () => {
 	        style={{
 	          color: "#374151",
 	          lineHeight: "1.75",
-	          marginBottom: "25px",
+	          marginBottom: "20px",
 	        }}
 	      >
-	        Estamos dando los últimos pasos para habilitar
-	        nuestra plataforma segura de donaciones en línea.
-	        Las donaciones estarán disponibles muy pronto a
-	        través de Givebutter.
+	        Realice su ofrenda de forma segura mediante{" "}
+		  <strong>Givebutter</strong>. Puede hacer una donación única
+	        o programar donaciones recurrentes para apoyar el ministerio,
+	        la adoración, el discipulado y el servicio a nuestra comunidad.
 	      </p>
-
+		  <div className="text-success fw-semibold mb-3">
+		    🔒 Donación segura mediante Givebutter
+		  </div>
 	      <Button
-	        disabled
+	        href="https://givebutter.com/iglesiacristianadenorwood"
+	        target="_blank"
+	        rel="noopener noreferrer"
 	        size="lg"
-	        className="px-4"
+	        className="px-5 mt-2"
 	        style={{
-	          backgroundColor: "#6c757d",
-	          borderColor: "#6c757d",
+	          backgroundColor: "#198754",
+	          borderColor: "#198754",
 	          borderRadius: "10px",
-	          cursor: "not-allowed",
 	        }}
 	      >
-	        Próximamente
+	        Donar en Línea
 	      </Button>
 
 	      <div
@@ -166,9 +179,17 @@ const Give = () => {
 	          fontSize: "0.9rem",
 	        }}
 	      >
-	        Las donaciones en línea estarán disponibles una vez
-	        que se complete la configuración segura de pagos de la iglesia.
+	        Será redirigido de forma segura a nuestra página oficial de donaciones en Givebutter.
 	      </div>
+		  <div
+		    className="mt-2"
+		    style={{
+		      color: "#6b7280",
+		      fontSize: "0.9rem",
+		    }}
+		  >
+		    Después de completar su donación, recibirá automáticamente un recibo por correo electrónico.
+		  </div>
 
 	    </Card.Body>
 	  </Card>
