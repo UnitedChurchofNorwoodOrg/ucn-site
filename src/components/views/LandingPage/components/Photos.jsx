@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import englishSiteContent from "../../../../content/englishSiteContent";
 
 const TOTAL_PHOTOS = 105;
+const INITIAL_PHOTOS = 70;
 const THUMBNAILS_VISIBLE = 3;
 
 const Photos = () => {
@@ -14,33 +15,12 @@ const Photos = () => {
   const [hoveredButton, setHoveredButton] = useState(null);
 
   useEffect(() => {
-    const loadImages = async () => {
-      const list = Array.from(
-        { length: TOTAL_PHOTOS },
-        (_, i) => `p${TOTAL_PHOTOS - i}.jpg`
-      );
+    const images = Array.from(
+      { length: Math.min(INITIAL_PHOTOS, TOTAL_PHOTOS) },
+      (_, i) => `p${TOTAL_PHOTOS - i}.jpg`
+    );
 
-      const checks = list.map(
-        (file) =>
-          new Promise((resolve) => {
-            const img = new Image();
-
-            img.src =
-              process.env.PUBLIC_URL +
-              "/images/photos/" +
-              file;
-
-            img.onload = () => resolve(file);
-            img.onerror = () => resolve(null);
-          })
-      );
-
-      const results = await Promise.all(checks);
-
-      setValidImages(results.filter(Boolean));
-    };
-
-    loadImages();
+    setValidImages(images);
   }, []);
 
   const nextPhoto = () => {
