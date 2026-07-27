@@ -13,20 +13,44 @@ import UpcomingEvents from "./global/Calendar/UpcomingEvents";
 // Content
 import englishSiteContent from "../content/englishSiteContent";
 
-const DEFAULT_VERSE = {
-  text: "Be still, and know that I am God.",
-  reference: "Psalm 46:10",
-  translation: "NIV",
-  message:
-    "May God's Word encourage and strengthen you today."
-};
-
 const RootLanding = () => {
 
   // =========================================================
   // 🌍 CONTENT
   // =========================================================
-  const content = englishSiteContent.rootLanding;
+  const {
+    hero,
+    scripture,
+    buttons,  
+    video,
+    events
+  } = englishSiteContent.rootLanding;
+
+const defaultVerse = scripture.defaultVerse;
+const {
+  title,
+  spanishTitle,
+  statementOfFaith,
+  welcomeMessage
+} = hero;
+
+const {
+  heading: scriptureHeading
+} = scripture;
+
+const {
+  english,
+  spanish
+} = buttons;
+
+const {
+  heading: videoHeading,
+  playButtonText
+} = video;
+
+const {
+  heading: eventsHeading
+} = events;
 
   // =========================================================
   // ✨ BUTTON INTERACTION STATES
@@ -407,6 +431,7 @@ const RootLanding = () => {
     // =========================================================
     // 📅 EVENTS
     // =========================================================
+	
     calendarBox: {
       marginTop: "22px",
 
@@ -448,18 +473,18 @@ const RootLanding = () => {
   };
   const scriptureText =
     verse?.["Add Bible Scripture Text "] ||
-    DEFAULT_VERSE.text;
+    defaultVerse.text;
 
   const scriptureReference =
     verse?.["Add Bible Scripture Reference "] ||
-    DEFAULT_VERSE.reference;
+    defaultVerse.reference;
 
   const translation =
     verse?.["Add Bible Translation  (Optional)"]?.trim() || "";
 
   const pastorMessage =
     verse?.["Add Pastor's Message  (Optional)"] ||
-    DEFAULT_VERSE.message;
+    defaultVerse.message;
 	
 	const reelUrl =
 	  latestVideo?.["Facebook Reel URL"] || "";
@@ -525,7 +550,7 @@ const RootLanding = () => {
 		      `
 		    }}
 		  >
-		    {content.title}
+		   {title}
 		  </div>
 
             <div
@@ -546,7 +571,7 @@ const RootLanding = () => {
                 lineHeight: "1.1"
               }}
             >
-              {content.spanishTitle}
+            {spanishTitle}
             </div>
 
           </div>
@@ -554,7 +579,7 @@ const RootLanding = () => {
           {/* 📖 SUBTITLE */}
           <p style={styles.subtitle}>
             <a
-              href="https://www.efca.org/sof"
+              href={statementOfFaith.url}
               target="_blank"
               rel="noopener noreferrer"
               style={{
@@ -574,14 +599,13 @@ const RootLanding = () => {
                 cursor: "pointer"
               }}
             >
-              {content.subtitle}
+              {statementOfFaith.text}
             </a>
           </p>
 
           {/* 🤝 MESSAGE */}
           <p style={styles.welcomeMessage}>
-            We invite you to join us in worship and fellowship
-            as we share God’s love and grace together.
+           {welcomeMessage}
           </p>
 		  <div
 		    style={{
@@ -621,7 +645,7 @@ const RootLanding = () => {
 		      marginBottom: "10px"
 		    }}
 		  >
-		    📖 Today's Scripture
+		   {scriptureHeading}
 		  </div>
 
 		  <div
@@ -672,8 +696,7 @@ const RootLanding = () => {
           >
 
             {/* 🇺🇸 ENGLISH */}
-            <Link
-              to="/english"
+           <Link to={english.route}
               className="w-100 text-decoration-none"
             >
               <Button
@@ -700,7 +723,7 @@ const RootLanding = () => {
                   }}
                 >
                   <span>
-                    Explore English Service
+                  {english.text}
                   </span>
 
                   <span
@@ -720,8 +743,7 @@ const RootLanding = () => {
             </Link>
 
             {/* 🇪🇸 SPANISH */}
-            <Link
-              to="/spanish"
+           <Link to={spanish.route}
               className="w-100 text-decoration-none"
             >
               <Button
@@ -748,7 +770,7 @@ const RootLanding = () => {
                   }}
                 >
                   <span>
-                    Explorar Servicio en Español
+                    {spanish.text}
                   </span>
 
                   <span
@@ -793,7 +815,7 @@ const RootLanding = () => {
 			    marginBottom: "12px"
 			  }}
 			>
-			  🎥 Message
+			{videoHeading}
 			</div>
 
 		      <div
@@ -911,7 +933,7 @@ const RootLanding = () => {
 		                textShadow: "0 2px 6px rgba(0,0,0,0.7)"
 		              }}
 		            >
-		              Click to Watch Pastor's Message
+		             {playButtonText}
 		            </div>
 		          </div>
 		        )}
@@ -922,12 +944,102 @@ const RootLanding = () => {
           <div style={styles.calendarBox}>
 
             <h5 style={styles.eventTitle}>
-              Upcoming Events
+             {eventsHeading}
             </h5>
 
             <UpcomingEvents />
+			
           </div>
+		  {/* 🚀 QUICK LINKS */}
+
+		  <div style={styles.calendarBox}>
+
+		    <div
+		      style={{
+		        fontSize: "0.90rem",
+		        fontWeight: "700",
+		        textTransform: "uppercase",
+		        letterSpacing: "1.0px",
+		        color: "#8B6F47",
+		        marginBottom: "16px",
+		        textAlign: "center",
+		      }}
+		    >
+		      🚀 Quick Links
+		    </div>
+
+			<div
+			  className="
+			    d-flex
+			    flex-column
+			    flex-md-row
+			    gap-3
+			    w-100
+			  "
+			>
+
+			  {/* English Giving */}
+			  <Button
+			    href="https://givebutter.com/unitedchurchofnorwood"
+			    target="_blank"
+			    rel="noopener noreferrer"
+			    className="w-100"
+			    style={{
+			      ...styles.buttonPrimary,
+			      minHeight: "64px",
+			      padding: "12px 18px",
+			      animation: "none",
+			    }}
+			  >
+			    <div
+			      style={{
+			        display: "flex",
+			        alignItems: "center",
+			        justifyContent: "space-between",
+			        color: "#16324f",
+			        fontSize: "0.96rem",
+			        fontWeight: "700",
+			        lineHeight: "1.2",
+			      }}
+			    >
+			      <span>💙 Give Securely Online</span>
+			      </div>
+			  </Button>
+
+			  {/* Spanish Giving */}
+			  <Button
+			    href="https://givebutter.com/iglesiacristianadenorwood"
+			    target="_blank"
+			    rel="noopener noreferrer"
+			    className="w-100"
+			    style={{
+			      ...styles.buttonSecondary,
+			      minHeight: "64px",
+			      padding: "12px 18px",
+			      animation: "none",
+			    }}
+			  >
+			    <div
+			      style={{
+			        display: "flex",
+			        alignItems: "center",
+			        justifyContent: "space-between",
+			        color: "#16324f",
+			        fontSize: "0.96rem",
+			        fontWeight: "700",
+			        lineHeight: "1.2",
+			      }}
+			    >
+			      <span>❤️ Donaciones en Línea</span>			      
+			    </div>
+			  </Button>
+
+			</div>
+
+		  </div>
         </div>
+		
+		
       </div>
 
       {/* ✨ PULSING GLOW ANIMATION */}

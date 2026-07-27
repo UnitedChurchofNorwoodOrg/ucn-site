@@ -12,19 +12,52 @@ const englishSiteContent = {
    * ============================================================
    */
   rootLanding: {
-	title: "United Church of Norwood",
-	spanishTitle: "Iglesia Cristiana de Norwood",
-    subtitle: "Evangelical Free Church of America",
+    hero: {
+      title: "United Church of Norwood",
+      spanishTitle: "Iglesia Cristiana de Norwood",
 
-    tagline1:
-      "",
+      subtitle: "Evangelical Free Church of America",
 
-    tagline2:
-      "We are committed to sharing God's love and grace as revealed in the Bible and through His Son, our Lord and Savior, Jesus Christ.",
+      statementOfFaith: {
+        text: "Evangelical Free Church of America",
+        url: "https://www.efca.org/sof"
+      },
+
+      welcomeMessage:
+        "We invite you to join us in worship and fellowship as we share God's love and grace together."
+    },
+
+    scripture: {
+      heading: "📖 Today's Scripture",
+
+      defaultVerse: {
+        text: "Be still, and know that I am God.",
+        reference: "Psalm 46:10",
+        translation: "NIV",
+        message:
+          "May God's Word encourage and strengthen you today."
+      }
+    },
 
     buttons: {
-      english: "English Service",
-      spanish: "Servicios en español"
+      english: {
+        text: "Explore English Service",
+        route: "/english"
+      },
+
+      spanish: {
+        text: "Explorar Servicio en Español",
+        route: "/spanish"
+      }
+    },
+
+    video: {
+      heading: "🎥 Message",
+      playButtonText: "Click to Watch Message"
+    },
+
+    events: {
+      heading: "Upcoming Events"
     }
   },
 
@@ -49,7 +82,7 @@ const englishSiteContent = {
     items: [     
       "⛪ English Worship - Sunday 10:00 AM",
       "⛪ Servicio en español - Domingo 12:00 Noon",
-	  "📖 Bible Study - Wednesday 6:30 PM",	 
+	  "📖 Bible Study - Wednesday 7:00 PM",	 
       "📖 Estudio Bíblico y Oración - Wednesday 07:00 PM",
 	  "🔵 Follow us on Facebook",
 	  "🔵 Síguenos en Facebook"
