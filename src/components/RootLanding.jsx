@@ -943,14 +943,22 @@ const {
           {/* 📅 EVENTS */}
           <div style={styles.calendarBox}>
 
-            <h5 style={styles.eventTitle}>
-             {eventsHeading}
+            <h5 		  style={{
+		  	        fontSize: "0.90rem",
+		  	        fontWeight: "700",
+		  	        textTransform: "uppercase",
+		  	        letterSpacing: "1px",
+		  	        color: "#8B6F47",
+		  	        marginBottom: "8px",
+		  	        textAlign: "center",
+		  	      }}>
+            ⛪{eventsHeading}
             </h5>
 
             <UpcomingEvents />
 			
           </div>
-		  {/* 🚀 QUICK LINKS */}
+		  {/* ✝ ONLINE GIVING */}
 
 		  <div style={styles.calendarBox}>
 
@@ -959,82 +967,148 @@ const {
 		        fontSize: "0.90rem",
 		        fontWeight: "700",
 		        textTransform: "uppercase",
-		        letterSpacing: "1.0px",
+		        letterSpacing: "1px",
 		        color: "#8B6F47",
-		        marginBottom: "16px",
+		        marginBottom: "8px",
 		        textAlign: "center",
 		      }}
 		    >
-		      🚀 Quick Links
+		      ✝ QUICK LINK
 		    </div>
 
-			<div
-			  className="
-			    d-flex
-			    flex-column
-			    flex-md-row
-			    gap-3
-			    w-100
-			  "
-			>
+		    <p
+		      style={{
+		        fontSize: "0.82rem",
+		        color: "#6b7280",
+		        lineHeight: "1.55",
+		        textAlign: "center",
+		        marginBottom: "20px",
+		        maxWidth: "460px",
+		        marginLeft: "auto",
+		        marginRight: "auto",
+		      }}
+		    >		    
+		    </p>
 
-			  {/* English Giving */}
-			  <Button
-			    href="https://givebutter.com/unitedchurchofnorwood"
-			    target="_blank"
-			    rel="noopener noreferrer"
-			    className="w-100"
-			    style={{
-			      ...styles.buttonPrimary,
-			      minHeight: "64px",
-			      padding: "12px 18px",
-			      animation: "none",
-			    }}
-			  >
-			    <div
-			      style={{
-			        display: "flex",
-			        alignItems: "center",
-			        justifyContent: "space-between",
-			        color: "#16324f",
-			        fontSize: "0.96rem",
-			        fontWeight: "700",
-			        lineHeight: "1.2",
-			      }}
-			    >
-			      <span>💙 Give Securely Online</span>
-			      </div>
-			  </Button>
+		    <div
+		      className="d-flex flex-column gap-3"
+		      style={{
+		        maxWidth: "520px",
+		        margin: "0 auto",
+		      }}
+		    >
 
-			  {/* Spanish Giving */}
-			  <Button
-			    href="https://givebutter.com/iglesiacristianadenorwood"
-			    target="_blank"
-			    rel="noopener noreferrer"
-			    className="w-100"
-			    style={{
-			      ...styles.buttonSecondary,
-			      minHeight: "64px",
-			      padding: "12px 18px",
-			      animation: "none",
-			    }}
-			  >
-			    <div
-			      style={{
-			        display: "flex",
-			        alignItems: "center",
-			        justifyContent: "space-between",
-			        color: "#16324f",
-			        fontSize: "0.96rem",
-			        fontWeight: "700",
-			        lineHeight: "1.2",
-			      }}
-			    >
-			      <span>❤️ Donaciones en Línea</span>			      
-			    </div>
-			  </Button>
+		      {/* English Giving */}
+		      <Button
+		        href="https://givebutter.com/unitedchurchofnorwood"
+		        target="_blank"
+		        rel="noopener noreferrer"
+		        className="w-100"
+		        style={{
+		          ...styles.buttonPrimary,
+		          minHeight: "72px",
+		          padding: "14px 18px",
+		          animation: "none",
+		        }}
+		      >
+		        <div
+		          style={{
+		            display: "flex",
+		            justifyContent: "space-between",
+		            alignItems: "center",
+		          }}
+		        >
+		          <div style={{ textAlign: "left" }}>
+		            <div
+		              style={{
+		                color: "#16324f",
+		                fontSize: "0.96rem",
+		                fontWeight: "700",
+		              }}
+		            >
+		              💙 Give Securely Online
+		            </div>
 
-			</div>
+		            <div
+		              style={{
+		                fontSize: "0.78rem",
+		                color: "#6b7280",
+		                marginTop: "3px",
+		                fontWeight: "500",
+		              }}
+		            >
+		              Support our English Ministry
+		            </div>
+		          </div>
+
+		          <span
+		            style={{
+		              color: "#16324f",
+		              fontSize: "1.2rem",
+		              fontWeight: "600",
+		            }}
+		          >
+		            →
+		          </span>
+		        </div>
+		      </Button>
+
+		      {/* Spanish Giving */}
+		      <Button
+		        href="https://givebutter.com/iglesiacristianadenorwood"
+		        target="_blank"
+		        rel="noopener noreferrer"
+		        className="w-100"
+		        style={{
+		          ...styles.buttonSecondary,
+		          minHeight: "72px",
+		          padding: "14px 18px",
+		          animation: "none",
+		        }}
+		      >
+		        <div
+		          style={{
+		            display: "flex",
+		            justifyContent: "space-between",
+		            alignItems: "center",
+		          }}
+		        >
+		          <div style={{ textAlign: "left" }}>
+		            <div
+		              style={{
+		                color: "#16324f",
+		                fontSize: "0.96rem",
+		                fontWeight: "700",
+		              }}
+		            >
+		              ❤️ Donaciones en Línea
+		            </div>
+
+		            <div
+		              style={{
+		                fontSize: "0.78rem",
+		                color: "#6b7280",
+		                marginTop: "3px",
+		                fontWeight: "500",
+		              }}
+		            >
+		              Apoye nuestro ministerio en español
+		            </div>
+		          </div>
+
+		          <span
+		            style={{
+		              color: "#16324f",
+		              fontSize: "1.2rem",
+		              fontWeight: "600",
+		            }}
+		          >
+		            →
+		          </span>
+		        </div>
+		      </Button>
+
+		    </div>
 
 		  </div>
         </div>
