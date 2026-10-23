@@ -1136,7 +1136,7 @@ const {
 			            fontWeight: "700",
 			          }}
 			        >
-			          ❤️ Helping Hands
+			          💛 Helping Hands
 			        </div>
 
 			        <div
