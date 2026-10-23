@@ -1108,6 +1108,116 @@ const {
 		        </div>
 		      </Button>
 
+			  {/* English Ministry - Helping Hands */}
+			  <Button
+			    href="https://givebutter.com/ucn-helping-hands"
+			    target="_blank"
+			    rel="noopener noreferrer"
+			    className="w-100"
+			    style={{
+			      ...styles.buttonSecondary,
+			      minHeight: "72px",
+			      padding: "14px 18px",
+			      animation: "none",
+			    }}
+			  >
+			    <div
+			      style={{
+			        display: "flex",
+			        justifyContent: "space-between",
+			        alignItems: "center",
+			      }}
+			    >
+			      <div style={{ textAlign: "left" }}>
+			        <div
+			          style={{
+			            color: "#16324f",
+			            fontSize: "0.96rem",
+			            fontWeight: "700",
+			          }}
+			        >
+			          ❤️ Helping Hands
+			        </div>
+
+			        <div
+			          style={{
+			            fontSize: "0.78rem",
+			            color: "#6b7280",
+			            marginTop: "3px",
+			            fontWeight: "500",
+			          }}
+			        >
+			          Support our Helping Hands ministry
+			        </div>
+			      </div>
+
+			      <span
+			        style={{
+			          color: "#16324f",
+			          fontSize: "1.2rem",
+			          fontWeight: "600",
+			        }}
+			      >
+			        →
+			      </span>
+			    </div>
+			  </Button>
+
+			  {/* Friends of the Building */}
+			  <Button
+			    href="https://givebutter.com/ucn-friends-of-the-building"
+			    target="_blank"
+			    rel="noopener noreferrer"
+			    className="w-100"
+			    style={{
+			      ...styles.buttonPrimary,
+			      minHeight: "72px",
+			      padding: "14px 18px",
+			      animation: "none",
+			    }}
+			  >
+			    <div
+			      style={{
+			        display: "flex",
+			        justifyContent: "space-between",
+			        alignItems: "center",
+			      }}
+			    >
+			      <div style={{ textAlign: "left" }}>
+			        <div
+			          style={{
+			            color: "#16324f",
+			            fontSize: "0.96rem",
+			            fontWeight: "700",
+			          }}
+			        >
+			          🏛️ Friends of the Building
+			        </div>
+
+			        <div
+			          style={{
+			            fontSize: "0.78rem",
+			            color: "#6b7280",
+			            marginTop: "3px",
+			            fontWeight: "500",
+			          }}
+			        >
+			          Support the care and upkeep of our church building
+			        </div>
+			      </div>
+
+			      <span
+			        style={{
+			          color: "#16324f",
+			          fontSize: "1.2rem",
+			          fontWeight: "600",
+			        }}
+			      >
+			        →
+			      </span>
+			    </div>
+			  </Button>
+
 		    </div>
 
 		  </div>

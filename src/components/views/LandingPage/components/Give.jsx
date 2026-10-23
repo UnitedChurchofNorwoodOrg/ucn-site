@@ -113,7 +113,6 @@ const Give = () => {
       </Card>
 
 	  {/* Online Giving */}
-
 	  <Card
 	    className="border rounded-4 mb-4"
 	    style={{
@@ -122,68 +121,103 @@ const Give = () => {
 	    }}
 	  >
 	    <Card.Body className="text-center py-4">
+	      <h4
+	        style={{
+	          fontFamily: "Playfair Display, serif",
+	          color: "#111827",
+	          fontWeight: "500",
+	        }}
+	      >
+	        Give Online
+	      </h4>
 
-		<h4
-		  style={{
-		    fontFamily: "Playfair Display, serif",
-		    color: "#111827",
-		    fontWeight: "500",
-		  }}
-		>
-		  Give Online
-		</h4>
+	      <p
+	        style={{
+	          color: "#374151",
+	          lineHeight: "1.75",
+	          marginBottom: "20px",
+	        }}
+	      >
+	        Make a secure one-time or recurring gift through{" "}
+	        <strong>Givebutter</strong>. Your generosity supports
+	        worship, discipleship, Bible study, outreach ministries,
+	        and the mission of United Church of Norwood.
+	      </p>
 
-		<p
-		  style={{
-		    color: "#374151",
-		    lineHeight: "1.75",
-		    marginBottom: "20px",
-		  }}
-		>
-		  Make a secure one-time or recurring gift through{" "}
-		  <strong>Givebutter</strong>. Your generosity supports
-		  worship, discipleship, Bible study, outreach ministries,
-		  and the mission of United Church of Norwood.
-		</p>
+	      <div className="text-success fw-semibold mb-3">
+	        🔒 Secure donations powered by Givebutter
+	      </div>
 
-		<div className="text-success fw-semibold mb-3">
-		  🔒 Secure donations powered by Givebutter
-		</div>
+	      <div className="d-flex flex-column align-items-center gap-3">
+	        {/* General English Ministry Giving */}
+	        <Button
+	          href="https://givebutter.com/unitedchurchofnorwood"
+	          target="_blank"
+	          rel="noopener noreferrer"
+	          size="lg"
+	          className="w-100"
+	          style={{
+	            backgroundColor: "#198754",
+	            borderColor: "#198754",
+	            borderRadius: "10px",
+	            maxWidth: "420px",
+	            padding: "12px 20px",
+	          }}
+	        >
+	          💙 Give Securely Online
+	        </Button>
 
-		<Button
-		  href="https://givebutter.com/unitedchurchofnorwood"
-		  target="_blank"
-		  rel="noopener noreferrer"
-		  size="lg"
-		  className="px-5 mt-2"
-		  style={{
-		    backgroundColor: "#198754",
-		    borderColor: "#198754",
-		    borderRadius: "10px",
-		  }}
-		>
-		  Give Securely Online
-		</Button>
+	        {/* Helping Hands */}
+	        <Button
+	          href="https://givebutter.com/ucn-helping-hands"
+	          target="_blank"
+	          rel="noopener noreferrer"
+	          size="lg"
+	          className="w-100"
+	          style={{
+	            backgroundColor: "#16324f",
+	            borderColor: "#16324f",
+	            borderRadius: "10px",
+	            maxWidth: "420px",
+	            padding: "12px 20px",
+	          }}
+	        >
+	          ❤️ Helping Hands
+	        </Button>
 
-		<div
-		  className="mt-3"
-		  style={{
-		    color: "#6b7280",
-		    fontSize: "0.9rem",
-		  }}
-		>
-		  You will be securely redirected to our official Givebutter donation page.
-		</div>
+	        {/* Friends of the Building */}
+	        <Button
+	          href="https://givebutter.com/ucn-friends-of-the-building"
+	          target="_blank"
+	          rel="noopener noreferrer"
+	          size="lg"
+	          className="w-100"
+	          style={{
+	            backgroundColor: "#8B6F47",
+	            borderColor: "#8B6F47",
+	            borderRadius: "10px",
+	            maxWidth: "420px",
+	            padding: "12px 20px",
+	          }}
+	        >
+	          🏛️ Friends of the Building
+	        </Button>
+	      </div>
 
-		<div
-		  className="mt-2"
-		  style={{
-		    color: "#6b7280",
-		    fontSize: "0.9rem",
-		  }}
-		>
-		  After completing your donation, you will automatically receive an email receipt.
-		</div>
+	      <div
+	        className="mt-3"
+	        style={{
+	          color: "#6b7280",
+	          fontSize: "0.9rem",
+	          lineHeight: "1.7",
+	        }}
+	      >
+	        Select a donation option above to visit its secure
+	        Givebutter campaign page.
+	        <br />
+	        After completing your donation, you will automatically
+	        receive an email receipt.
+	      </div>
 	    </Card.Body>
 	  </Card>
       {/* Give by Check */}
